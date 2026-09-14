@@ -1,0 +1,83 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Prepara uma visualizacao de operacao permitida.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed": {
+            "type": "array"
+          },
+          "operation": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation",
+          "allowed"
+        ],
+        "type": "object"
+      },
+      "name": "preview_operation"
+    },
+    "approved_sha256": "7096e04c6bec70dd691d2d34d4f1b200d599ad40c1ef22c5fe773427c97a29b8",
+    "current": {
+      "description": "Prepara uma visualizacao de operacao permitida.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed": {
+            "type": "array"
+          },
+          "operation": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operation",
+          "allowed"
+        ],
+        "type": "object"
+      },
+      "name": "preview_operation"
+    },
+    "current_sha256": "7096e04c6bec70dd691d2d34d4f1b200d599ad40c1ef22c5fe773427c97a29b8"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='preview_operation',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='operation',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='allowed',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='operation'),\n              Constant(value='ready')],\n            values=[\n              Name(id='operation', ctx=Load()),\n              Constant(value=False)]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def preview_operation(operation: str, allowed: list):\n    return {'operation': operation, 'ready': False}\n"
+    },
+    "approved_sha256": "96bcaa23fe3c9d8207729ca8ed256775eb6635b45414c70f5704fa47c81d01b2",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -19,10 +19,17 @@",
+        "           value=Dict(",
+        "             keys=[",
+        "               Constant(value='operation'),",
+        "-              Constant(value='ready')],",
+        "+              Constant(value='ready'),",
+        "+              Constant(value='mode')],",
+        "             values=[",
+        "               Name(id='operation', ctx=Load()),",
+        "-              Constant(value=False)]))],",
+        "+              Compare(",
+        "+                left=Name(id='operation', ctx=Load()),",
+        "+                ops=[",
+        "+                  In()],",
+        "+                comparators=[",
+        "+                  Name(id='allowed', ctx=Load())]),",
+        "+              Constant(value='preview')]))],",
+        "       decorator_list=[],",
+        "       type_params=[])],",
+        "   type_ignores=[])"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='preview_operation',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='operation',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='allowed',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='operation'),\n              Constant(value='ready'),\n              Constant(value='mode')],\n            values=[\n              Name(id='operation', ctx=Load()),\n              Compare(\n                left=Name(id='operation', ctx=Load()),\n                ops=[\n                  In()],\n                comparators=[\n                  Name(id='allowed', ctx=Load())]),\n              Constant(value='preview')]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def preview_operation(operation: str, allowed: list):\n    return {'operation': operation, 'ready': operation in allowed, 'mode': 'preview'}\n"
+    },
+    "current_sha256": "6a41e1d33871102dc8ac8b4337c3d08c1c4859d1ae6097f3481bd9415edbb0fc"
+  }
+}

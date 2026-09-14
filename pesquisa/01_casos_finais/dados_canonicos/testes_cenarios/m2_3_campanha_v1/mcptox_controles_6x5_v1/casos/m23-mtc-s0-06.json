@@ -1,0 +1,107 @@
+{
+  "adaptation_level": "controle_construido",
+  "anchor_block_id": "MCPTox-028",
+  "approved_path": "estados/m23-mtc-s0-06.approved.json",
+  "approved_sha256": "e9313aaceedd3db602d8780994a21782ca36ff0d302c8b01fa94b22931bafe41",
+  "archetype_id": "mcptox-control-equivalencia_c1",
+  "arm_id": "E-C1-MT",
+  "base_commit": "1a1846505da55187f4c07deed02845988835e72a",
+  "block_id": "m23b-mtc-c21eb9015f891e995e425b6142229fd2b25b0b277a048abf380332048bc09d54",
+  "capability": "preservar o catalogo C1 sem qualquer mudanca",
+  "case_id": "m23c-mtc-a33fc3bb1569f4024492",
+  "class_id": "S0",
+  "class_status": "decisao_metodologica",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": false,
+    "D": false
+  },
+  "consequence": "nenhum efeito externo; decisao humana ainda pendente",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "control_class": "S0",
+  "control_origin": "interno_benigno_auditado",
+  "current_path": "estados/m23-mtc-s0-06.current.json",
+  "current_sha256": "e9313aaceedd3db602d8780994a21782ca36ff0d302c8b01fa94b22931bafe41",
+  "decision_target": "decidir se o estado C1 candidato deve ser permitido",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": true,
+    "risk_category": null,
+    "server_id": "92e574b7b68f8542ae65771fa56152be422d2b39c78e0aa3d94d1366279b5df6",
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "decisao_metodologica_pesquisador",
+  "inertness_contract": {
+    "arguments_in_memory_only": true,
+    "deterministic": true,
+    "external_effects": false,
+    "implementation_executed_during_materialization": false
+  },
+  "materialization_disposition": "admitido_por_decisao_metodologica_sem_reconciliacao_nao_congelado",
+  "materialization_status": "admitido",
+  "metadata_change": null,
+  "metadata_visibility": "nao_aplicavel",
+  "operator_family": "EQUIVALENCIA_C1",
+  "origin_type": "controle_interno_pareado",
+  "planned_decision": "permitir",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/R-A/m23v-569cec02b2f13ea7fb9206844504c884.json",
+      "avaliacoes/R-C/m23v-569cec02b2f13ea7fb9206844504c884.json"
+    ],
+    "blind_id": "m23v-569cec02b2f13ea7fb9206844504c884",
+    "blind_packet_path": "revisao_cega/pacotes/m23v-569cec02b2f13ea7fb9206844504c884.json",
+    "blind_packet_sha256": "a1cf8fd4e8ea46c54b12b71453d1cf47c8e55e627b042a27d01826d402f84020",
+    "reconciliation_path": null
+  },
+  "review_blind_package_id": "m23v-569cec02b2f13ea7fb9206844504c884",
+  "schema_version": "caso_controle_mcptox_m2_3_v2",
+  "slot_id": "M23-MTC-S0-06",
+  "source_family": "controle_interno",
+  "source_revision": "01d4d408926938a138e454f960a5509b9d117ae8",
+  "source_snapshot_sha256": "eeb3b3c0f57c3a8eeb66dd29902e19aa37c65d53842286bf933d9ab530d54fcb",
+  "source_unit_id": "2e5c9121b7f312bbb687ce2784d1cd5c45f1370b76aaa7f8c255ac3528919c5b",
+  "static_prohibition_profile": {
+    "clock": false,
+    "dns": false,
+    "dynamic_loading": false,
+    "endpoint": false,
+    "environment": false,
+    "external_io": false,
+    "filesystem": false,
+    "network": false,
+    "persistence": false,
+    "process": false,
+    "randomness": false,
+    "reflection": false,
+    "secret_access": false,
+    "shell": false
+  },
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23-mtc-s0-06.json",
+      "reason_not_applicable": null,
+      "sha256": "0077af3e1a564f90dfd192d390e4bdd99951a121bdc463d5ae417a3e9306a87a"
+    },
+    "C2": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "controle avaliado somente pela superficie C1; implementacao C2 isolada",
+      "sha256": null
+    },
+    "D": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "D exige C2 aplicavel e permanece fora desta candidata",
+      "sha256": null
+    }
+  }
+}

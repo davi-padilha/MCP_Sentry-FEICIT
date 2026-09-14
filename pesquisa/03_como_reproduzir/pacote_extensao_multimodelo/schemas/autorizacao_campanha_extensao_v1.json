@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approved_at": {"minLength": 1, "type": "string"},
+    "approved_by": {"minLength": 1, "type": "string"},
+    "approved_commit": {"pattern": "^[0-9a-f]{40}$", "type": "string"},
+    "authorization_statement": {"const": "Autorizo a campanha real da extensão multimodelo M2.3, em uma lane sequencial, com as três posições fixadas e sob o teto externo declarado de até US$ 14."},
+    "execution_authorized": {"const": true},
+    "execution_capability": {"const": "real_transport"},
+    "external_budget_cap_usd": {"exclusiveMinimum": 0, "maximum": 14, "type": "number"},
+    "official_campaign_authorized": {"const": true},
+    "positions": {"const": ["remote-gpt-5-6-luna-high-openai", "remote-gpt-5-6-sol-medium-openai", "remote-claude-opus-5-medium-anthropic"]},
+    "preflight_execution_authorized": {"const": false},
+    "recorded": {"const": true},
+    "run_id": {"pattern": "^m2_3_extension_campaign_[A-Za-z0-9_-]{1,64}$", "type": "string"},
+    "schema_version": {"const": "m2_3_extension_campaign_authorization_v1"},
+    "snapshot_id": {"const": "m2_3_extensao_multimodelo_v1_ready"},
+    "snapshot_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+  },
+  "required": ["schema_version", "recorded", "run_id", "approved_at", "approved_by", "approved_commit", "snapshot_id", "snapshot_sha256", "positions", "external_budget_cap_usd", "execution_capability", "execution_authorized", "preflight_execution_authorized", "official_campaign_authorized", "authorization_statement"],
+  "type": "object"
+}

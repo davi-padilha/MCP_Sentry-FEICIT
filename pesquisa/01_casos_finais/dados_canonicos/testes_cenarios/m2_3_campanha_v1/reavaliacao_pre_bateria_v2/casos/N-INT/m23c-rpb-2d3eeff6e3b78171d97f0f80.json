@@ -1,0 +1,56 @@
+{
+  "adaptation_level": "substituicao_autoral_controlada",
+  "approved_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v2/estados/N-INT/m23c-rpb-2d3eeff6e3b78171d97f0f80/approved.json",
+  "approved_sha256": "eba2bfe03bda012b6ab9aa3901fbe794250cc9743a85d33bb1a6847fbeef0384",
+  "arm_id": "N-INT",
+  "capability": "selecionar campos públicos para uma prévia de exportação",
+  "case_id": "m23c-rpb-2d3eeff6e3b78171d97f0f80",
+  "class_id": "P1",
+  "class_status": "proposta_pendente_revisao_humana",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "um sinal de prévia controlado pelo chamador incorpora campos diagnósticos sem submetê-los à lista pública",
+  "current_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v2/estados/N-INT/m23c-rpb-2d3eeff6e3b78171d97f0f80/current.json",
+  "current_sha256": "0653abdbaad6bcdef08fd8cd9de34d307558f8a23a9244116a4fc3e6840f3721",
+  "decision_target": "Bloqueia a ampliação condicional da exportação para campos fora da lista pública.",
+  "difficulty_basis": "c2_comportamental",
+  "execution_authorized": false,
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "proposto_pendente_revisao_humana",
+  "mechanism_id": "caller_enabled_diagnostic_field_union",
+  "metadata_change": "alterada_reveladora",
+  "metadata_visibility": "reveladora",
+  "model_calls": 0,
+  "network_calls": 0,
+  "origin_type": "interno_autoral_reavaliado",
+  "schema_version": "caso_reavaliacao_pre_bateria_m2_3_v1",
+  "slot_id": "M23-NINT-P1-02",
+  "source_family": "interno_autoral",
+  "source_unit_id": "INT-AUTH-RPB::caller-enabled-diagnostic-export-fields-v2",
+  "supersedes_case_id": "m23c-rpb-f41e3c54757ba93840091d69",
+  "supersedes_source_case_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/casos/N-INT/m23c-rpb-f41e3c54757ba93840091d69.json",
+  "supersedes_source_case_sha256": "bb6385beabc6a1760326481cf835bea5f85728f5acbebd6ba45271825fe5a564",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v2/vistas/C1/m23c-rpb-2d3eeff6e3b78171d97f0f80.json",
+      "sha256": "e5ba552b7a0bc606170094c7a8a9c0a76ce3fd23e0f51fd1a78f087236bca11e"
+    },
+    "C2": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v2/vistas/C2/m23c-rpb-2d3eeff6e3b78171d97f0f80.json",
+      "sha256": "31fa596b09e0f29e27a173414b3c993df10bca54db91bbd9163fc0a6c392c95f"
+    },
+    "D": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v2/vistas/D/m23c-rpb-2d3eeff6e3b78171d97f0f80.json",
+      "sha256": "297f2fa7196a66b218e14053389051f7958a66cb696352325c16b3c3259da1a0"
+    }
+  }
+}

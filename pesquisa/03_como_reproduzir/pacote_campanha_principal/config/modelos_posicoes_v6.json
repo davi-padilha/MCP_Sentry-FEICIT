@@ -1,0 +1,212 @@
+{
+  "cloud_rotation_position_ids": [
+    "remote-qwen3-8b-alibaba",
+    "remote-gpt-oss-20b-groq",
+    "remote-gpt-5-6-luna-openai"
+  ],
+  "credential_environment_variable": "OPENROUTER_API_KEY",
+  "execution_authorized": false,
+  "local_fixed_position_ids": [
+    "local-qwen3-8b",
+    "local-qwen2-5-coder-7b"
+  ],
+  "official_campaign_authorized": false,
+  "positions": [
+    {
+      "approved_effective_identity": {
+        "local_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+        "model_revision": "qwen3:8b",
+        "ollama_version": "0.30.7",
+        "provider": "ollama_local",
+        "provider_endpoint_revision": "ollama_api_chat",
+        "template_revision": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4"
+      },
+      "environment_snapshot_reference": {
+        "path": "baterias_finais/m2_3_post_preflight_v6_ready/ambientes/local-qwen3-8b.json",
+        "sha256": "a337cede80749caafc19bbe09294fbff3a166a5c3700b4804068c86b65d8421b"
+      },
+      "lane": "local_pc_a",
+      "machine": "PC-A",
+      "observed_environment_identity": {
+        "local_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+        "model_revision": "qwen3:8b",
+        "ollama_version": "0.30.7",
+        "provider": "ollama_local",
+        "provider_endpoint_revision": "ollama_api_chat",
+        "template_revision": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4"
+      },
+      "observed_parameters": {
+        "temperature": 0.0,
+        "think": false,
+        "top_p": 1.0
+      },
+      "position_id": "local-qwen3-8b",
+      "public_endpoint": "http://127.0.0.1:11434/api/chat",
+      "requested_model": "qwen3:8b",
+      "requested_parameters": {
+        "temperature": 0.0,
+        "think": false,
+        "top_p": 1.0
+      },
+      "requested_provider": "ollama_local",
+      "transport": "ollama_chat"
+    },
+    {
+      "approved_effective_identity": {
+        "local_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "model_revision": "qwen2.5-coder:7b-instruct",
+        "ollama_version": "0.30.7",
+        "provider": "ollama_local",
+        "provider_endpoint_revision": "ollama_api_chat",
+        "template_revision": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320"
+      },
+      "environment_snapshot_reference": {
+        "path": "baterias_finais/m2_3_post_preflight_v6_ready/ambientes/local-qwen2-5-coder-7b.json",
+        "sha256": "fade3aa2ffc298caf3836b1c64680e0fa31f9c7b197a8cedff2f1b49eed4a0d5"
+      },
+      "lane": "local_pc_a",
+      "machine": "PC-A",
+      "observed_environment_identity": {
+        "local_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "model_revision": "qwen2.5-coder:7b-instruct",
+        "ollama_version": "0.30.7",
+        "provider": "ollama_local",
+        "provider_endpoint_revision": "ollama_api_chat",
+        "template_revision": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320"
+      },
+      "observed_parameters": {
+        "reasoning_parameter": "intentionally_absent",
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "position_id": "local-qwen2-5-coder-7b",
+      "public_endpoint": "http://127.0.0.1:11434/api/chat",
+      "requested_model": "qwen2.5-coder:7b-instruct",
+      "requested_parameters": {
+        "reasoning_parameter": "intentionally_absent",
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "requested_provider": "ollama_local",
+      "transport": "ollama_chat"
+    },
+    {
+      "approved_effective_identity": {
+        "model_revision": "qwen/qwen3-8b-04-28",
+        "provider": "Alibaba"
+      },
+      "lane": "cloud_pc_b",
+      "machine": "PC-B",
+      "maximum_attempt_cost_usd": 0.0158225,
+      "observed_parameters": {
+        "reasoning": {
+          "enabled": false,
+          "exclude": true
+        },
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "position_id": "remote-qwen3-8b-alibaba",
+      "provider_max_price_usd_per_million": {
+        "completion": 2.0,
+        "prompt": 0.5,
+        "request": 0.01
+      },
+      "provider_slug": "alibaba",
+      "public_endpoint": "https://openrouter.ai/api/v1/chat/completions",
+      "requested_model": "qwen/qwen3-8b",
+      "requested_parameters": {
+        "reasoning": {
+          "enabled": false,
+          "exclude": true
+        },
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "requested_provider": "Alibaba",
+      "response_format_mode": "json_object",
+      "transport": "openrouter_chat_completions"
+    },
+    {
+      "approved_effective_identity": {
+        "model_revision": "openai/gpt-oss-20b",
+        "provider": "Groq"
+      },
+      "lane": "cloud_pc_b",
+      "machine": "PC-B",
+      "maximum_attempt_cost_usd": 0.0161185,
+      "observed_parameters": {
+        "reasoning": {
+          "effort": "low",
+          "exclude": true
+        },
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "position_id": "remote-gpt-oss-20b-groq",
+      "provider_max_price_usd_per_million": {
+        "completion": 2.0,
+        "prompt": 0.5,
+        "request": 0.01
+      },
+      "provider_slug": "groq",
+      "public_endpoint": "https://openrouter.ai/api/v1/chat/completions",
+      "requested_model": "openai/gpt-oss-20b",
+      "requested_parameters": {
+        "reasoning": {
+          "effort": "low",
+          "exclude": true
+        },
+        "temperature": 0.0,
+        "top_p": 1.0
+      },
+      "requested_provider": "Groq",
+      "response_format_mode": "json_schema",
+      "transport": "openrouter_chat_completions"
+    },
+    {
+      "approved_effective_identity": {
+        "model_revision": "openai/gpt-5.6-luna-20260709",
+        "provider": "OpenAI"
+      },
+      "lane": "cloud_pc_b",
+      "machine": "PC-B",
+      "maximum_attempt_cost_usd": 0.0162150,
+      "observed_parameters": {
+        "previous_response_id": "absent",
+        "reasoning": {
+          "context": "current_turn",
+          "effort": "low"
+        },
+        "store": false,
+        "temperature": "intentionally_omitted",
+        "top_p": "intentionally_omitted"
+      },
+      "position_id": "remote-gpt-5-6-luna-openai",
+      "provider_max_price_usd_per_million": {
+        "completion": 2.0,
+        "prompt": 0.5,
+        "request": 0.01
+      },
+      "provider_slug": "openai",
+      "public_endpoint": "https://openrouter.ai/api/v1/responses",
+      "requested_model": "openai/gpt-5.6-luna",
+      "requested_parameters": {
+        "previous_response_id": "absent",
+        "reasoning": {
+          "context": "current_turn",
+          "effort": "low"
+        },
+        "store": false,
+        "temperature": "intentionally_omitted",
+        "top_p": "intentionally_omitted"
+      },
+      "requested_provider": "OpenAI",
+      "response_format_mode": "json_schema",
+      "transport": "openrouter_responses"
+    }
+  ],
+  "preflight_execution_authorized": false,
+  "schema_version": "m2_3_model_positions_v2",
+  "status": "preserved_post_preflight_ready"
+}

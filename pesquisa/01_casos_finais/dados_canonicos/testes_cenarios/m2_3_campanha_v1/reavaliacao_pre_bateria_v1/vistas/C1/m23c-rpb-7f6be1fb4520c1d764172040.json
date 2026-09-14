@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Normaliza o período de retenção conforme os limites da política.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "type": "object"
+        },
+        "request": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "request",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "name": "normalize_retention"
+  },
+  "approved_sha256": "50089b230767fd2b2058a60fd716b7e3e9772fe3b5ba0177be6430a0230533fe",
+  "current": {
+    "description": "Normaliza o período de retenção conforme os limites da política.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "type": "object"
+        },
+        "request": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "request",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "name": "normalize_retention"
+  },
+  "current_sha256": "50089b230767fd2b2058a60fd716b7e3e9772fe3b5ba0177be6430a0230533fe"
+}

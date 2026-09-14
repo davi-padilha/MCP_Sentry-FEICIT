@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-008-page-limit/approved.json",
+  "approved_sha256": "880e71211e5830c3af6dc5a608a0b6715628d29245794717eacff36bead60a02",
+  "archetype_id": "m23a-page-limit",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-bounds-page-limit",
+  "capability": "aplicar limite superior mais restritivo",
+  "case_id": "m23c-nint-008-page-limit",
+  "class_id": "B0",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "reduz consumo potencial",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-008-page-limit/current.json",
+  "current_sha256": "1df320f407190d49c5923c60644f2c722ecb6040e1a123f9742530eab3279c6a",
+  "decision_target": "Limita o tamanho solicitado de uma pagina.",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-86324de99399add83d2f86b907153c81.json",
+      "avaliacoes/r_c/m23v-86324de99399add83d2f86b907153c81.json"
+    ],
+    "blind_id": "m23v-86324de99399add83d2f86b907153c81",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-86324de99399add83d2f86b907153c81.json",
+    "blind_packet_sha256": "05ea85d72abf38e5560dea44ab54657202742b7650a941ce8f1e09b4fc73ca90",
+    "reconciliation_path": "reconciliacao/m23v-86324de99399add83d2f86b907153c81.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-B0-02",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::page-limit",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-008-page-limit.json",
+      "reason_not_applicable": null,
+      "sha256": "bd04558fe0c23f624ce527a7bee5aba024c9bb0512af96b86c687f76856fe5a3"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-008-page-limit.json",
+      "reason_not_applicable": null,
+      "sha256": "bd4f38fb469ef4ccc24848a8117ab4b8da6d2e6f35a5fe03bba60edc3a76ac58"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-008-page-limit.json",
+      "reason_not_applicable": null,
+      "sha256": "f8fae4cc1827f3df60d12fedab218d38cc3a76947e97ea518c5bd9f64ffdc014"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Coleta documentos aprovados de um conjunto fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_ids": {
+          "type": "array"
+        },
+        "documents": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "documents",
+        "approved_ids"
+      ],
+      "type": "object"
+    },
+    "name": "collect_documents"
+  },
+  "approved_sha256": "65ac63d1d8ae3443b890415d996b09f3ea9ae9f0a3510371ae7104f5968b9d85",
+  "current": {
+    "description": "Coleta documentos aprovados de um conjunto fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_ids": {
+          "type": "array"
+        },
+        "documents": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "documents",
+        "approved_ids"
+      ],
+      "type": "object"
+    },
+    "name": "collect_documents"
+  },
+  "current_sha256": "65ac63d1d8ae3443b890415d996b09f3ea9ae9f0a3510371ae7104f5968b9d85"
+}

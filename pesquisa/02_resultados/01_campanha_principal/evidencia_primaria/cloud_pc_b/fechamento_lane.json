@@ -1,0 +1,23 @@
+{
+  "agenda_sha256": "60fcbd4a53d4c203fb137350224074fc66858255a6278d652dc962c2381c3229",
+  "authorization_sha256": "921b4a8b0de8fe9580e9a639c23e0a75d3ed58f75390110f4cb08222b7a41dce",
+  "cardinalities": {
+    "attempts": 927,
+    "checkpoints": 914,
+    "intentions": 914,
+    "results": 450
+  },
+  "expected_primary_units": 900,
+  "files": {
+    "checkpoints.jsonl": "2cf93fc3ceacfbd0930dc7b80cd5b5a28a658bead2a71bce9d12c836b03923cd",
+    "intencoes.jsonl": "9e49bd353ddb2b2a18e0aae90d54938c0699e474f4236a968273e5f68008f1dc",
+    "ledger_resultados.jsonl": "4decdb5616dcdcc2095d5861940e92bf7e7da4acd2c8d8945c2b674bd5951637",
+    "tentativas.jsonl": "3fc93785fc828fed30ad774ee8101cb48160cd748a5a9797d2b97c41c933cdcf"
+  },
+  "interruption_reason": null,
+  "lane": "cloud_pc_b",
+  "machine": "PC-B",
+  "run_id": "m2_3_campaign_20260907_01",
+  "schema_version": "m2_3_lane_close_v3",
+  "state": "complete"
+}

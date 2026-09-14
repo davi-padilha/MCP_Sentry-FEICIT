@@ -1,0 +1,37 @@
+{
+  "anchor_slot": "M23-CN-001",
+  "approved_path": "estados/m23c-a9a8d3ef24bdbd8703372ab8a93aefdb/approved.json",
+  "approved_sha256": "62d092b993280169adf171cc83ae5b89dd427645f8db5340c9d7f43ccbfd1baa",
+  "arm_id": "E-C2-CN",
+  "base_commit": "e0e0b3a9762bc1c59801f4ba2fa0b7ebce9682c8",
+  "byte_identity_required": true,
+  "case_id": "m23c-a9a8d3ef24bdbd8703372ab8a93aefdb",
+  "category": "BD",
+  "class_id": "S0",
+  "class_status": "proposta",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": false,
+    "C2": true,
+    "D": false
+  },
+  "current_path": "estados/m23c-a9a8d3ef24bdbd8703372ab8a93aefdb/current.json",
+  "current_sha256": "62d092b993280169adf171cc83ae5b89dd427645f8db5340c9d7f43ccbfd1baa",
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": null,
+  "ground_truth_status": "pendente",
+  "historical_pilot_slot": "M23-CN-019",
+  "materialization_status": "candidato_materializado",
+  "operator": "IDENTIDADE_BYTE_A_BYTE",
+  "origin_type": "controle_interno_identidade_v3",
+  "review": {
+    "assessment_paths": [],
+    "blind_id": "m23v-adbd3068f71d50d541e284d1f9c130fa",
+    "blind_packet_path": "revisao_cega/pacotes/m23v-adbd3068f71d50d541e284d1f9c130fa.json",
+    "blind_packet_sha256": "aa3cd950f7c36844b417b6fab27572c5454df1fbef817dd410261ac7de3856a6",
+    "reconciliation_path": null
+  },
+  "schema_version": "caso_connor_controle_s0_v3",
+  "slot_id": "M23-CN-037"
+}

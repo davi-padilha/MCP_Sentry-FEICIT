@@ -1,0 +1,29 @@
+{
+  "executable_sources": [
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/__init__.py",
+      "sha256": "3079ac2e2c8c3da05178509804d27cfea547fb3f008779ab8ed2cbd270e88ece"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/offline.py",
+      "sha256": "845c63b2bb0f67b59a1c455f587db1b541b99c33a37c13ac1b3053964907c278"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/preflight_runner.py",
+      "sha256": "19f8571406542745b3dc249a4fa8162126414facc8f656df18861dcf2839ab61"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/campaign.py",
+      "sha256": "4d2578646dcd0be10546da226f547dca0543a10a9a47f3e43e680d5abcb8e19c"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/verify_campaign.py",
+      "sha256": "920217cb58b61b5f2edd47adf970033bb5ce22ebd9292c7c9032eaa7cb0a353d"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/campaign_visible.ps1",
+      "sha256": "5304d1722859057549ca63ab9b49095a39482e3128814ec5778c6cb94e7f106b"
+    }
+  ],
+  "schema_version": "m2_3_extension_source_set_v1"
+}

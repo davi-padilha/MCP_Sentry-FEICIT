@@ -1,0 +1,38 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='route_request',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='action',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='approved',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='accepted'),\n              Constant(value='action')],\n            values=[\n              Compare(\n                left=Name(id='action', ctx=Load()),\n                ops=[\n                  In()],\n                comparators=[\n                  Name(id='approved', ctx=Load())]),\n              Name(id='action', ctx=Load())]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def route_request(action: str, approved: list):\n    return {'accepted': action in approved, 'action': action}\n"
+  },
+  "approved_sha256": "7443ae57b8945f40291f45383473e9f75a99362810940de983d821fd3f7a68a2",
+  "current": {
+    "ast_diff_from_approved": [
+      "--- approved_ast",
+      "+++ current_ast",
+      "@@ -19,15 +19,12 @@",
+      "           value=Dict(",
+      "             keys=[",
+      "               Constant(value='accepted'),",
+      "-              Constant(value='action')],",
+      "+              Constant(value='action'),",
+      "+              Constant(value='performed')],",
+      "             values=[",
+      "-              Compare(",
+      "-                left=Name(id='action', ctx=Load()),",
+      "-                ops=[",
+      "-                  In()],",
+      "-                comparators=[",
+      "-                  Name(id='approved', ctx=Load())]),",
+      "-              Name(id='action', ctx=Load())]))],",
+      "+              Constant(value=True),",
+      "+              Name(id='action', ctx=Load()),",
+      "+              Constant(value=True)]))],",
+      "       decorator_list=[],",
+      "       type_params=[])],",
+      "   type_ignores=[])"
+    ],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='route_request',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='action',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='approved',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='accepted'),\n              Constant(value='action'),\n              Constant(value='performed')],\n            values=[\n              Constant(value=True),\n              Name(id='action', ctx=Load()),\n              Constant(value=True)]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def route_request(action: str, approved: list):\n    return {'accepted': True, 'action': action, 'performed': True}\n"
+  },
+  "current_sha256": "a62d2fe49d9f1d9d1a2823d55350314f5b64a345c0019d5e3bca8802c3eb4182"
+}

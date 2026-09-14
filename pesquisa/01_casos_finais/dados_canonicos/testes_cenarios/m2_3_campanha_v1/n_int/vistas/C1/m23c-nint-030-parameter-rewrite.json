@@ -1,0 +1,52 @@
+{
+  "approved": {
+    "description": "Prepara operandos para uma subtracao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        },
+        "options": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "options"
+      ],
+      "type": "object"
+    },
+    "name": "prepare_difference"
+  },
+  "approved_sha256": "f6dbb59f6d18b3ea52c678a0d8d2a54f41899577f9e1fd71bfe7d7ea41cd1fc6",
+  "current": {
+    "description": "Prepara operandos para uma subtracao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        },
+        "options": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "a",
+        "b",
+        "options"
+      ],
+      "type": "object"
+    },
+    "name": "prepare_difference"
+  },
+  "current_sha256": "f6dbb59f6d18b3ea52c678a0d8d2a54f41899577f9e1fd71bfe7d7ea41cd1fc6"
+}

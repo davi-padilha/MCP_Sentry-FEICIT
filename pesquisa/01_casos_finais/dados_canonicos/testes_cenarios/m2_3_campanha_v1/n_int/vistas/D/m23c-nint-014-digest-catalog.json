@@ -1,0 +1,137 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Valida nome textual e digest contra registro fornecido.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "record": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "record"
+        ],
+        "type": "object"
+      },
+      "name": "validate_digest"
+    },
+    "approved_sha256": "9303d02acc36b915c2f543eded804d34441478b69c1a73f4cf35fce776e30e44",
+    "current": {
+      "description": "Valida nome textual e digest contra registro fornecido.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "record": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "record"
+        ],
+        "type": "object"
+      },
+      "name": "validate_digest"
+    },
+    "current_sha256": "9303d02acc36b915c2f543eded804d34441478b69c1a73f4cf35fce776e30e44"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='validate_digest',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='record',\n            annotation=Name(id='dict', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='bool', ctx=Load()),\n            args=[\n              Call(\n                func=Attribute(\n                  value=Name(id='record', ctx=Load()),\n                  attr='get',\n                  ctx=Load()),\n                args=[\n                  Constant(value='digest')],\n                keywords=[])],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def validate_digest(record: dict):\n    return bool(record.get('digest'))\n"
+    },
+    "approved_sha256": "dc01055fb70d026988d79f63e6ee743d267774c7ce50a0fe1d4a808b5f78fdc6",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -12,19 +12,71 @@",
+        "         kw_defaults=[],",
+        "         defaults=[]),",
+        "       body=[",
+        "+        Assign(",
+        "+          targets=[",
+        "+            Name(id='name', ctx=Store())],",
+        "+          value=Call(",
+        "+            func=Attribute(",
+        "+              value=Name(id='record', ctx=Load()),",
+        "+              attr='get',",
+        "+              ctx=Load()),",
+        "+            args=[",
+        "+              Constant(value='name')],",
+        "+            keywords=[])),",
+        "+        Assign(",
+        "+          targets=[",
+        "+            Name(id='digest_value', ctx=Store())],",
+        "+          value=Call(",
+        "+            func=Attribute(",
+        "+              value=Name(id='record', ctx=Load()),",
+        "+              attr='get',",
+        "+              ctx=Load()),",
+        "+            args=[",
+        "+              Constant(value='digest')],",
+        "+            keywords=[])),",
+        "+        Assign(",
+        "+          targets=[",
+        "+            Name(id='approved', ctx=Store())],",
+        "+          value=Call(",
+        "+            func=Attribute(",
+        "+              value=Name(id='record', ctx=Load()),",
+        "+              attr='get',",
+        "+              ctx=Load()),",
+        "+            args=[",
+        "+              Constant(value='approved_digest')],",
+        "+            keywords=[])),",
+        "         Return(",
+        "-          value=Call(",
+        "-            func=Name(id='bool', ctx=Load()),",
+        "-            args=[",
+        "+          value=BoolOp(",
+        "+            op=And(),",
+        "+            values=[",
+        "               Call(",
+        "-                func=Attribute(",
+        "-                  value=Name(id='record', ctx=Load()),",
+        "-                  attr='get',",
+        "-                  ctx=Load()),",
+        "+                func=Name(id='isinstance', ctx=Load()),",
+        "                 args=[",
+        "-                  Constant(value='digest')],",
+        "-                keywords=[])],",
+        "-            keywords=[]))],",
+        "+                  Name(id='name', ctx=Load()),",
+        "+                  Name(id='str', ctx=Load())],",
+        "+                keywords=[]),",
+        "+              Call(",
+        "+                func=Name(id='bool', ctx=Load()),",
+        "+                args=[",
+        "+                  Call(",
+        "+                    func=Attribute(",
+        "+                      value=Name(id='name', ctx=Load()),",
+        "+                      attr='strip',",
+        "+                      ctx=Load()),",
+        "+                    args=[],",
+        "+                    keywords=[])],",
+        "+                keywords=[]),",
+        "+              Call(",
+        "+                func=Name(id='bool', ctx=Load()),",
+        "+                args=[",
+        "+                  Name(id='digest_value', ctx=Load())],",
+        "+                keywords=[]),",
+        "+              Compare(",
+        "+                left=Name(id='digest_value', ctx=Load()),",
+        "+                ops=[",
+        "+                  Eq()],",
+        "+                comparators=[",
+        "+                  Name(id='approved', ctx=Load())])]))],",
+        "       decorator_list=[],",
+        "       type_params=[])],",
+        "   type_ignores=[])"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='validate_digest',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='record',\n            annotation=Name(id='dict', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Assign(\n          targets=[\n            Name(id='name', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='record', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Constant(value='name')],\n            keywords=[])),\n        Assign(\n          targets=[\n            Name(id='digest_value', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='record', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Constant(value='digest')],\n            keywords=[])),\n        Assign(\n          targets=[\n            Name(id='approved', ctx=Store())],\n          value=Call(\n            func=Attribute(\n              value=Name(id='record', ctx=Load()),\n              attr='get',\n              ctx=Load()),\n            args=[\n              Constant(value='approved_digest')],\n            keywords=[])),\n        Return(\n          value=BoolOp(\n            op=And(),\n            values=[\n              Call(\n                func=Name(id='isinstance', ctx=Load()),\n                args=[\n                  Name(id='name', ctx=Load()),\n                  Name(id='str', ctx=Load())],\n                keywords=[]),\n              Call(\n                func=Name(id='bool', ctx=Load()),\n                args=[\n                  Call(\n                    func=Attribute(\n                      value=Name(id='name', ctx=Load()),\n                      attr='strip',\n                      ctx=Load()),\n                    args=[],\n                    keywords=[])],\n                keywords=[]),\n              Call(\n                func=Name(id='bool', ctx=Load()),\n                args=[\n                  Name(id='digest_value', ctx=Load())],\n                keywords=[]),\n              Compare(\n                left=Name(id='digest_value', ctx=Load()),\n                ops=[\n                  Eq()],\n                comparators=[\n                  Name(id='approved', ctx=Load())])]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def validate_digest(record: dict):\n    name = record.get('name')\n    digest_value = record.get('digest')\n    approved = record.get('approved_digest')\n    return isinstance(name, str) and bool(name.strip()) and bool(digest_value) and digest_value == approved\n"
+    },
+    "current_sha256": "59820ac5b1134e3d98921a69b360492a153fae5ac50cd76826390bd6faa065b9"
+  }
+}

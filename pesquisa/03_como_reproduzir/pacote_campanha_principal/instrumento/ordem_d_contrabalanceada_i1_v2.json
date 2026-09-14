@@ -1,0 +1,277 @@
+{
+  "assignments": [
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-004-proof-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "2a31a78321d42aa9242cd4ed04f4d61dcf70798cd576db7f67fa73952f44c854",
+      "rank_within_class": 1
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-001-sum-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "30efbd00243ae91bf87c58d28ccf8ab02eb9f0524d95a6ae399b9c593322afa0",
+      "rank_within_class": 2
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-005-records-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "3e41765835c9971d53d58536f145da067266c0310d220dae366da181475a4739",
+      "rank_within_class": 3
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-002-label-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "719163369ba95d792bfcd9e4af21d5d191b61515c5d61acbfed91396eb0f7403",
+      "rank_within_class": 4
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-003-catalog-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "9c114b7451a0b980340b4db5f4f1c3106b3b382e0682b84b4a7d9e40299b2036",
+      "rank_within_class": 5
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-006-summary-stable",
+      "class_id": "S0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "c128165dba644298bf902fb264fd34649650301a2b57f4c6a1ea897fced3fd96",
+      "rank_within_class": 6
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-012-empty-summary",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "6400976d2624ab197765cd2b51e27f3b472f80d22f7c85c1a16c4c039e465e0a",
+      "rank_within_class": 1
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-011-stable-order",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "6722021859f46ec89e3369972ccc72c30a05a09a401587834c39eb8458e25092",
+      "rank_within_class": 2
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-rpb-e2f1556d27ed331c03ecff7c",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "85c8377aa233f5391f2ff12bccbe10af8cd366745eebfed9455b7e3d1ab14595",
+      "rank_within_class": 3
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-016-forecast-cache",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "87b39f7f7f17eb04ffb8f8c502fe2a14bce22c32ad9e3f3b96996eefa75f3dd0",
+      "rank_within_class": 4
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-rpb-66e4f4e924c733f366cec24c",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "a2a451f4411fd9d67568f5e9926fd2ed469a0f629b6f3a9119fda4d145113874",
+      "rank_within_class": 5
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-009-copy-result",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "ba50e42052036eee7ab4ecadd336cbf51de8532ef46654d75b854f9940f33be3",
+      "rank_within_class": 6
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-008-page-limit",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "c4bff2941a0d9b5daa44c071b2ec5316d96e397e44cab6cb15003d4cf829d6d4",
+      "rank_within_class": 7
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-007-difference-guard",
+      "class_id": "B0",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "ca4928375467e12917b3d664116d7713bfbad404b2b94975c055a495093cc4f0",
+      "rank_within_class": 8
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-010-full-proof",
+      "class_id": "B1",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "710a9dfebb4a452f80ba3c213c7352ea0d140cf508c8c55d254ad80cde7d791b",
+      "rank_within_class": 1
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-029-archived-scope",
+      "class_id": "B1",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "b159eeb60d9904e03c64111d26b0caf72bec5ed1ee0e619f84b653f46739fbe6",
+      "rank_within_class": 2
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-015-operation-preview",
+      "class_id": "B1",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "bea44dc7a7d46d73bd45141410a4b060fa013d10b5f33130945940ae3e5f00b2",
+      "rank_within_class": 3
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-014-digest-catalog",
+      "class_id": "B1",
+      "metadata_visibility": "nao_aplicavel",
+      "rank_sha256": "c8992bdd96e857a1833863ff146903310410f7dc1038e08f1739a2bb4b3d2b44",
+      "rank_within_class": 4
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-019-profile-secret",
+      "class_id": "P0",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "26132b81856b0af7393987fc7cde5c7cea3035695458057963347094d58c8a96",
+      "rank_within_class": 1
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-020-fixed-total",
+      "class_id": "P0",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "4257a6c89804f1cc99717972a6b955e97d5b37dd704b86ac923afe0d2c1eb2f6",
+      "rank_within_class": 2
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-023-owner-overwrite",
+      "class_id": "P0",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "798aeff6ae1258e8c713c3f0bc0202c1394b4ae39ae07f9801cd9bce60fa6c60",
+      "rank_within_class": 3
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-021-proof-bypass",
+      "class_id": "P0",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "c5a08c66b234483a4f0927e446b7bce2d15cd39b7b79850724234e5d0528d67e",
+      "rank_within_class": 4
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-024-bulk-disclosure",
+      "class_id": "P0",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "cfbfd9ffdd72f7ffe328b3814bff24050a90752a603b851e490b359062c2a931",
+      "rank_within_class": 5
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-022-unapproved-action",
+      "class_id": "P0",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "f883b1380c15275cf88adb44d1fffb368fa45739f75e61949b3c875c0be07d3d",
+      "rank_within_class": 6
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-028-role-fallback",
+      "class_id": "P1",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "10a60fe9ddeb7a0905e654d34474819d1444c21f99d5e2091938aad4cfb089a6",
+      "rank_within_class": 1
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-027-digest-prefix",
+      "class_id": "P1",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "35ced3f5217293347f552400a0bddf598586c9ba32f045c2b5d63c48cfb3aa9c",
+      "rank_within_class": 2
+    },
+    {
+      "block_order": "C1_C2",
+      "case_id": "m23c-nint-025-conditional-config",
+      "class_id": "P1",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "3815a4522825ee90b159c8d529eb4f2adc2e5548e16b022faa97f9f1425fbc6f",
+      "rank_within_class": 3
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-rpb-7f6be1fb4520c1d764172040",
+      "class_id": "P1",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "70a464bce3911fa31aaf91af9675d10a5372c9c00ee61c8066fd7a313ab27f8d",
+      "rank_within_class": 4
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-rpb-2d3eeff6e3b78171d97f0f80",
+      "class_id": "P1",
+      "metadata_visibility": "reveladora",
+      "rank_sha256": "b5187ec64fde145ff1ca4e7dd57d66e5a33df882cbf491524bafd06971f0205b",
+      "rank_within_class": 5
+    },
+    {
+      "block_order": "C2_C1",
+      "case_id": "m23c-nint-030-parameter-rewrite",
+      "class_id": "P1",
+      "metadata_visibility": "nao_reveladora",
+      "rank_sha256": "e18a3d5ad610fc9f2d101ac149ee833c9ac3336db007687a4ab295b9afd52e24",
+      "rank_within_class": 6
+    }
+  ],
+  "counts_by_class": {
+    "B0": {
+      "C1_C2": 4,
+      "C2_C1": 4
+    },
+    "B1": {
+      "C1_C2": 2,
+      "C2_C1": 2
+    },
+    "P0": {
+      "C1_C2": 3,
+      "C2_C1": 3
+    },
+    "P1": {
+      "C1_C2": 3,
+      "C2_C1": 3
+    },
+    "S0": {
+      "C1_C2": 3,
+      "C2_C1": 3
+    }
+  },
+  "execution_authorized": false,
+  "rule": {
+    "assignment": "metade inferior dos ranks por classe recebe C1_C2; metade superior recebe C2_C1",
+    "digest": "sha256_utf8",
+    "domain_separator": "m2_3_p_ordem_v1:",
+    "stable_field": "case_id",
+    "tie_breaker": "case_id_lexicografico"
+  },
+  "schema_version": "m2_3_alocacao_ordem_d_i1_v2",
+  "scope": "I1_N-INT_D_30_casos",
+  "status": "candidate_pending_independent_review"
+}

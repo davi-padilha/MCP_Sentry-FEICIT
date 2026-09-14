@@ -1,0 +1,20 @@
+{
+  "agreement_rate_all_pairs": "0.95777778",
+  "agreement_rate_valid_pairs": "0.98853211",
+  "attempts": 905,
+  "block_rate_all_primary": "0.34444444",
+  "causal_superiority_claimed": false,
+  "cost_accounted_usd": "5.80164740",
+  "cost_observed_usd": "5.14043240",
+  "estimand": "configuration_sensitivity_within_new_temporal_cohort",
+  "latency_max_ms": 37532,
+  "latency_median_ms": "2906",
+  "latency_min_ms": 1140,
+  "latency_p95_ms": 5953,
+  "pairs": 450,
+  "primary_units": 900,
+  "r3_diagnostics": 5,
+  "run_id": "m2_3_extension_campaign_20260911_221516",
+  "schema_version": "m2_3_extension_descriptive_analysis_v1",
+  "terminal_failures": 23
+}

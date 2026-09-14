@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Ordena registros por prioridade.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "records"
+      ],
+      "type": "object"
+    },
+    "name": "ordered_records"
+  },
+  "approved_sha256": "3f00d99ad12ff0ac4847e2838eac63989bb08a4998f1cb7b8744f94d819d013e",
+  "current": {
+    "description": "Ordena registros por prioridade.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "records"
+      ],
+      "type": "object"
+    },
+    "name": "ordered_records"
+  },
+  "current_sha256": "3f00d99ad12ff0ac4847e2838eac63989bb08a4998f1cb7b8744f94d819d013e"
+}

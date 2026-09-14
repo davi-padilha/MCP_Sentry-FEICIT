@@ -1,0 +1,110 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Atualiza campos editaveis de um registro.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "changes": {
+            "type": "object"
+          },
+          "record": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "record",
+          "changes"
+        ],
+        "type": "object"
+      },
+      "name": "update_record"
+    },
+    "approved_sha256": "536f3c6053ad8cd58f29ff043c412cd5cb987115481c78b09e64c167e10cd3b5",
+    "current": {
+      "description": "Atualiza campos editaveis de um registro.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "changes": {
+            "type": "object"
+          },
+          "record": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "record",
+          "changes"
+        ],
+        "type": "object"
+      },
+      "name": "update_record"
+    },
+    "current_sha256": "536f3c6053ad8cd58f29ff043c412cd5cb987115481c78b09e64c167e10cd3b5"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='update_record',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='record',\n            annotation=Name(id='dict', ctx=Load())),\n          arg(\n            arg='changes',\n            annotation=Name(id='dict', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Assign(\n          targets=[\n            Name(id='allowed', ctx=Store())],\n          value=DictComp(\n            key=Name(id='key', ctx=Load()),\n            value=Name(id='value', ctx=Load()),\n            generators=[\n              comprehension(\n                target=Tuple(\n                  elts=[\n                    Name(id='key', ctx=Store()),\n                    Name(id='value', ctx=Store())],\n                  ctx=Store()),\n                iter=Call(\n                  func=Attribute(\n                    value=Name(id='changes', ctx=Load()),\n                    attr='items',\n                    ctx=Load()),\n                  args=[],\n                  keywords=[]),\n                ifs=[\n                  Compare(\n                    left=Name(id='key', ctx=Load()),\n                    ops=[\n                      In()],\n                    comparators=[\n                      Set(\n                        elts=[\n                          Constant(value='title'),\n                          Constant(value='status')])])],\n                is_async=0)])),\n        Return(\n          value=Dict(\n            keys=[\n              None,\n              None],\n            values=[\n              Name(id='record', ctx=Load()),\n              Name(id='allowed', ctx=Load())]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def update_record(record: dict, changes: dict):\n    allowed = {key: value for key, value in changes.items() if key in {'title', 'status'}}\n    return {**record, **allowed}\n"
+    },
+    "approved_sha256": "29e952e30186b452eed77fa1347ee50cd001136b391229e7f2eac632d2a195af",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -15,37 +15,6 @@",
+        "         kw_defaults=[],",
+        "         defaults=[]),",
+        "       body=[",
+        "-        Assign(",
+        "-          targets=[",
+        "-            Name(id='allowed', ctx=Store())],",
+        "-          value=DictComp(",
+        "-            key=Name(id='key', ctx=Load()),",
+        "-            value=Name(id='value', ctx=Load()),",
+        "-            generators=[",
+        "-              comprehension(",
+        "-                target=Tuple(",
+        "-                  elts=[",
+        "-                    Name(id='key', ctx=Store()),",
+        "-                    Name(id='value', ctx=Store())],",
+        "-                  ctx=Store()),",
+        "-                iter=Call(",
+        "-                  func=Attribute(",
+        "-                    value=Name(id='changes', ctx=Load()),",
+        "-                    attr='items',",
+        "-                    ctx=Load()),",
+        "-                  args=[],",
+        "-                  keywords=[]),",
+        "-                ifs=[",
+        "-                  Compare(",
+        "-                    left=Name(id='key', ctx=Load()),",
+        "-                    ops=[",
+        "-                      In()],",
+        "-                    comparators=[",
+        "-                      Set(",
+        "-                        elts=[",
+        "-                          Constant(value='title'),",
+        "-                          Constant(value='status')])])],",
+        "-                is_async=0)])),",
+        "         Return(",
+        "           value=Dict(",
+        "             keys=[",
+        "@@ -53,7 +22,7 @@",
+        "               None],",
+        "             values=[",
+        "               Name(id='record', ctx=Load()),",
+        "-              Name(id='allowed', ctx=Load())]))],",
+        "+              Name(id='changes', ctx=Load())]))],",
+        "       decorator_list=[],",
+        "       type_params=[])],",
+        "   type_ignores=[])"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='update_record',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='record',\n            annotation=Name(id='dict', ctx=Load())),\n          arg(\n            arg='changes',\n            annotation=Name(id='dict', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              None,\n              None],\n            values=[\n              Name(id='record', ctx=Load()),\n              Name(id='changes', ctx=Load())]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def update_record(record: dict, changes: dict):\n    return {**record, **changes}\n"
+    },
+    "current_sha256": "9359c2a8c5be4d656797ed51b93c337707cfc6950dbf8bb8fda2c8e954795c67"
+  }
+}

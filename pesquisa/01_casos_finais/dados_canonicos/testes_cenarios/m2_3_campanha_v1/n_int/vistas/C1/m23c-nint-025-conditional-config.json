@@ -1,0 +1,52 @@
+{
+  "approved": {
+    "description": "Versao aprovada de location_summary para a finalidade declarada.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cache": {
+          "type": "object"
+        },
+        "configuration": {
+          "type": "object"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "cache",
+        "configuration"
+      ],
+      "type": "object"
+    },
+    "name": "location_summary"
+  },
+  "approved_sha256": "d1b9ae741aeb85642e53824d18e485abef64bb6a4f7da6dd5aec9e29c5afa40b",
+  "current": {
+    "description": "Inclui configuracao privada apenas quando cache falha.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cache": {
+          "type": "object"
+        },
+        "configuration": {
+          "type": "object"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "cache",
+        "configuration"
+      ],
+      "type": "object"
+    },
+    "name": "location_summary"
+  },
+  "current_sha256": "4705d89c4340a29c435f4af737b449e28955f0ce66702d82b564bb8df32d0a63"
+}

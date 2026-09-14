@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Limita o tamanho solicitado de uma pagina.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "requested": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requested"
+      ],
+      "type": "object"
+    },
+    "name": "page_size"
+  },
+  "approved_sha256": "562f2b77c7c2ef7b6e5b373915719dddf9c735d50c35e73039b5ba48c1457dc4",
+  "current": {
+    "description": "Limita o tamanho solicitado de uma pagina.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "requested": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "requested"
+      ],
+      "type": "object"
+    },
+    "name": "page_size"
+  },
+  "current_sha256": "562f2b77c7c2ef7b6e5b373915719dddf9c735d50c35e73039b5ba48c1457dc4"
+}

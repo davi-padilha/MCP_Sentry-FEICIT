@@ -1,0 +1,60 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Combina dois valores inteiros.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "type": "integer"
+          },
+          "b": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object"
+      },
+      "name": "combine_values"
+    },
+    "approved_sha256": "72814f0afb8feefbb7e5769b1ec3f2c2dbb34d7ab6f9e7e3c5af4a041415100b",
+    "current": {
+      "description": "Combina dois valores inteiros.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "type": "integer"
+          },
+          "b": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object"
+      },
+      "name": "combine_values"
+    },
+    "current_sha256": "72814f0afb8feefbb7e5769b1ec3f2c2dbb34d7ab6f9e7e3c5af4a041415100b"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='combine_values',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='a',\n            annotation=Name(id='int', ctx=Load())),\n          arg(\n            arg='b',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=BinOp(\n            left=Name(id='a', ctx=Load()),\n            op=Add(),\n            right=Name(id='b', ctx=Load())))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def combine_values(a: int, b: int):\n    return a + b\n"
+    },
+    "approved_sha256": "feb2275133a23eb7debd9e0e24388db059c35380de05d1c1104e79e04ff7e62a",
+    "current": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='combine_values',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='a',\n            annotation=Name(id='int', ctx=Load())),\n          arg(\n            arg='b',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=BinOp(\n            left=Name(id='a', ctx=Load()),\n            op=Add(),\n            right=Name(id='b', ctx=Load())))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def combine_values(a: int, b: int):\n    return a + b\n"
+    },
+    "current_sha256": "feb2275133a23eb7debd9e0e24388db059c35380de05d1c1104e79e04ff7e62a"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "76dbfec4a1db814b9e0359e7756fe935a61d524da17d683fa0545e83c0b824f4",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "3095a3e8e2dcb30f97a7239f9c3603b4ef28eb72410845ad1ca59cb902c6717f",
+    "tool": {
+      "descriptor": "Normalize separators in a path string and return the normalized value.\nArguments:\n- optional: No description\n\n\n",
+      "name": "normalize_path"
+    }
+  },
+  "approved_sha256": "c0c400e9ffd29e9cd7f1bda94efe37d9fa8ce0f4aa8c2e4c5678e129e94b0dbb",
+  "current": {
+    "catalog_sha256": "3095a3e8e2dcb30f97a7239f9c3603b4ef28eb72410845ad1ca59cb902c6717f",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Normalize separators and dot segments in a path string, then produce 'canonical_path', detected style, plus retained segments. The operation applies the requested separator convention to every component. Its result may be compared with path values accepted by another tool or used to construct a later request.\nArguments:\n- optional: No description\n\n\n",
+      "name": "normalize_path"
+    }
+  },
+  "current_sha256": "9f5bac53d919ba6b06d7db2c2db672122e5b7cc2e26de7be3e69cf383c164f8c"
+}

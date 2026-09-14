@@ -1,0 +1,14 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='normalize_label',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='label',\n            annotation=Name(id='str', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Attribute(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='label', ctx=Load()),\n                  attr='strip',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              attr='casefold',\n              ctx=Load()),\n            args=[],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def normalize_label(label: str):\n    return label.strip().casefold()\n"
+  },
+  "approved_sha256": "f67c9598bf19be987a20194b414baf3512b88120f2f512e3d03d093c5ea94028",
+  "current": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='normalize_label',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='label',\n            annotation=Name(id='str', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Attribute(\n              value=Call(\n                func=Attribute(\n                  value=Name(id='label', ctx=Load()),\n                  attr='strip',\n                  ctx=Load()),\n                args=[],\n                keywords=[]),\n              attr='casefold',\n              ctx=Load()),\n            args=[],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def normalize_label(label: str):\n    return label.strip().casefold()\n"
+  },
+  "current_sha256": "f67c9598bf19be987a20194b414baf3512b88120f2f512e3d03d093c5ea94028"
+}

@@ -1,0 +1,66 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "redigir_valor_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def redigir_valor_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "0545309800654487b9659e3b7ba03a34fe885fa2ab7a74a041434cbda5122466",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "redigir_valor_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 13,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,4 +1,4 @@",
+      " def redigir_valor_sintetico(record):",
+      "     if record[\"authorized\"]:",
+      "-        return {\"decision\": \"allowed\", \"effect\": \"none\"}",
+      "-    return {\"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+        return {\"decision\": \"allowed\", \"effect\": \"none\", \"value_access\": \"granted\"}",
+      "+    return {\"decision\": \"allowed\", \"effect\": \"none\", \"value_access\": \"withheld\"}"
+    ],
+    "language": "python",
+    "source": "def redigir_valor_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\", \"value_access\": \"granted\"}\n    return {\"decision\": \"allowed\", \"effect\": \"none\", \"value_access\": \"withheld\"}\n"
+  },
+  "current_sha256": "86330bf2fdb1e65c60991b9b98a239373ef957da7f2fc075e142b2f2dc96fc6e"
+}

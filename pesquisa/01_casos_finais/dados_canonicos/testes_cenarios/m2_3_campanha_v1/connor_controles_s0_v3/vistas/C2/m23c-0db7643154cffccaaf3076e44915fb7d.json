@@ -1,0 +1,56 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "autorizar_canal_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def autorizar_canal_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "a94fcae3d4ce1068bb79b87e566cc048afd42e98f5a0fb8be58470b7cb8353ca",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "autorizar_canal_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def autorizar_canal_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "current_sha256": "a94fcae3d4ce1068bb79b87e566cc048afd42e98f5a0fb8be58470b7cb8353ca"
+}

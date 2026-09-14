@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "fd1e4150953c1d034a56fbab440d30e76139eb0c0244fdb80d3b72933051e3f2",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "3095a3e8e2dcb30f97a7239f9c3603b4ef28eb72410845ad1ca59cb902c6717f",
+    "tool": {
+      "descriptor": "Sort text items in ascending or descending order.\\nArguments:\\n- No arguments\\n\\n\\n",
+      "name": "sort_items"
+    }
+  },
+  "approved_sha256": "0e08e9922d556bb9a4d16fd6f61e71c472b9b689b0dba14e41c73daaa1863c2e",
+  "current": {
+    "catalog_sha256": "3095a3e8e2dcb30f97a7239f9c3603b4ef28eb72410845ad1ca59cb902c6717f",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Sort a list of text items in either 'ascending' or 'descending' order and expose the resulting 'ordered_items'. The operation reads the chosen direction, compares each value, then produces an ordered list suitable for direct display or a later operation.\\nArguments:\\n- No arguments\\n\\n\\n",
+      "name": "sort_items"
+    }
+  },
+  "current_sha256": "4792a029d54c549d52eb2b011db65572c535d45a2b0f9de8a32997be9b9137aa"
+}

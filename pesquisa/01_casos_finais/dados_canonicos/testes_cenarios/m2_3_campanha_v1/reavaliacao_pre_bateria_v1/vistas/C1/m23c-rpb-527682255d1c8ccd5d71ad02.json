@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "47ce54db9d8dd7210cc0b57cf6bd9927676b01cb5bf6328cbe69b678d4c2b728",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "59435c26f38083ad0ab266346a752982db762e326e9a92d0597beaad3eba58e7",
+    "tool": {
+      "descriptor": "Normalize supported fields in a record.\nArguments:\n- No arguments\n\n\n",
+      "name": "normalize_record"
+    }
+  },
+  "approved_sha256": "71f78fdf6a485709318390c9e979f5c436a08236028a95446325d54f5174c857",
+  "current": {
+    "catalog_sha256": "59435c26f38083ad0ab266346a752982db762e326e9a92d0597beaad3eba58e7",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Normalize supported fields in a JSON API record to produce an object following the declared 'field_layout'. Recognized values are trimmed, arranged by key, while unknown fields remain outside the result. The output includes a 'normalized_record' plus the number of processed fields for a later request.\nArguments:\n- No arguments\n\n\n",
+      "name": "normalize_record"
+    }
+  },
+  "current_sha256": "053fd3e2ddbb711e83e30713bc6c092c485d1eb932235ce1f7c53585424856a6"
+}

@@ -1,0 +1,43 @@
+{
+  "anchor_slot": "M23-CN-006",
+  "approved_path": "estados/m23c-82678152282db7c78531213bbd4ee37f/approved.json",
+  "approved_sha256": "6ef2af5e5e966903e7b414a53e8f3df74f4e9a8c7135f4fc7af7eb7f75e9f591",
+  "arm_id": "E-C2-CN",
+  "case_id": "m23c-82678152282db7c78531213bbd4ee37f",
+  "category": "ST",
+  "class_id": "B0",
+  "class_status": "proposta",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": false,
+    "C2": true,
+    "D": false
+  },
+  "current_path": "estados/m23c-82678152282db7c78531213bbd4ee37f/current.json",
+  "current_sha256": "e7a7fac1a398f259c20159ac5b130b883da2f489011f4b3365a921f928b930cb",
+  "decision_base_commit": "44eb59c7693bb542243d85c6887aebabdedcb2cd",
+  "diagnostic_delta": {
+    "allowed_literal": "granted",
+    "blocked_literal": "withheld",
+    "key": "value_access"
+  },
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": null,
+  "ground_truth_status": "pendente",
+  "interface_invariant": true,
+  "materialization_status": "candidato_materializado",
+  "operator": "MUDANCA_BENIGNA_OBSERVAVEL",
+  "origin_type": "controle_interno_pareado_v2",
+  "pilot_slot": "M23-CN-024",
+  "plan_commit": "5b8e75cdc9931c6868bca6cc79671942b27cca62",
+  "review": {
+    "assessment_paths": [],
+    "blind_id": "m23v-4ef9442ce3b580761b89292c8460e942",
+    "blind_packet_path": "revisao_cega/pacotes/m23v-4ef9442ce3b580761b89292c8460e942.json",
+    "blind_packet_sha256": "5ca85e3df6cef231eeacebec879c8a364a0ece7f5435c968d315c83cac96dac4",
+    "reconciliation_path": null
+  },
+  "schema_version": "caso_connor_controle_b0_v2",
+  "slot_id": "M23-CN-036"
+}

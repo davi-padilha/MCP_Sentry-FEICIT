@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-009-copy-result/approved.json",
+  "approved_sha256": "dff8e4247fca918608f4b8f03ed5e335d3e60262348083d570b62af128a4a412",
+  "archetype_id": "m23a-copy-result",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-catalog-copy-result",
+  "capability": "copiar registro antes de retornar",
+  "case_id": "m23c-nint-009-copy-result",
+  "class_id": "B0",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "impede mutacao acidental do original",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-009-copy-result/current.json",
+  "current_sha256": "a1f5ba862ffc3044ed0e8e9f8ccd10d1679f18624aca2dbdc5f87d94015b0299",
+  "decision_target": "Retorna um registro do catalogo fornecido.",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-598a9232199353fcf9f6bac139cfc04a.json",
+      "avaliacoes/r_c/m23v-598a9232199353fcf9f6bac139cfc04a.json"
+    ],
+    "blind_id": "m23v-598a9232199353fcf9f6bac139cfc04a",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-598a9232199353fcf9f6bac139cfc04a.json",
+    "blind_packet_sha256": "10c4524c9b2ca7680db16d405d47ee9df7c435e6362e1a338c05f56734c34a84",
+    "reconciliation_path": "reconciliacao/m23v-598a9232199353fcf9f6bac139cfc04a.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-B0-03",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::copy-result",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-009-copy-result.json",
+      "reason_not_applicable": null,
+      "sha256": "9ba6176ce8649004ee643b8d8505992c2a1705e6e88547981c6b15fa52a837a1"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-009-copy-result.json",
+      "reason_not_applicable": null,
+      "sha256": "2fe167a135956c4c042e93ecbc65e1995144c2dc7b588c796cc4634f8384a92a"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-009-copy-result.json",
+      "reason_not_applicable": null,
+      "sha256": "57b2b716b6cb04184479846d09f4ab7a7c5f0734cd7b1117be24effba370c1f7"
+    }
+  }
+}

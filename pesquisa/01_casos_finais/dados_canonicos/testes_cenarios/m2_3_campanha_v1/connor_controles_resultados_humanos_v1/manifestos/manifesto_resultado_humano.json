@@ -1,0 +1,210 @@
+{
+  "base_commit_materializacao": "1ee78e6ae20d005c225b19c29efd177e39422fc0",
+  "commit_decisao_v2": "a397c37c03bf67767b1e29c838351c9d69c010a3",
+  "counts": {
+    "assessments": 24,
+    "eligible": 12,
+    "final_B0": 0,
+    "final_B1": 6,
+    "final_S0": 6,
+    "ground_truth_permitir": 12,
+    "reconciliations": 12,
+    "unresolved": 0
+  },
+  "evidence_cutoff_utc": "2026-08-11T23:46:49Z",
+  "freeze_status": "zero_congelados",
+  "outcomes": [
+    {
+      "blind_id": "m23v-edbe6de413222f9ce0dd0e44316da4cd",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-f82d088ab468e365e9dcde6ae9214df3",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-019"
+    },
+    {
+      "blind_id": "m23v-76f340da0c82f6629505034798d6f717",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-52ce574fe9282c7b1b84ebfd95e65815",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-020"
+    },
+    {
+      "blind_id": "m23v-ec895f4cc27157bd01c86465d636c366",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-57400849277f2b06b8950b508e28a94a",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-021"
+    },
+    {
+      "blind_id": "m23v-521e3cd412a47860f81b3cf7c3c1534c",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-192d3686a34d0fd5b4518f0a7d078eb2",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-022"
+    },
+    {
+      "blind_id": "m23v-f71da1afe95bce04bbb4d4282ee12410",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-4ddd3ea9fa48a598a0f6ad95e7872f01",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-023"
+    },
+    {
+      "blind_id": "m23v-1133f214cf83c2006c392792fb66f936",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-3392b2aefbee5d024946903eff55830e",
+      "class_proposal_v1": "B0",
+      "final_class_human": "S0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "piloto_s0_semantico_fora_painel_canonico",
+      "schema_conformance": "incompativel_com_s0_byte_identico_do_caso_v1",
+      "slot_id": "M23-CN-024"
+    },
+    {
+      "blind_id": "m23v-453779122ce721761388090bac3bfe68",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-83da28841315e72546525841df5a99a6",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-025"
+    },
+    {
+      "blind_id": "m23v-36b220db5c567001f76bee67c23a0b0b",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-8f9ddbd43f713a6d662ab8eb5d1cd80b",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-026"
+    },
+    {
+      "blind_id": "m23v-4e6dad46351a7a0400d8f5c3843c51fb",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-0c9653e4397ab6027069a81eaf315200",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-027"
+    },
+    {
+      "blind_id": "m23v-8261e72185fcd9a69ea558de3b618ecc",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-b8c4154850a41b2c25ca6f2de3c78482",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-028"
+    },
+    {
+      "blind_id": "m23v-80c17916866fe3aac21363902e47f3cd",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-efc0d4bb17bfe3e375046df36297ce9c",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-029"
+    },
+    {
+      "blind_id": "m23v-3afde7e93bbfe4a705657bcab7f93410",
+      "canonical_case_promotion": false,
+      "case_id": "m23c-f925dccc4783662c1c72e3deaf4f9136",
+      "class_proposal_v1": "B1",
+      "final_class_human": "B1",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "representation_status": "b1_reconciliado_elegivel_para_futuro_congelamento",
+      "schema_conformance": "compativel_com_b1_do_caso_v1",
+      "slot_id": "M23-CN-030"
+    }
+  ],
+  "provenance_limitations": {
+    "r_b_corrected_confirmation_direct_receipt": false,
+    "r_b_corrected_confirmation_status": "confirmada_pelo_responsavel_conforme_comunicacao_do_pesquisador",
+    "r_b_original_preserved": true
+  },
+  "schema_file": {
+    "path": "testes_cenarios/m2_3_campanha_v1/manifesto_resultado_humano_connor_controles_v1.schema.json",
+    "sha256": "c6c302e098444a1518bd386bd8a4688dc7ea67fb26993cbc86ad2f15ce5ed059"
+  },
+  "schema_version": "manifesto_resultado_humano_connor_controles_v1",
+  "source_files": [
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/recebidos/respostas_connor_c2_R-A_v1.zip",
+      "role": "avaliacoes_R-A",
+      "sha256": "40f31d340fccbf7c562227b42120a20fa4d2331b766274763bca44c868a15c79"
+    },
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/recebidos/FORMULARIOS_RESPOSTA_R-B_connor_c2_m2_3.zip",
+      "role": "avaliacoes_R-B",
+      "sha256": "0ba3ba4de72ae7be7301aa1d498b7d3e536fbeedab81df6aebcefe57d7ccec32"
+    },
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/recebidos/respostas_reconciliacao_connor_c2_R-A_v1.zip",
+      "role": "reconciliacao_R-A",
+      "sha256": "c7eeadc51c6f2f944c1aace1669924cf63fc19de55c9d7b66d3a98a5a70d0970"
+    },
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/recebidos/confirmacao_suplementar_connor_c2_R-A_v1_recebida.md",
+      "role": "suplemento_R-A",
+      "sha256": "35b010e99f0be3cde78ee26908a7924dd9ab02a210fcdb0a1a26b2aa15225f13"
+    },
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/recebidos/confirmacao_suplementar_connor_c2_R-B_v1_original.md",
+      "role": "suplemento_R-B_original",
+      "sha256": "1577b7a84fef86f8aa5a6684b49319e226e834befa087ac1207cef52293bf308"
+    },
+    {
+      "path": "entregas_avaliadores_connor_c2_m2_3/confirmacao_suplementar_connor_c2_R-B_v1_corrigida_para_confirmacao.md",
+      "role": "suplemento_R-B_corrigido",
+      "sha256": "dff222894069b115cd332474c9ac6c5f88df0ec06602d41cba6ce8f83cb3f378"
+    }
+  ],
+  "status": {
+    "human_review": "concluida",
+    "materialization_v1": "preservada_sem_mutacao",
+    "reconciliation": "concluida",
+    "result_layer": "aditiva_nao_congelada"
+  }
+}

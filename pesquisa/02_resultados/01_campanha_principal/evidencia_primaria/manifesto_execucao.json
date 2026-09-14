@@ -1,0 +1,60 @@
+{
+  "agenda_sha256": "60fcbd4a53d4c203fb137350224074fc66858255a6278d652dc962c2381c3229",
+  "authorization": {
+    "mode": "external",
+    "path": "C:\\Users\\Pedro Henrique\\AppData\\Local\\MCP-Sentry\\m2_3_authorizations\\m2_3_campaign_20260907_01.json"
+  },
+  "authorization_sha256": "921b4a8b0de8fe9580e9a639c23e0a75d3ed58f75390110f4cb08222b7a41dce",
+  "bundle_version": "m2_3_evidence_bundle_v4",
+  "execution_authorized": true,
+  "files": {
+    "cloud_pc_b/checkpoints.jsonl": "2cf93fc3ceacfbd0930dc7b80cd5b5a28a658bead2a71bce9d12c836b03923cd",
+    "cloud_pc_b/fechamento_lane.json": "b1fdec2c103776ef0ed70675272c4515fad8492fc8d637dd8921d1d6cb4fd90b",
+    "cloud_pc_b/intencoes.jsonl": "9e49bd353ddb2b2a18e0aae90d54938c0699e474f4236a968273e5f68008f1dc",
+    "cloud_pc_b/ledger_resultados.jsonl": "4decdb5616dcdcc2095d5861940e92bf7e7da4acd2c8d8945c2b674bd5951637",
+    "cloud_pc_b/tentativas.jsonl": "3fc93785fc828fed30ad774ee8101cb48160cd748a5a9797d2b97c41c933cdcf",
+    "consolidado/checkpoints.jsonl": "609a79444ba164012901f1a940cffb60c1be24886d8748bf8eba1873d46a77dc",
+    "consolidado/intencoes.jsonl": "00fe7fa44d01298ece6596b69869d201e595727afbd1f7bb54cecbe503a79972",
+    "consolidado/ledger_resultados.jsonl": "4797eb29ac770f88879bbb9eba32c0fc28a1a2da330866ec9fc5107c689de225",
+    "consolidado/tentativas.jsonl": "55226f169a5c164719d7e89030fc75b1ec7673877c353c3ff7a7ad0f563562b8",
+    "local_pc_a/checkpoints.jsonl": "6eca6fa2645ade22e18ab58deee71ffcbff507f8ba349f85bab75b66e6f1a186",
+    "local_pc_a/fechamento_lane.json": "b0d5be9bc7ccd2d32dbc7c6ae6f9df5c29f6bb8691b9bd50053fab01a2159893",
+    "local_pc_a/intencoes.jsonl": "a699900fe3b7677abe683d75e94852b56d69010d619d2911d8fda539c682d3d3",
+    "local_pc_a/ledger_resultados.jsonl": "91da419b2c6517991a2b86f302b32fa431cc798adb9d5e8de97c7e37020ca7ce",
+    "local_pc_a/tentativas.jsonl": "a6d42fc22c2b56bebc2ceb1cdb98ff689cd46f7d57e2950e61580b3635d80f43"
+  },
+  "lane_states": {
+    "cloud_pc_b": "complete",
+    "local_pc_a": "complete"
+  },
+  "local_execution_non_billable": true,
+  "official_campaign_authorized": true,
+  "preflight": false,
+  "preflight_execution_authorized": false,
+  "primary_units": 1500,
+  "record_schema_versions": {
+    "attempts": "m2_3_attempt_v5",
+    "checkpoints": "m2_3_checkpoint_v4",
+    "intentions": "m2_3_intention_v2",
+    "lane_closures": "m2_3_lane_close_v3",
+    "results": "m2_3_result_v4"
+  },
+  "registry": {
+    "path": "tools/m2_3_regressoes_adversariais_v1/registry_v2.json",
+    "sha256": "667df0b01795913510d87815c03725a0f6e6c923b67c4db1b915674a69aaae07"
+  },
+  "roles": {
+    "attempts": "consolidado/tentativas.jsonl",
+    "checkpoints": "consolidado/checkpoints.jsonl",
+    "intentions": "consolidado/intencoes.jsonl",
+    "results": "consolidado/ledger_resultados.jsonl"
+  },
+  "run_id": "m2_3_campaign_20260907_01",
+  "run_kind": "campaign_real",
+  "schema_version": "evidence_bundle_m23_v4",
+  "snapshot_id": "m2_3_campaign_g1_v2_ready",
+  "snapshot_sha256": "759c6e5d820cc713a28015c076435396e7a75646157d717a54d1f3fa87bf87a7",
+  "source_commit": "d03ced176df1b2321b5a3d0cc999e5305d2436f5",
+  "synthetic_scope": null,
+  "validation_only": false
+}

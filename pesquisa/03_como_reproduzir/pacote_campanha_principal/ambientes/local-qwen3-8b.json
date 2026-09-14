@@ -1,0 +1,22 @@
+{
+  "captured_at": "2026-09-06T02:09:42.846985Z",
+  "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "gpu": "not_exposed_by_ollama_api",
+  "identity_source": "ollama_api_tags_and_runtime_pre_call",
+  "lane": "local_pc_a",
+  "machine": "PC-A",
+  "observed_environment_identity": {
+    "local_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "model_revision": "qwen3:8b",
+    "ollama_version": "0.30.7",
+    "provider": "ollama_local",
+    "provider_endpoint_revision": "ollama_api_chat",
+    "template_revision": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4"
+  },
+  "os": "Windows-11-10.0.22631-SP0",
+  "position_id": "local-qwen3-8b",
+  "ram": "not_exposed_by_ollama_api",
+  "runtime": "ollama 0.30.7",
+  "snapshot_id": "m2_3_post_preflight_v6_ready",
+  "timezone": "Hora oficial do Brasil"
+}

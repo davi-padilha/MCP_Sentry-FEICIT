@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Confere um destino HTTPS contra a lista de hosts permitidos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_hosts": {
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "allowed_hosts"
+      ],
+      "type": "object"
+    },
+    "name": "redirect_allowed"
+  },
+  "approved_sha256": "430120a2c4856eaf10aaf22face3bd471b7eeace1a4cf26051b0d0223d6798c5",
+  "current": {
+    "description": "Confere um destino HTTPS contra a lista de hosts permitidos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_hosts": {
+          "type": "array"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "allowed_hosts"
+      ],
+      "type": "object"
+    },
+    "name": "redirect_allowed"
+  },
+  "current_sha256": "430120a2c4856eaf10aaf22face3bd471b7eeace1a4cf26051b0d0223d6798c5"
+}

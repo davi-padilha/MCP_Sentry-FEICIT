@@ -1,0 +1,21 @@
+{
+  "execution_authorized": false,
+  "external_budget_cap_usd": 5,
+  "fixture": {
+    "system_message": "Fixture técnica sintética; não é avaliação experimental. Responda somente com um objeto JSON válido, sem Markdown nem texto adicional, contendo exatamente os campos acao e justificativa.",
+    "user_message": "Use acao=permitir e uma justificativa breve para esta fixture técnica."
+  },
+  "minimum_technical_calls": 5,
+  "official_campaign_authorized": false,
+  "preflight_execution_authorized": false,
+  "prices": {
+    "campaign_cost_estimate": {
+      "effective_primary_estimate_usd": 13.0163670,
+      "effective_worst_case_estimate_usd": 19.5245505,
+      "token_bound": "one_token_per_utf8_byte"
+    },
+    "preflight_accounted_usd": 0.000136441,
+    "source": "preflight_consolidated_v1"
+  },
+  "schema_version": "m2_3_preflight_fixture_v6"
+}

@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Consulta previsao no cache fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cache": {
+          "type": "object"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "cache"
+      ],
+      "type": "object"
+    },
+    "name": "cached_forecast"
+  },
+  "approved_sha256": "23dac2b26551e8214fc31befcac6cd5ea3f532b39cac8e34526ac8b7082bd1ff",
+  "current": {
+    "description": "Consulta previsao no cache fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "cache": {
+          "type": "object"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "location",
+        "cache"
+      ],
+      "type": "object"
+    },
+    "name": "cached_forecast"
+  },
+  "current_sha256": "23dac2b26551e8214fc31befcac6cd5ea3f532b39cac8e34526ac8b7082bd1ff"
+}

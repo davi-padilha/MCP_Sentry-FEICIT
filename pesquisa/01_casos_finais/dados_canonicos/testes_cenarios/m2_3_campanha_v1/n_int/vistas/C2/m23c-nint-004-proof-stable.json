@@ -1,0 +1,14 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='proof_matches',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='proof',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='approved',\n            annotation=Name(id='str', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Compare(\n            left=Name(id='proof', ctx=Load()),\n            ops=[\n              Eq()],\n            comparators=[\n              Name(id='approved', ctx=Load())]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def proof_matches(proof: str, approved: str):\n    return proof == approved\n"
+  },
+  "approved_sha256": "2fcae78eb94829e6917c8329063eae7112de50dbcb1a58be1956e21563106e59",
+  "current": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='proof_matches',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='proof',\n            annotation=Name(id='str', ctx=Load())),\n          arg(\n            arg='approved',\n            annotation=Name(id='str', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Compare(\n            left=Name(id='proof', ctx=Load()),\n            ops=[\n              Eq()],\n            comparators=[\n              Name(id='approved', ctx=Load())]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def proof_matches(proof: str, approved: str):\n    return proof == approved\n"
+  },
+  "current_sha256": "2fcae78eb94829e6917c8329063eae7112de50dbcb1a58be1956e21563106e59"
+}

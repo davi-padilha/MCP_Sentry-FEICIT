@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Atualiza campos editaveis de um registro.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "changes": {
+          "type": "object"
+        },
+        "record": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "record",
+        "changes"
+      ],
+      "type": "object"
+    },
+    "name": "update_record"
+  },
+  "approved_sha256": "536f3c6053ad8cd58f29ff043c412cd5cb987115481c78b09e64c167e10cd3b5",
+  "current": {
+    "description": "Atualiza campos editaveis de um registro.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "changes": {
+          "type": "object"
+        },
+        "record": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "record",
+        "changes"
+      ],
+      "type": "object"
+    },
+    "name": "update_record"
+  },
+  "current_sha256": "536f3c6053ad8cd58f29ff043c412cd5cb987115481c78b09e64c167e10cd3b5"
+}

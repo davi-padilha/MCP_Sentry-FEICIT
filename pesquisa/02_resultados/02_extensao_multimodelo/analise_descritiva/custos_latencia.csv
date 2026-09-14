@@ -1,0 +1,17 @@
+position_id,condition,attempts,cost_observed_usd,cost_accounted_usd,latency_min_ms,latency_median_ms,latency_p95_ms,latency_max_ms
+ALL,ALL,905,5.14043240,5.80164740,1140,2906,5953,37532
+remote-gpt-5-6-luna-high-openai,ALL,303,0.12141760,0.12141760,1562,2625,6578,15578
+remote-gpt-5-6-sol-medium-openai,ALL,302,0.8552398,0.8552398,1546,2320,4266,9828
+remote-claude-opus-5-medium-anthropic,ALL,300,4.163775,4.824990,1140,3875,6281,37532
+ALL,C1,362,1.4436808,2.1048958,1140,2648.5,5687,15578
+ALL,C2,363,2.29503084,2.29503084,1703,3063,6281,37532
+ALL,D,180,1.40172076,1.40172076,1813,3078,6063,9157
+remote-gpt-5-6-luna-high-openai,C1,122,0.0448968,0.0448968,1562,2382.5,6860,15578
+remote-gpt-5-6-luna-high-openai,C2,121,0.04865164,0.04865164,1797,2735,6016,12406
+remote-gpt-5-6-luna-high-openai,D,60,0.02786916,0.02786916,1813,2711,6546,7844
+remote-gpt-5-6-sol-medium-openai,C1,120,0.296214,0.296214,1546,2187.5,3750,5688
+remote-gpt-5-6-sol-medium-openai,C2,122,0.3506742,0.3506742,1703,2367.5,4484,9828
+remote-gpt-5-6-sol-medium-openai,D,60,0.2083516,0.2083516,1890,2367,3766,8141
+remote-claude-opus-5-medium-anthropic,C1,120,1.102570,1.763785,1140,3211,5234,9750
+remote-claude-opus-5-medium-anthropic,C2,120,1.895705,1.895705,2937,4101.5,8563,37532
+remote-claude-opus-5-medium-anthropic,D,60,1.165500,1.165500,3297,4406,5484,9157

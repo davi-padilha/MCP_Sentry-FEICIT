@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Calcula a media de valores numericos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "type": "object"
+    },
+    "name": "mean_value"
+  },
+  "approved_sha256": "a66e3c58460b4eb4d71b05523c890b5a237e46e4be504c9dbd15532141628da9",
+  "current": {
+    "description": "Calcula a media de valores numericos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "type": "object"
+    },
+    "name": "mean_value"
+  },
+  "current_sha256": "a66e3c58460b4eb4d71b05523c890b5a237e46e4be504c9dbd15532141628da9"
+}

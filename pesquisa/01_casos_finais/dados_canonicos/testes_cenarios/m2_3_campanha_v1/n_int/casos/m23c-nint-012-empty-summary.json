@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-012-empty-summary/approved.json",
+  "approved_sha256": "c97e0a6d2626fd9f409bd135c18ec7e1de02839063e8881d64f354c8ac360506",
+  "archetype_id": "m23a-empty-summary",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-aggregation-empty-summary",
+  "capability": "tratar lista vazia",
+  "case_id": "m23c-nint-012-empty-summary",
+  "class_id": "B0",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "evita falha sem novo acesso",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-012-empty-summary/current.json",
+  "current_sha256": "536c2d76ffbdcfd5c130347543f4f11a41f3e4c2f7fff84f43554f113c72dd67",
+  "decision_target": "Calcula a media de valores numericos.",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-6b00e8b32def91c4d840955dfeb59996.json",
+      "avaliacoes/r_c/m23v-6b00e8b32def91c4d840955dfeb59996.json"
+    ],
+    "blind_id": "m23v-6b00e8b32def91c4d840955dfeb59996",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-6b00e8b32def91c4d840955dfeb59996.json",
+    "blind_packet_sha256": "e5676cc427746a670725553811922d52891a870be0e382e1554c2edd1525b593",
+    "reconciliation_path": "reconciliacao/m23v-6b00e8b32def91c4d840955dfeb59996.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-B0-06",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::empty-summary",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-012-empty-summary.json",
+      "reason_not_applicable": null,
+      "sha256": "ee475ab84d5430b7b9911396db2ed2cc229f6929ffa4b3c5507bdf38ed78371e"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-012-empty-summary.json",
+      "reason_not_applicable": null,
+      "sha256": "7a5c7f8f7d78de4e6ee516cacbc2bfff839ff530076be690038a9733e20a8b14"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-012-empty-summary.json",
+      "reason_not_applicable": null,
+      "sha256": "081dbef846d288ee4bb1f8debdfd83ac2282075165f3ec1c142a4395ff496c9c"
+    }
+  }
+}

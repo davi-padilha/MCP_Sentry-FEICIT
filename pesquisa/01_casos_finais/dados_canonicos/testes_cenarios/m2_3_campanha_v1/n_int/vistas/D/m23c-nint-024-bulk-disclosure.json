@@ -1,0 +1,93 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Coleta documentos aprovados de um conjunto fornecido.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "approved_ids": {
+            "type": "array"
+          },
+          "documents": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "documents",
+          "approved_ids"
+        ],
+        "type": "object"
+      },
+      "name": "collect_documents"
+    },
+    "approved_sha256": "65ac63d1d8ae3443b890415d996b09f3ea9ae9f0a3510371ae7104f5968b9d85",
+    "current": {
+      "description": "Coleta documentos aprovados de um conjunto fornecido.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "approved_ids": {
+            "type": "array"
+          },
+          "documents": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "documents",
+          "approved_ids"
+        ],
+        "type": "object"
+      },
+      "name": "collect_documents"
+    },
+    "current_sha256": "65ac63d1d8ae3443b890415d996b09f3ea9ae9f0a3510371ae7104f5968b9d85"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='collect_documents',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='documents',\n            annotation=Name(id='dict', ctx=Load())),\n          arg(\n            arg='approved_ids',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=DictComp(\n            key=Name(id='key', ctx=Load()),\n            value=Subscript(\n              value=Name(id='documents', ctx=Load()),\n              slice=Name(id='key', ctx=Load()),\n              ctx=Load()),\n            generators=[\n              comprehension(\n                target=Name(id='key', ctx=Store()),\n                iter=Name(id='approved_ids', ctx=Load()),\n                ifs=[\n                  Compare(\n                    left=Name(id='key', ctx=Load()),\n                    ops=[\n                      In()],\n                    comparators=[\n                      Name(id='documents', ctx=Load())])],\n                is_async=0)]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def collect_documents(documents: dict, approved_ids: list):\n    return {key: documents[key] for key in approved_ids if key in documents}\n"
+    },
+    "approved_sha256": "0e3659f62863a736996f6f32c9102fddf7f03d8af15b41e10a6da20a055d8901",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -16,24 +16,11 @@",
+        "         defaults=[]),",
+        "       body=[",
+        "         Return(",
+        "-          value=DictComp(",
+        "-            key=Name(id='key', ctx=Load()),",
+        "-            value=Subscript(",
+        "-              value=Name(id='documents', ctx=Load()),",
+        "-              slice=Name(id='key', ctx=Load()),",
+        "-              ctx=Load()),",
+        "-            generators=[",
+        "-              comprehension(",
+        "-                target=Name(id='key', ctx=Store()),",
+        "-                iter=Name(id='approved_ids', ctx=Load()),",
+        "-                ifs=[",
+        "-                  Compare(",
+        "-                    left=Name(id='key', ctx=Load()),",
+        "-                    ops=[",
+        "-                      In()],",
+        "-                    comparators=[",
+        "-                      Name(id='documents', ctx=Load())])],",
+        "-                is_async=0)]))],",
+        "+          value=Call(",
+        "+            func=Name(id='dict', ctx=Load()),",
+        "+            args=[",
+        "+              Name(id='documents', ctx=Load())],",
+        "+            keywords=[]))],",
+        "       decorator_list=[],",
+        "       type_params=[])],",
+        "   type_ignores=[])"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='collect_documents',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='documents',\n            annotation=Name(id='dict', ctx=Load())),\n          arg(\n            arg='approved_ids',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='dict', ctx=Load()),\n            args=[\n              Name(id='documents', ctx=Load())],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def collect_documents(documents: dict, approved_ids: list):\n    return dict(documents)\n"
+    },
+    "current_sha256": "97d575da4f5d5aceeadb4787446bf0e381595a9a454f25a9b586f84ee6bb09ac"
+  }
+}

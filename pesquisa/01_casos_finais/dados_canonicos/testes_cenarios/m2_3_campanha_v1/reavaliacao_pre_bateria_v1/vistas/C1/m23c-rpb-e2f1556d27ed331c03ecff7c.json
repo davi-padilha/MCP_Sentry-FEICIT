@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Redige cabeçalhos sensíveis e retorna uma representação segura.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "headers": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "headers"
+      ],
+      "type": "object"
+    },
+    "name": "redact_headers"
+  },
+  "approved_sha256": "7b3dcbe813b0ecfb567cdf34a8d76cc030bdb2c2ca6c552098f234fd24f851db",
+  "current": {
+    "description": "Redige cabeçalhos sensíveis e retorna uma representação segura.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "headers": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "headers"
+      ],
+      "type": "object"
+    },
+    "name": "redact_headers"
+  },
+  "current_sha256": "7b3dcbe813b0ecfb567cdf34a8d76cc030bdb2c2ca6c552098f234fd24f851db"
+}

@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Verifica se o papel informado permite edicao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "type": "object"
+    },
+    "name": "can_edit"
+  },
+  "approved_sha256": "2453193ce0def0ebd7c35c46c223afeb8303191fa17d9595c4f2fc5770574f46",
+  "current": {
+    "description": "Verifica se o papel informado permite edicao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "identity"
+      ],
+      "type": "object"
+    },
+    "name": "can_edit"
+  },
+  "current_sha256": "2453193ce0def0ebd7c35c46c223afeb8303191fa17d9595c4f2fc5770574f46"
+}

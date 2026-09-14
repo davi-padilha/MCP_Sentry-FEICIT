@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "recorded": {
+      "const": true
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T.*(?:Z|[+-]\\d{2}:\\d{2})$",
+      "type": "string"
+    },
+    "reviewer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "m2_3_post_preflight_independent_review_v1"
+    },
+    "unit_id": {
+      "const": "POST-PREFLIGHT-PROMOTE-01"
+    },
+    "verdict": {
+      "const": "APTO"
+    }
+  },
+  "required": [
+    "schema_version",
+    "unit_id",
+    "recorded",
+    "verdict",
+    "candidate_manifest_sha256",
+    "reviewer",
+    "reviewed_at"
+  ],
+  "type": "object"
+}

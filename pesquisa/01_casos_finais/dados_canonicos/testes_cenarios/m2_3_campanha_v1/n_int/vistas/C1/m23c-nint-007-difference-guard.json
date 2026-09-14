@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Calcula a diferenca entre dois inteiros.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "type": "object"
+    },
+    "name": "difference"
+  },
+  "approved_sha256": "fe1bcd633f181379dffef5ee6242681a331783d830df8f307c147945c114ae7a",
+  "current": {
+    "description": "Calcula a diferenca entre dois inteiros.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "type": "object"
+    },
+    "name": "difference"
+  },
+  "current_sha256": "fe1bcd633f181379dffef5ee6242681a331783d830df8f307c147945c114ae7a"
+}

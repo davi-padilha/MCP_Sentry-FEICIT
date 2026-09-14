@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Retorna um registro do catalogo fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": "object"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "catalog"
+      ],
+      "type": "object"
+    },
+    "name": "catalog_copy"
+  },
+  "approved_sha256": "9c78d3504164ea7d34adb5d30e3809a232ab9481ba622360747cecc69aa482ac",
+  "current": {
+    "description": "Retorna um registro do catalogo fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": "object"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "catalog"
+      ],
+      "type": "object"
+    },
+    "name": "catalog_copy"
+  },
+  "current_sha256": "9c78d3504164ea7d34adb5d30e3809a232ab9481ba622360747cecc69aa482ac"
+}

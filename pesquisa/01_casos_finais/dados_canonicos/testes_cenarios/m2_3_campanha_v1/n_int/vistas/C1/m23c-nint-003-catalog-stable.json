@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Consulta um valor em catalogo fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": "object"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "catalog"
+      ],
+      "type": "object"
+    },
+    "name": "catalog_value"
+  },
+  "approved_sha256": "e1bbf3bf3a6ae1cfbd709e31cb4e7056d2a4ad8d5b64dc46521336efe5c35263",
+  "current": {
+    "description": "Consulta um valor em catalogo fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "catalog": {
+          "type": "object"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "catalog"
+      ],
+      "type": "object"
+    },
+    "name": "catalog_value"
+  },
+  "current_sha256": "e1bbf3bf3a6ae1cfbd709e31cb4e7056d2a4ad8d5b64dc46521336efe5c35263"
+}

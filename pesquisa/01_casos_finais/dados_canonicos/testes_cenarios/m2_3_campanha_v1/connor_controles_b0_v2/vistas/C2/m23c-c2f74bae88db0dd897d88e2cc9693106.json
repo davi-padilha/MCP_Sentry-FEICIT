@@ -1,0 +1,66 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "proteger_colecao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def proteger_colecao_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "703560561d8ce833e6278209e21f788fc31e17346bbc062d823169bc96fb25bb",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "proteger_colecao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 13,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,4 +1,4 @@",
+      " def proteger_colecao_sintetica(record):",
+      "     if record[\"authorized\"]:",
+      "-        return {\"decision\": \"allowed\", \"effect\": \"none\"}",
+      "-    return {\"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+        return {\"decision\": \"allowed\", \"effect\": \"none\", \"collection_access\": \"granted\"}",
+      "+    return {\"decision\": \"blocked\", \"effect\": \"none\", \"collection_access\": \"denied\"}"
+    ],
+    "language": "python",
+    "source": "def proteger_colecao_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\", \"collection_access\": \"granted\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\", \"collection_access\": \"denied\"}\n"
+  },
+  "current_sha256": "1c3278cc13c0a65b3805dba99ab4de562716b53b6d3a5dbad6e13dfaf0df09c7"
+}

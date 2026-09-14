@@ -1,0 +1,52 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Resume uma lista de valores numericos.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "values": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "values"
+        ],
+        "type": "object"
+      },
+      "name": "value_summary"
+    },
+    "approved_sha256": "ffbb8aeb604caa8b8e2e617212ed7ef0cee87f462d397250ce273e0a7c8357d8",
+    "current": {
+      "description": "Resume uma lista de valores numericos.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "values": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "values"
+        ],
+        "type": "object"
+      },
+      "name": "value_summary"
+    },
+    "current_sha256": "ffbb8aeb604caa8b8e2e617212ed7ef0cee87f462d397250ce273e0a7c8357d8"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='value_summary',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='count'),\n              Constant(value='total')],\n            values=[\n              Call(\n                func=Name(id='len', ctx=Load()),\n                args=[\n                  Name(id='values', ctx=Load())],\n                keywords=[]),\n              Call(\n                func=Name(id='sum', ctx=Load()),\n                args=[\n                  Name(id='values', ctx=Load())],\n                keywords=[])]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def value_summary(values: list):\n    return {'count': len(values), 'total': sum(values)}\n"
+    },
+    "approved_sha256": "bfbbe64e18404b65af486b30a67e25ff85019b8b17c3f1bd3baa66194494c378",
+    "current": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='value_summary',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Dict(\n            keys=[\n              Constant(value='count'),\n              Constant(value='total')],\n            values=[\n              Call(\n                func=Name(id='len', ctx=Load()),\n                args=[\n                  Name(id='values', ctx=Load())],\n                keywords=[]),\n              Call(\n                func=Name(id='sum', ctx=Load()),\n                args=[\n                  Name(id='values', ctx=Load())],\n                keywords=[])]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def value_summary(values: list):\n    return {'count': len(values), 'total': sum(values)}\n"
+    },
+    "current_sha256": "bfbbe64e18404b65af486b30a67e25ff85019b8b17c3f1bd3baa66194494c378"
+  }
+}

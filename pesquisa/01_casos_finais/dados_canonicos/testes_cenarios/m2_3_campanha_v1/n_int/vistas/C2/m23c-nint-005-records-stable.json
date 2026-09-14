@@ -1,0 +1,14 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='ordered_records',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='records',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='sorted', ctx=Load()),\n            args=[\n              Name(id='records', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='key',\n                value=Lambda(\n                  args=arguments(\n                    posonlyargs=[],\n                    args=[\n                      arg(arg='item')],\n                    kwonlyargs=[],\n                    kw_defaults=[],\n                    defaults=[]),\n                  body=Subscript(\n                    value=Name(id='item', ctx=Load()),\n                    slice=Constant(value='id'),\n                    ctx=Load())))]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def ordered_records(records: list):\n    return sorted(records, key=lambda item: item['id'])\n"
+  },
+  "approved_sha256": "ef03fcd115b35fc860d2eaa55e1878170597e3d5483420a7c72a0dc54ca5b3e4",
+  "current": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='ordered_records',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='records',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='sorted', ctx=Load()),\n            args=[\n              Name(id='records', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='key',\n                value=Lambda(\n                  args=arguments(\n                    posonlyargs=[],\n                    args=[\n                      arg(arg='item')],\n                    kwonlyargs=[],\n                    kw_defaults=[],\n                    defaults=[]),\n                  body=Subscript(\n                    value=Name(id='item', ctx=Load()),\n                    slice=Constant(value='id'),\n                    ctx=Load())))]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def ordered_records(records: list):\n    return sorted(records, key=lambda item: item['id'])\n"
+  },
+  "current_sha256": "ef03fcd115b35fc860d2eaa55e1878170597e3d5483420a7c72a0dc54ca5b3e4"
+}

@@ -1,0 +1,26 @@
+{
+  "positions": [
+    {
+      "accepted_by_contract": {"max_output_tokens": 1024, "reasoning": {"context": "current_turn", "effort": "high"}, "store": false},
+      "effective_provider": "OpenAI",
+      "effective_revision": "openai/gpt-5.6-luna-20260709",
+      "observed_or_echoed": {"effective_provider": true, "effective_revision": true, "reasoning_effort": true},
+      "position_id": "remote-gpt-5-6-luna-high-openai"
+    },
+    {
+      "accepted_by_contract": {"max_output_tokens": 1024, "reasoning": {"context": "current_turn", "effort": "medium"}, "store": false},
+      "effective_provider": "OpenAI",
+      "effective_revision": "openai/gpt-5.6-sol-20260709",
+      "observed_or_echoed": {"effective_provider": true, "effective_revision": true, "reasoning_effort": true},
+      "position_id": "remote-gpt-5-6-sol-medium-openai"
+    },
+    {
+      "accepted_by_contract": {"max_tokens": 1024, "reasoning": {"effort": "medium"}},
+      "effective_provider": "Anthropic",
+      "effective_revision": "anthropic/claude-opus-5-20260723",
+      "observed_or_echoed": {"effective_provider": true, "effective_revision": true, "reasoning_effort": false},
+      "position_id": "remote-claude-opus-5-medium-anthropic"
+    }
+  ],
+  "schema_version": "m2_3_extension_effective_identities_v1"
+}

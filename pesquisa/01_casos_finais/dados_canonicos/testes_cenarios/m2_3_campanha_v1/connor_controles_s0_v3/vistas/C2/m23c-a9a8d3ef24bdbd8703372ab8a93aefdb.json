@@ -1,0 +1,56 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "validar_acesso_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def validar_acesso_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "208e49ac50d44e64a926552f7c61b38a0d5c83cc71d41ba553946a79a674f1a5",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "validar_acesso_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def validar_acesso_sintetico(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "current_sha256": "208e49ac50d44e64a926552f7c61b38a0d5c83cc71d41ba553946a79a674f1a5"
+}

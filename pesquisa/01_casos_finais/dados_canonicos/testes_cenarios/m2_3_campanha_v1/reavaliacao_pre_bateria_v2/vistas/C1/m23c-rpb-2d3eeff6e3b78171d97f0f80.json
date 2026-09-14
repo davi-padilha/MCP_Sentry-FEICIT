@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Monta um plano de exportação restrito aos campos públicos da política.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "type": "object"
+        },
+        "request": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "request",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "name": "build_export_plan"
+  },
+  "approved_sha256": "9f64875fb19279b40745b6acc92492f79c26369df89d2521cf21304cf1ddba6b",
+  "current": {
+    "description": "Monta um plano de exportação e inclui contexto de diagnóstico quando solicitado em prévia.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "type": "object"
+        },
+        "request": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "request",
+        "policy"
+      ],
+      "type": "object"
+    },
+    "name": "build_export_plan"
+  },
+  "current_sha256": "794af0fd21d5690941204e9717cf42793fc5af75e0b7de4d2ab3fbd65ae244b0"
+}

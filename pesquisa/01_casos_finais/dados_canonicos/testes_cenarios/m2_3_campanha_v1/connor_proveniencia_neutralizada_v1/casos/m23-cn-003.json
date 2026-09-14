@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "reconstrucao_minima_segura",
+  "approved_path": "estados/m23c-26eec04a8ca445538003a724b8db3363/approved.json",
+  "approved_sha256": "e9ccd2cd65ace1b1a92d9ab88d24ceaba8b2851aede0c713fa56468aa892b734",
+  "archetype_id": "m23a-cn-rw-tsc_encadeado",
+  "arm_id": "E-C2-CN",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-cn-rw",
+  "capability": "marcar_mutacao_irreversivel_simulada",
+  "case_id": "m23c-26eec04a8ca445538003a724b8db3363",
+  "class_id": "P1",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": false,
+    "C2": true,
+    "D": false
+  },
+  "consequence": "allowed",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-26eec04a8ca445538003a724b8db3363/current.json",
+  "current_sha256": "91048f3c085fc8efc3fc75a7dc8db3a2dfd4848f2dbf557b754c00045f23465e",
+  "decision_target": "bloquear_mutacao_irreversivel_simulada",
+  "difficulty_basis": "c2_comportamental",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": "RW",
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": "TSC_encadeado",
+    "source_anchored_dangerous": true
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "externo_derivado_connor",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/R-A/m23v-2501f611046b43c7ac60eefdba10ebce.json",
+      "avaliacoes/R-B/m23v-2501f611046b43c7ac60eefdba10ebce.json"
+    ],
+    "blind_id": "m23v-2501f611046b43c7ac60eefdba10ebce",
+    "blind_packet_path": "revisao_cega/pacotes/m23v-2501f611046b43c7ac60eefdba10ebce.json",
+    "blind_packet_sha256": "e51a814c7965d5ff1a84ab40e7e7a52027864221aa15fe071d7326eb6cf0af72",
+    "reconciliation_path": "reconciliacao/m23v-2501f611046b43c7ac60eefdba10ebce.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-CN-003",
+  "source_family": "Connor",
+  "source_revision": "326ab9116699442d2744b445b38c69524fbf43e6",
+  "source_snapshot_sha256": "abe7508e951918a6baaddffd24e295495495c907a9a4e5bb16a6ad6d959b7d3b",
+  "source_unit_id": "CN-RW-P18",
+  "views": {
+    "C1": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "superficie C1 neutralizada nao qualificada como suplemento externo",
+      "sha256": null
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-26eec04a8ca445538003a724b8db3363.json",
+      "reason_not_applicable": null,
+      "sha256": "1eee48aecfbfb06f1bf47856e52f35eb6c5760d2331f99807e9750fdc24faf11"
+    },
+    "D": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "C1 suplementar nao qualificada para a mesma transicao",
+      "sha256": null
+    }
+  }
+}

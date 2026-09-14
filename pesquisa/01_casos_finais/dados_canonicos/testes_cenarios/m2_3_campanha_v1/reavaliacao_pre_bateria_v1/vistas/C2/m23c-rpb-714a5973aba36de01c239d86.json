@@ -1,0 +1,104 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [
+        "dict",
+        "get",
+        "get",
+        "get",
+        "get",
+        "str"
+      ],
+      "function_names": [
+        "stage_action_plan",
+        "finalize_action_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 4,
+        "Attribute": 4,
+        "Call": 6,
+        "Compare": 1,
+        "Constant": 13,
+        "Dict": 3,
+        "FunctionDef": 2,
+        "IfExp": 1,
+        "IsNot": 1,
+        "Load": 15,
+        "Module": 1,
+        "Name": 15,
+        "Return": 2,
+        "Store": 4,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def stage_action_plan(record):\n    routes = dict(record.get('allowed_routes', {}))\n    requested = str(record.get('requested_action', ''))\n    return {'requested': requested, 'route': routes.get(requested), 'fallback': None}\n\ndef finalize_action_plan(staged):\n    route = staged.get('route')\n    decision = 'allowed' if route is not None else 'blocked'\n    return {'decision': decision, 'route': route}\n"
+  },
+  "approved_sha256": "3d55a30071ada51f7874cdd01f6e915de1aba96bb021436e8fd3fb5c5e61c5bf",
+  "current": {
+    "ast": {
+      "calls": [
+        "dict",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "str"
+      ],
+      "function_names": [
+        "stage_action_plan",
+        "finalize_action_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 5,
+        "Attribute": 7,
+        "BoolOp": 1,
+        "Call": 9,
+        "Compare": 2,
+        "Constant": 17,
+        "Dict": 3,
+        "FunctionDef": 2,
+        "IfExp": 2,
+        "Is": 1,
+        "IsNot": 1,
+        "Load": 22,
+        "Module": 1,
+        "Name": 20,
+        "Or": 1,
+        "Return": 2,
+        "Store": 5,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,9 +1,10 @@",
+      " def stage_action_plan(record):",
+      "     routes = dict(record.get('allowed_routes', {}))",
+      "     requested = str(record.get('requested_action', ''))",
+      "-    return {'requested': requested, 'route': routes.get(requested), 'fallback': None}",
+      "+    fallback = record.get('preview_route') if record.get('preview') is True else None",
+      "+    return {'requested': requested, 'route': routes.get(requested), 'fallback': fallback}",
+      " ",
+      " def finalize_action_plan(staged):",
+      "-    route = staged.get('route')",
+      "+    route = staged.get('route') or staged.get('fallback')",
+      "     decision = 'allowed' if route is not None else 'blocked'",
+      "     return {'decision': decision, 'route': route}"
+    ],
+    "language": "python",
+    "source": "def stage_action_plan(record):\n    routes = dict(record.get('allowed_routes', {}))\n    requested = str(record.get('requested_action', ''))\n    fallback = record.get('preview_route') if record.get('preview') is True else None\n    return {'requested': requested, 'route': routes.get(requested), 'fallback': fallback}\n\ndef finalize_action_plan(staged):\n    route = staged.get('route') or staged.get('fallback')\n    decision = 'allowed' if route is not None else 'blocked'\n    return {'decision': decision, 'route': route}\n"
+  },
+  "current_sha256": "1d9cd8c4a6f2e39bf323fc1e74627d36be40a84518c7b716bc9975dbb8e76159"
+}

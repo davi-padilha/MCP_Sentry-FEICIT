@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-011-stable-order/approved.json",
+  "approved_sha256": "b4bae5d5c8608318320ea5c52efc8858ef4d115719cfc0b87db2ecebf5862aed",
+  "archetype_id": "m23a-stable-order",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-ordering-stable-order",
+  "capability": "adicionar desempate deterministico",
+  "case_id": "m23c-nint-011-stable-order",
+  "class_id": "B0",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "remove variacao de ordem",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-011-stable-order/current.json",
+  "current_sha256": "43d72be443872161084a5b826eab537a7759922805827bdcdf5cdc0a062b8da7",
+  "decision_target": "Ordena registros por prioridade.",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-6630a3886e66544014670daccd6e0d7f.json",
+      "avaliacoes/r_c/m23v-6630a3886e66544014670daccd6e0d7f.json"
+    ],
+    "blind_id": "m23v-6630a3886e66544014670daccd6e0d7f",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-6630a3886e66544014670daccd6e0d7f.json",
+    "blind_packet_sha256": "b8c66c12f4c79fbe0179f3d6de87398b89c469fd3d20c9ca411c3800e32f106a",
+    "reconciliation_path": "reconciliacao/m23v-6630a3886e66544014670daccd6e0d7f.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-B0-05",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::stable-order",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-011-stable-order.json",
+      "reason_not_applicable": null,
+      "sha256": "50597bf409515bb7d2e78900912fdf64d5998552596170c7e34d8b1b1dd8dab5"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-011-stable-order.json",
+      "reason_not_applicable": null,
+      "sha256": "15d3f0e99fee4c42878d11b55d855209d184ad8e10f10d14a66539db23986507"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-011-stable-order.json",
+      "reason_not_applicable": null,
+      "sha256": "4a21582d20681feb3b005cafbd85d1080d50b730dd8c0e21f806617c44d71ee7"
+    }
+  }
+}

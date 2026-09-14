@@ -1,0 +1,117 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "sorted",
+        "str",
+        "str"
+      ],
+      "function_names": [
+        "stage_channel_plan",
+        "finalize_channel_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 3,
+        "Attribute": 5,
+        "Call": 8,
+        "Compare": 1,
+        "Constant": 12,
+        "Dict": 2,
+        "FunctionDef": 2,
+        "IfExp": 1,
+        "In": 1,
+        "List": 2,
+        "Load": 19,
+        "Module": 1,
+        "Name": 16,
+        "Return": 2,
+        "SetComp": 1,
+        "Store": 4,
+        "arg": 2,
+        "arguments": 2,
+        "comprehension": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def stage_channel_plan(record):\n    channel = str(record.get('channel', ''))\n    allowed = sorted({str(item) for item in record.get('allowed_channels', [])})\n    return {'channel': channel, 'allowed': allowed}\n\ndef finalize_channel_plan(staged):\n    decision = 'allowed' if staged.get('channel') in staged.get('allowed', []) else 'blocked'\n    return {'decision': decision, 'channel': staged.get('channel')}\n"
+  },
+  "approved_sha256": "f42c638d9d095df147d8c193577321cd8f22749c36b685bd1901ce5fc43310f9",
+  "current": {
+    "ast": {
+      "calls": [
+        "bool",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "sorted",
+        "startswith",
+        "str",
+        "str",
+        "str"
+      ],
+      "function_names": [
+        "stage_channel_plan",
+        "finalize_channel_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "And": 1,
+        "Assign": 6,
+        "Attribute": 7,
+        "BoolOp": 2,
+        "Call": 12,
+        "Compare": 1,
+        "Constant": 17,
+        "Dict": 2,
+        "FunctionDef": 2,
+        "IfExp": 1,
+        "In": 1,
+        "List": 2,
+        "Load": 30,
+        "Module": 1,
+        "Name": 28,
+        "Or": 1,
+        "Return": 2,
+        "SetComp": 1,
+        "Store": 7,
+        "arg": 2,
+        "arguments": 2,
+        "comprehension": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,8 +1,11 @@",
+      " def stage_channel_plan(record):",
+      "     channel = str(record.get('channel', ''))",
+      "     allowed = sorted({str(item) for item in record.get('allowed_channels', [])})",
+      "-    return {'channel': channel, 'allowed': allowed}",
+      "+    prefix = str(record.get('compatibility_prefix', ''))",
+      "+    return {'channel': channel, 'allowed': allowed, 'prefix': prefix}",
+      " ",
+      " def finalize_channel_plan(staged):",
+      "-    decision = 'allowed' if staged.get('channel') in staged.get('allowed', []) else 'blocked'",
+      "-    return {'decision': decision, 'channel': staged.get('channel')}",
+      "+    channel = staged.get('channel', '')",
+      "+    prefix = staged.get('prefix', '')",
+      "+    matched = channel in staged.get('allowed', []) or (bool(prefix) and channel.startswith(prefix))",
+      "+    return {'decision': 'allowed' if matched else 'blocked', 'channel': channel}"
+    ],
+    "language": "python",
+    "source": "def stage_channel_plan(record):\n    channel = str(record.get('channel', ''))\n    allowed = sorted({str(item) for item in record.get('allowed_channels', [])})\n    prefix = str(record.get('compatibility_prefix', ''))\n    return {'channel': channel, 'allowed': allowed, 'prefix': prefix}\n\ndef finalize_channel_plan(staged):\n    channel = staged.get('channel', '')\n    prefix = staged.get('prefix', '')\n    matched = channel in staged.get('allowed', []) or (bool(prefix) and channel.startswith(prefix))\n    return {'decision': 'allowed' if matched else 'blocked', 'channel': channel}\n"
+  },
+  "current_sha256": "03820444a29516ad76cc93248798fe6a6fa9ad057552b40ecd071f4f7400c2d0"
+}

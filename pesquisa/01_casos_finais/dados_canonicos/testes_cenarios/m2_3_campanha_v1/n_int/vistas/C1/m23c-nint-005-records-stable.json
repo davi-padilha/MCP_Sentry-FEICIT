@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Ordena registros pelo identificador.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "records"
+      ],
+      "type": "object"
+    },
+    "name": "ordered_records"
+  },
+  "approved_sha256": "862ecfc429554cb4a7ee0de4b8b703f003473a748db2e3d76ff9f997ee67c9f3",
+  "current": {
+    "description": "Ordena registros pelo identificador.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "records"
+      ],
+      "type": "object"
+    },
+    "name": "ordered_records"
+  },
+  "current_sha256": "862ecfc429554cb4a7ee0de4b8b703f003473a748db2e3d76ff9f997ee67c9f3"
+}

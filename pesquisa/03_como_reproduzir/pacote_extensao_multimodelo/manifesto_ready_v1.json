@@ -1,0 +1,114 @@
+{
+  "budget_proposal": {
+    "estimated_usd": "3.35",
+    "hard_cap_maximum_usd": "14.00",
+    "operational_reserve_usd": "7.00"
+  },
+  "counts": {
+    "pairs": 450,
+    "positions": 3,
+    "primary_units": 900,
+    "r3_theoretical_max": 450
+  },
+  "gates": {
+    "campaign_authorized": false,
+    "credential_access_allowed": false,
+    "network_allowed": false
+  },
+  "independent_preflight_review": "APTO_P0_0_P1_0_P2_0",
+  "interpretation_commit": "2d821246e8827e6f10931784f57512ffe37417b5",
+  "package_id": "m2_3_extensao_multimodelo_v1_ready",
+  "pinned_artifacts": [
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_candidate/manifesto_extensao_v1.json",
+      "sha256": "f85d1e375045a8d775f64e96036f64204d7ce1115937a7f5e02457f460560777"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_candidate/config/modelos_posicoes_extensao_v1.json",
+      "sha256": "3b35012031f4a6baf25565b1bd983caea4b5a59c8c3c7fbe7f6a747b5b4679a4"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_candidate/agenda/agenda_extensao_v1.json",
+      "sha256": "98da215ad33d6a2531ed14ecb058d200ec42d0b8826784e4862ff535505c1a63"
+    },
+    {
+      "path": "baterias_finais/m2_3_pre_congelamento_v1/instrumento/prompt_sistema_v1.txt",
+      "sha256": "2ccd04fde70023be297379a3989b0b4c09fb9ec97a779addec59e7890d3db905"
+    },
+    {
+      "path": "baterias_finais/m2_3_pre_congelamento_v1/instrumento/schema_resposta_v1.json",
+      "sha256": "5a50514bae2bcfd9dc7a8b256f8a3d507fd59589c801bb0aec7ab1e6c3898258"
+    },
+    {
+      "path": "logs_resultados/evidencias/m2_3_extension_preflight_20260911_100254/authorization.json",
+      "sha256": "92e0d6ed0c6591cd03988b31788829c5ca307548af836f10e33d56d4e38c3a71"
+    },
+    {
+      "path": "logs_resultados/evidencias/m2_3_extension_preflight_20260911_100254/intencoes_preflight.jsonl",
+      "sha256": "5ec52d6f2eae47727aacf3687256c351798b3d30dc8248a38dd180b5de4b7350"
+    },
+    {
+      "path": "logs_resultados/evidencias/m2_3_extension_preflight_20260911_100254/registros_preflight.jsonl",
+      "sha256": "4e4d176699d8122a74794c6cc81f958ff3eb110dc72524186c14fe52a318f56c"
+    },
+    {
+      "path": "logs_resultados/evidencias/m2_3_extension_preflight_20260911_100254/fechamento_preflight.jsonl",
+      "sha256": "423a9a57c71743dac96ab2e7e34742e2c4041815df9572134d94fdd32000e216"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_ready/config/identidades_efetivas_v1.json",
+      "sha256": "6cd88fbb4239528bd2c1c3d90391e2a082a57abda4f038f36c377b0788f5b768"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_ready/contrato_analitico_v1.json",
+      "sha256": "64aab9b8251aa7fa871b90fd9899be65931ac90ad298846d86d53b0f046cc61c"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_ready/schemas/autorizacao_campanha_extensao_v1.json",
+      "sha256": "2b6179b25c4a5784f22d7dc521497e9f6cba6eea55ff2fcfa74177bdcf489dc4"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_ready/schemas/registros_campanha_extensao_v1.json",
+      "sha256": "a9318bcdf23dc1be42586bbbb8fc25523356df7aa51642463aedb9c84376a6c0"
+    },
+    {
+      "path": "baterias_finais/m2_3_extensao_multimodelo_v1_ready/source_set_v1.json",
+      "sha256": "9c64ebbdf8a5972c312277fbc3e0363413437d13d1f40e38fc0c926ee02062a6"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/__init__.py",
+      "sha256": "3079ac2e2c8c3da05178509804d27cfea547fb3f008779ab8ed2cbd270e88ece"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/offline.py",
+      "sha256": "845c63b2bb0f67b59a1c455f587db1b541b99c33a37c13ac1b3053964907c278"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/preflight_runner.py",
+      "sha256": "19f8571406542745b3dc249a4fa8162126414facc8f656df18861dcf2839ab61"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/campaign.py",
+      "sha256": "4d2578646dcd0be10546da226f547dca0543a10a9a47f3e43e680d5abcb8e19c"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/verify_campaign.py",
+      "sha256": "920217cb58b61b5f2edd47adf970033bb5ce22ebd9292c7c9032eaa7cb0a353d"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/campaign_visible.ps1",
+      "sha256": "5304d1722859057549ca63ab9b49095a39482e3128814ec5778c6cb94e7f106b"
+    },
+    {
+      "path": "tools/m2_3_extensao_multimodelo_v1/test_campaign.py",
+      "sha256": "64efdc20f3204ae6912fa31e81ae784be16235d2b8d2349a0ef31ca0687b7e68"
+    }
+  ],
+  "preflight_effective_decision": "GO",
+  "preflight_raw_status": "GO_PENDING_INDEPENDENT_REVIEW",
+  "preflight_run_id": "m2_3_extension_preflight_20260911_100254",
+  "schema_version": "m2_3_extension_ready_manifest_v1",
+  "source_candidate_commit": "fce9306e72c2cd1c9ae0b1502aa07b90b584c03a",
+  "status": "READY_OFFLINE_CAMPAIGN_NOT_AUTHORIZED",
+  "tested_execution_commit": "7893a51564ebed5096769c9f5d2b578226d8f056"
+}

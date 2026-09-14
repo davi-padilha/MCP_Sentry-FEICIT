@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Combina dois valores inteiros.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "type": "object"
+    },
+    "name": "combine_values"
+  },
+  "approved_sha256": "72814f0afb8feefbb7e5769b1ec3f2c2dbb34d7ab6f9e7e3c5af4a041415100b",
+  "current": {
+    "description": "Combina dois valores inteiros.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "a": {
+          "type": "integer"
+        },
+        "b": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "type": "object"
+    },
+    "name": "combine_values"
+  },
+  "current_sha256": "72814f0afb8feefbb7e5769b1ec3f2c2dbb34d7ab6f9e7e3c5af4a041415100b"
+}

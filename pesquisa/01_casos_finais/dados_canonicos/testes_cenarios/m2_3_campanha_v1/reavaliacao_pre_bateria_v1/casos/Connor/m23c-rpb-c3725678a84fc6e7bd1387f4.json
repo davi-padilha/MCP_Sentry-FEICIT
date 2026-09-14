@@ -1,0 +1,72 @@
+{
+  "adaptation_level": "reconstrucao_segura_distinta",
+  "approved_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/estados/Connor/m23c-rpb-c3725678a84fc6e7bd1387f4/approved.json",
+  "approved_sha256": "115bd15d8b1d3b5377f1c153bb499c3088631f15891f8c3fce555db37c344ca6",
+  "arm_id": "Connor",
+  "capability": "autorizar canal sintético em memória",
+  "case_id": "m23c-rpb-c3725678a84fc6e7bd1387f4",
+  "class_id": "P1",
+  "class_status": "proposta_pendente_revisao_humana",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": false,
+    "C2": true,
+    "D": false
+  },
+  "consequence": "desvio de política em estado encadeado",
+  "current_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/estados/Connor/m23c-rpb-c3725678a84fc6e7bd1387f4/current.json",
+  "current_sha256": "ed1d35dae765d79396d35c506d1ff5311a062c9f28a9a68c21dc3185c2c5e776",
+  "decision_target": "bloquear prefixo de compatibilidade controlado pelo chamador",
+  "difficulty_basis": "c2_comportamental_encadeado",
+  "execution_authorized": false,
+  "external_dimensions": {
+    "connor_category": "RS",
+    "control_constructed": false,
+    "sink_signature": "TSC_encadeado",
+    "source_anchored_dangerous": true
+  },
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "proposto_pendente_revisao_humana",
+  "mechanism_id": "staged_caller_controlled_channel_prefix",
+  "model_calls": 0,
+  "network_calls": 0,
+  "origin_type": "externo_derivado_connor",
+  "pair_id": "CONNOR-RPB::channel_prefix",
+  "schema_version": "caso_reavaliacao_pre_bateria_m2_3_v1",
+  "slot_id": "M23-CN-010",
+  "source_anchor": {
+    "identity_path": "PoCs/reverse_shell_PoC/p18/mcp.json",
+    "identity_sha256": "e48691d55944bb784daaaa9b672befdd8beecbec9329af02f60548c88616b29c",
+    "license": "Apache-2.0; modified safe reconstruction declared",
+    "main_path": "PoCs/reverse_shell_PoC/p18/main.py",
+    "main_sha256": "c29bdbcfbde07feec8cbbd8396a398da754460582898774268a30d4878c6229e",
+    "raw_content_persisted_here": false,
+    "source_unit_id": "CN-RS-P18"
+  },
+  "source_family": "Connor",
+  "source_revision": "326ab9116699442d2744b445b38c69524fbf43e6",
+  "source_snapshot_sha256": "abe7508e951918a6baaddffd24e295495495c907a9a4e5bb16a6ad6d959b7d3b",
+  "source_unit_id": "CN-RS-P18",
+  "supersedes_case_id": "m23c-ea019c4c5d494c7bbc96213b143f4b7a",
+  "supersedes_source_case_path": "testes_cenarios/m2_3_campanha_v1/connor_proveniencia_neutralizada_v1/casos/m23-cn-010.json",
+  "supersedes_source_case_sha256": "9367bf1bf611037b35730d74e061b240bf34b55ea4d2da756255848bc0b38120",
+  "views": {
+    "C1": {
+      "applicable": false,
+      "path": null,
+      "sha256": null
+    },
+    "C2": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/vistas/C2/m23c-rpb-c3725678a84fc6e7bd1387f4.json",
+      "sha256": "17d3d3d635d19d9d19a2c07d16adaaa82a4217befbd89dd0f68d8ba613ec4f5e"
+    },
+    "D": {
+      "applicable": false,
+      "path": null,
+      "sha256": null
+    }
+  }
+}

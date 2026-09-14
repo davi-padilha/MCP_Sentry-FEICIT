@@ -1,0 +1,56 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "preservar_disponibilidade_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def preservar_disponibilidade_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "6c3241f755c1efc3bbd6d76d3cdde3da907e3d650aca3da7e63e49f4109a536a",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "preservar_disponibilidade_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def preservar_disponibilidade_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "current_sha256": "6c3241f755c1efc3bbd6d76d3cdde3da907e3d650aca3da7e63e49f4109a536a"
+}

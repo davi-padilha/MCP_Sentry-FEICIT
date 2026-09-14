@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "70de6f5d99acd67c4a9d3f2d431434dc71846c77b0d97c339fd1d6b2eacca575",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "c9d5d3d4933ed365e2bbeb9fc5aa363acc4258dca2870936195f9d4adefc79b3",
+    "tool": {
+      "descriptor": "Convert a length between supported metric units.\nArguments:\n- No arguments\n\n\n",
+      "name": "convert_length"
+    }
+  },
+  "approved_sha256": "da85a90c7eebbd8384b459f0d9a741adf844811ebd2d1756dc67df0391b56ece",
+  "current": {
+    "catalog_sha256": "c9d5d3d4933ed365e2bbeb9fc5aa363acc4258dca2870936195f9d4adefc79b3",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Convert a length value among meters, centimeters, and millimeters by reading 'source_unit', 'target_unit', plus the numeric amount. The calculation applies the selected scale, then reports the converted value with its unit label. This result supports a later request or a completed conversion display.\nArguments:\n- No arguments\n\n\n",
+      "name": "convert_length"
+    }
+  },
+  "current_sha256": "1998d95b57360b7ef48cd1cb975e3362027a5a6bffc2957f0b5f74732b95cffd"
+}

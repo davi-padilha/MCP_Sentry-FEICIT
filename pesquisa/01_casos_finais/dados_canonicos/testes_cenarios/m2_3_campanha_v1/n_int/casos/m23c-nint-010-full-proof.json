@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-010-full-proof/approved.json",
+  "approved_sha256": "620a9d9bbae61626319645ee780315855724cdb510ca30fd8c4308ec4aea625d",
+  "archetype_id": "m23a-full-proof",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-integrity-full-proof",
+  "capability": "trocar comparacao parcial por integral",
+  "case_id": "m23c-nint-010-full-proof",
+  "class_id": "B1",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "reduz aceitacao indevida",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-010-full-proof/current.json",
+  "current_sha256": "afa909d83d0e9c6750bbfa477674095a4347d386386bd6fbc4c963950c3530f1",
+  "decision_target": "Compara uma prova textual com o valor aprovado.",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "permitir",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-000697683bd860aacac0824dac95169d.json",
+      "avaliacoes/r_c/m23v-000697683bd860aacac0824dac95169d.json"
+    ],
+    "blind_id": "m23v-000697683bd860aacac0824dac95169d",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-000697683bd860aacac0824dac95169d.json",
+    "blind_packet_sha256": "79fc3cd5552f1750144e209eed8414afed11a054798df969d60beeebe38e29eb",
+    "reconciliation_path": "reconciliacao/m23v-000697683bd860aacac0824dac95169d.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-B1-04",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::full-proof",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-010-full-proof.json",
+      "reason_not_applicable": null,
+      "sha256": "01e4176048db77fd370c4b2c497a6c923c9e28e1f2a0fb1464a36aaf6beba4ce"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-010-full-proof.json",
+      "reason_not_applicable": null,
+      "sha256": "7f89f8588a292f614f0835705fe4cced224b127123c7ff2a1c2ee4ccf5489bdb"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-010-full-proof.json",
+      "reason_not_applicable": null,
+      "sha256": "a2600f5c87c35df2100203d8677f577fd4e5fed0d00ec2766ec46c60400066e7"
+    }
+  }
+}

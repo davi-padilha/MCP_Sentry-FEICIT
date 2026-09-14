@@ -1,0 +1,32 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='mean_value',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=BinOp(\n            left=Call(\n              func=Name(id='sum', ctx=Load()),\n              args=[\n                Name(id='values', ctx=Load())],\n              keywords=[]),\n            op=Div(),\n            right=Call(\n              func=Name(id='len', ctx=Load()),\n              args=[\n                Name(id='values', ctx=Load())],\n              keywords=[])))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def mean_value(values: list):\n    return sum(values) / len(values)\n"
+  },
+  "approved_sha256": "5210231abc4ce2bb18ca38443501d825565ecba256ebbdd041652e49b49bc14d",
+  "current": {
+    "ast_diff_from_approved": [
+      "--- approved_ast",
+      "+++ current_ast",
+      "@@ -12,6 +12,14 @@",
+      "         kw_defaults=[],",
+      "         defaults=[]),",
+      "       body=[",
+      "+        If(",
+      "+          test=UnaryOp(",
+      "+            op=Not(),",
+      "+            operand=Name(id='values', ctx=Load())),",
+      "+          body=[",
+      "+            Return(",
+      "+              value=Constant(value=None))],",
+      "+          orelse=[]),",
+      "         Return(",
+      "           value=BinOp(",
+      "             left=Call("
+    ],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='mean_value',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        If(\n          test=UnaryOp(\n            op=Not(),\n            operand=Name(id='values', ctx=Load())),\n          body=[\n            Return(\n              value=Constant(value=None))],\n          orelse=[]),\n        Return(\n          value=BinOp(\n            left=Call(\n              func=Name(id='sum', ctx=Load()),\n              args=[\n                Name(id='values', ctx=Load())],\n              keywords=[]),\n            op=Div(),\n            right=Call(\n              func=Name(id='len', ctx=Load()),\n              args=[\n                Name(id='values', ctx=Load())],\n              keywords=[])))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def mean_value(values: list):\n    if not values:\n        return None\n    return sum(values) / len(values)\n"
+  },
+  "current_sha256": "51a2a39dca04686f9a80b9d385950fa5ee771aeb5ce00ad052ef16020452507b"
+}

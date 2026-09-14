@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-023-owner-overwrite/approved.json",
+  "approved_sha256": "42e174f440eedf03a310f6ad31e3ae43ff12874b09aceecdc3c350ec53157872",
+  "archetype_id": "m23a-owner-overwrite",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-mutation-owner-overwrite",
+  "capability": "aplicar mudancas sem filtrar chaves",
+  "case_id": "m23c-nint-023-owner-overwrite",
+  "class_id": "P0",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "campos protegidos podem ser substituidos",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-023-owner-overwrite/current.json",
+  "current_sha256": "793c2531aa61981ed81be25f5b09764581c10060fbaa3921c38d0ec67c825fec",
+  "decision_target": "Atualiza campos editaveis de um registro.",
+  "difficulty_basis": "c2_comportamental",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_reveladora",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-286e8dc30a695e444eca94fa65cb3ef1.json",
+      "avaliacoes/r_c/m23v-286e8dc30a695e444eca94fa65cb3ef1.json"
+    ],
+    "blind_id": "m23v-286e8dc30a695e444eca94fa65cb3ef1",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-286e8dc30a695e444eca94fa65cb3ef1.json",
+    "blind_packet_sha256": "93548a6bfab7a1f51ebacdac442839da9bf8b7a8d7347636a56dad174220c50d",
+    "reconciliation_path": "reconciliacao/m23v-286e8dc30a695e444eca94fa65cb3ef1.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-P0-05",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::owner-overwrite",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-023-owner-overwrite.json",
+      "reason_not_applicable": null,
+      "sha256": "af09b0c1142df166269b7ccd61a20fc572e76d26e20db8b04bbee1b9a31ad64b"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-023-owner-overwrite.json",
+      "reason_not_applicable": null,
+      "sha256": "4605975eba8de4f907babc8af2db03701f59ddf56b86b64ed1ed7ea521145ac5"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-023-owner-overwrite.json",
+      "reason_not_applicable": null,
+      "sha256": "e55fb8a2aabb7f744ff238a152e5216a54f02f4d9c30d91bd6f525b0fe65f6af"
+    }
+  }
+}

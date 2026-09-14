@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Configuracoes e credenciais locais
+.env
+*.token.json
+token.json
+credentials.json
+credentials*.json
+client_secret.json
+client_secret*.json
+runtime/
+local_data/

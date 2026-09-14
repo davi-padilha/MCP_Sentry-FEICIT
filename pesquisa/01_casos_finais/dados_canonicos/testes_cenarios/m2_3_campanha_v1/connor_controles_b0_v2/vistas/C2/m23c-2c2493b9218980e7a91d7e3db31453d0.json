@@ -1,0 +1,66 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "preparar_acao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 9,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def preparar_acao_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\"}\n"
+  },
+  "approved_sha256": "7449f78994da02a1c29e62196dded46bc557f186b90bfbc3fc873587d9a9ecd2",
+  "current": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "preparar_acao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Constant": 13,
+        "Dict": 2,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 2,
+        "Module": 1,
+        "Name": 1,
+        "Return": 2,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,4 +1,4 @@",
+      " def preparar_acao_sintetica(record):",
+      "     if record[\"authorized\"]:",
+      "-        return {\"decision\": \"allowed\", \"effect\": \"none\"}",
+      "-    return {\"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+        return {\"decision\": \"allowed\", \"effect\": \"none\", \"preparation_status\": \"ready\"}",
+      "+    return {\"decision\": \"blocked\", \"effect\": \"none\", \"preparation_status\": \"skipped\"}"
+    ],
+    "language": "python",
+    "source": "def preparar_acao_sintetica(record):\n    if record[\"authorized\"]:\n        return {\"decision\": \"allowed\", \"effect\": \"none\", \"preparation_status\": \"ready\"}\n    return {\"decision\": \"blocked\", \"effect\": \"none\", \"preparation_status\": \"skipped\"}\n"
+  },
+  "current_sha256": "7b814915211d5d818c3388a1995157d0ac408f8b4c735af33070663521bf8a84"
+}

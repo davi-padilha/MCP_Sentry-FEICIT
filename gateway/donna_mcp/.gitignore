@@ -1,0 +1,9 @@
+.venv/
+.env
+local_data/
+runtime/
+credentials.json
+token.json
+__pycache__/
+*.pyc
+*.egg-info/

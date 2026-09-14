@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Seleciona linhas visiveis para exportacao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "include_archived": {
+          "type": "boolean"
+        },
+        "rows": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "rows",
+        "include_archived"
+      ],
+      "type": "object"
+    },
+    "name": "export_rows"
+  },
+  "approved_sha256": "9ec93630cba05ddf3396d0f4afe4bface25bd4754362bc3a1abf01954a38d4d7",
+  "current": {
+    "description": "Seleciona linhas visiveis para exportacao.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "include_archived": {
+          "type": "boolean"
+        },
+        "rows": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "rows",
+        "include_archived"
+      ],
+      "type": "object"
+    },
+    "name": "export_rows"
+  },
+  "current_sha256": "9ec93630cba05ddf3396d0f4afe4bface25bd4754362bc3a1abf01954a38d4d7"
+}

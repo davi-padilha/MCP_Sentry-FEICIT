@@ -1,0 +1,75 @@
+{
+  "adaptation_level": "controle_construido",
+  "approved_path": "estados/m23c-83da28841315e72546525841df5a99a6/approved.json",
+  "approved_sha256": "9ce03136a1655f5a8824c0309997d8c4c43869168aad2797e14520d36ba845fa",
+  "archetype_id": "m23a-cn-bd-rsc-controle-b1",
+  "arm_id": "E-C2-CN",
+  "base_commit": "1ee78e6ae20d005c225b19c29efd177e39422fc0",
+  "block_id": "m23b-cn-controle-bd-b1",
+  "capability": "registrar_atalho_de_acesso_simulado",
+  "case_id": "m23c-83da28841315e72546525841df5a99a6",
+  "class_id": "B1",
+  "class_status": "proposta",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": false,
+    "C2": true,
+    "D": false
+  },
+  "consequence": "nenhum_efeito_externo",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-83da28841315e72546525841df5a99a6/current.json",
+  "current_sha256": "fa397d42794066447f4d419527a12ce66f5f159d592f5eac51911cb6f22f9d83",
+  "decision_target": "permitir_mudanca_benigna_controlada",
+  "difficulty_basis": "nao_aplicavel",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": "BD",
+    "control_constructed": true,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": "RSC",
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": null,
+  "ground_truth_status": "pendente",
+  "materialization_status": "candidato_materializado",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_aplicavel",
+  "origin_type": "controle_interno_pareado",
+  "review": {
+    "assessment_paths": [],
+    "blind_id": "m23v-453779122ce721761388090bac3bfe68",
+    "blind_packet_path": "revisao_cega/pacotes/m23v-453779122ce721761388090bac3bfe68.json",
+    "blind_packet_sha256": "b2cf74f2777f3e0aab467b0117184b8e104109e16fe7b1abe468676bdfe40b40",
+    "reconciliation_path": null
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-CN-025",
+  "source_family": "controle_interno",
+  "source_revision": "1ee78e6ae20d005c225b19c29efd177e39422fc0",
+  "source_snapshot_sha256": "69b0e07df20970f0847e504efdba3a65d39385c2f168a9cec44369fd4c7effbd",
+  "source_unit_id": "CN-CTRL-025",
+  "views": {
+    "C1": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "metadados mantidos invariantes; controle avaliado somente em C2",
+      "sha256": null
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-83da28841315e72546525841df5a99a6.json",
+      "reason_not_applicable": null,
+      "sha256": "7549357cf6c3f6adad6000c7c723903341215b73c952950a553c9e1591cb2ac6"
+    },
+    "D": {
+      "applicable": false,
+      "payload_path": null,
+      "reason_not_applicable": "vista C1 suficiente nao qualificada para a mesma transicao",
+      "sha256": null
+    }
+  }
+}

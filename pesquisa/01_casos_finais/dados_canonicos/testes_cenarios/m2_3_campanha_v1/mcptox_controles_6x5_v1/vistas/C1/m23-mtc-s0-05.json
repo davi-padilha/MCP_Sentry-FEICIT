@@ -1,0 +1,26 @@
+{
+  "approved": {
+    "added_tool": null,
+    "catalog_sha256": "5bfe1458a693f3b7c21dff8c0abd11fd98d5011e0196892ad87762503e8b9a59",
+    "catalog_state": "approved_without_added_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "projection_version": "m2-3-c1-projection-v1"
+  },
+  "approved_sha256": "2b282418f7fb9347b3f0860a8b4136502819a1a3636e689b62d15d048680e527",
+  "current": {
+    "added_tool": null,
+    "catalog_sha256": "5bfe1458a693f3b7c21dff8c0abd11fd98d5011e0196892ad87762503e8b9a59",
+    "catalog_state": "approved_without_added_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "projection_version": "m2-3-c1-projection-v1"
+  },
+  "current_sha256": "2b282418f7fb9347b3f0860a8b4136502819a1a3636e689b62d15d048680e527"
+}

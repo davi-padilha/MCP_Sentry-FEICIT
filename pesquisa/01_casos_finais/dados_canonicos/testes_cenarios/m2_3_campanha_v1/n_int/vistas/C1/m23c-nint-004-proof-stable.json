@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Compara uma prova textual com o valor aprovado.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "proof",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "proof_matches"
+  },
+  "approved_sha256": "b678b0b324ebd7b30c16574bca24ced18fed536bac5bf6e357f4680aa9893fad",
+  "current": {
+    "description": "Compara uma prova textual com o valor aprovado.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved": {
+          "type": "string"
+        },
+        "proof": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "proof",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "proof_matches"
+  },
+  "current_sha256": "b678b0b324ebd7b30c16574bca24ced18fed536bac5bf6e357f4680aa9893fad"
+}

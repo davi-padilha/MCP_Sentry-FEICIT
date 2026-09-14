@@ -1,0 +1,176 @@
+{
+  "base_commit_materializacao_combinada": "d57493f8e0525fd8be690af357cd018a13ab22cf",
+  "counts": {
+    "admitted_B0": 6,
+    "assessments": 12,
+    "concordances": 6,
+    "frozen": 0,
+    "losses": 0,
+    "official_selected": 30,
+    "preserved_arm_artifacts": 36,
+    "source_returns": 2,
+    "unresolved": 0
+  },
+  "evidence_cutoff_utc": "2026-08-12T17:15:16Z",
+  "model_or_payload_execution": false,
+  "official_composition": {
+    "B0": [
+      "M23-CN-031",
+      "M23-CN-032",
+      "M23-CN-033",
+      "M23-CN-034",
+      "M23-CN-035",
+      "M23-CN-036"
+    ],
+    "B1": [
+      "M23-CN-025",
+      "M23-CN-026",
+      "M23-CN-027",
+      "M23-CN-028",
+      "M23-CN-029",
+      "M23-CN-030"
+    ],
+    "P0": [
+      "M23-CN-001",
+      "M23-CN-004",
+      "M23-CN-006",
+      "M23-CN-008",
+      "M23-CN-009",
+      "M23-CN-011"
+    ],
+    "P1": [
+      "M23-CN-002",
+      "M23-CN-003",
+      "M23-CN-005",
+      "M23-CN-007",
+      "M23-CN-010",
+      "M23-CN-012",
+      "M23-CN-013",
+      "M23-CN-014",
+      "M23-CN-015",
+      "M23-CN-016",
+      "M23-CN-017",
+      "M23-CN-018"
+    ],
+    "S0_pilot_excluded": [
+      "M23-CN-019",
+      "M23-CN-020",
+      "M23-CN-021",
+      "M23-CN-022",
+      "M23-CN-023",
+      "M23-CN-024"
+    ],
+    "official_selected": [
+      "M23-CN-001",
+      "M23-CN-002",
+      "M23-CN-003",
+      "M23-CN-004",
+      "M23-CN-005",
+      "M23-CN-006",
+      "M23-CN-007",
+      "M23-CN-008",
+      "M23-CN-009",
+      "M23-CN-010",
+      "M23-CN-011",
+      "M23-CN-012",
+      "M23-CN-013",
+      "M23-CN-014",
+      "M23-CN-015",
+      "M23-CN-016",
+      "M23-CN-017",
+      "M23-CN-018",
+      "M23-CN-025",
+      "M23-CN-026",
+      "M23-CN-027",
+      "M23-CN-028",
+      "M23-CN-029",
+      "M23-CN-030",
+      "M23-CN-031",
+      "M23-CN-032",
+      "M23-CN-033",
+      "M23-CN-034",
+      "M23-CN-035",
+      "M23-CN-036"
+    ]
+  },
+  "outcomes": [
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-45c1ba4a9ea72628f9bf6a38a8d7af2f",
+      "case_id": "m23c-a6bdf28882249c0533442ada100d6d2b",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-031"
+    },
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-c93d496e9aae6125b606d6e4b5e39543",
+      "case_id": "m23c-2c2493b9218980e7a91d7e3db31453d0",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-032"
+    },
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-9c91ea9ed1062d38fa9757fa999f1714",
+      "case_id": "m23c-c2f74bae88db0dd897d88e2cc9693106",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-033"
+    },
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-aa92ed75c32be927b849f18eafeb5e17",
+      "case_id": "m23c-6d36f53fcada3e0d9006efd364dc2ce9",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-034"
+    },
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-76c3a35d42231eeacb552092f7e5a77c",
+      "case_id": "m23c-1a30e5e6ece7d2dbc06ebad84c0cff7e",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-035"
+    },
+    {
+      "admission_status": "admitido_por_concordancia_literal",
+      "blind_id": "m23v-4ef9442ce3b580761b89292c8460e942",
+      "case_id": "m23c-82678152282db7c78531213bbd4ee37f",
+      "final_class_human": "B0",
+      "final_eligibility": "elegivel",
+      "final_ground_truth": "permitir",
+      "frozen": false,
+      "slot_id": "M23-CN-036"
+    }
+  ],
+  "result_layer_status": "aditiva_nao_congelada",
+  "review_limitation": "R-A_e_R-B_tambem_participaram_do_piloto_V1",
+  "schema_version": "manifesto_resultado_humano_connor_controles_b0_v2",
+  "selection_rule": "18_perigosos_mais_6_B1_V1_mais_6_B0_V2_humanamente_admitidos",
+  "source_materialization_manifest": "testes_cenarios/m2_3_campanha_v1/connor_controles_b0_v2/manifestos/manifesto_extensao.json",
+  "source_materialization_manifest_sha256": "d1c4724dc056f5b13927b6a60eb71c6864cb781eeccbee27edce905ff561b1eb",
+  "source_returns": [
+    {
+      "path": "recebidos/revisao_connor_c2_b0_v2_R-A_preenchido.zip",
+      "reviewer_id": "R-A",
+      "sha256": "09474b094a10e8d7f0bc7b8c018b20a03ea6ac5bb296e614b07d8ba60dfd9097"
+    },
+    {
+      "path": "recebidos/revisao_connor_c2_b0_v2_R-B_preenchido.zip",
+      "reviewer_id": "R-B",
+      "sha256": "e4e76ab9e42c9f33887bab25329f191bddfaffcabd358540d886a048826d05af"
+    }
+  ]
+}

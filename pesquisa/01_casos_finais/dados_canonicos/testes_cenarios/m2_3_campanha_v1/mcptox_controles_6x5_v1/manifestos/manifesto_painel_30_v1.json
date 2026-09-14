@@ -1,0 +1,868 @@
+{
+  "attack_records": [
+    {
+      "case_id": "m23c-mt-36d0c5cd3920adb65fad",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-36d0c5cd3920adb65fad.json",
+      "case_sha256": "9ba6d768d046cfaed81606bcb3ec24398b1ea46ae33d6051de7ca4101c4716a4",
+      "class_id": "P1",
+      "slot_id": "M23-MT-001"
+    },
+    {
+      "case_id": "m23c-mt-01795cea7ed00dc495da",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-01795cea7ed00dc495da.json",
+      "case_sha256": "4615a837eee7582d60d1d04d8fec9553b60861f95dbbecc9c177a0f13244a398",
+      "class_id": "P0",
+      "slot_id": "M23-MT-002"
+    },
+    {
+      "case_id": "m23c-mt-01804992df75d334079a",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-01804992df75d334079a.json",
+      "case_sha256": "4f83372e3efbf903c5bf0c444c21ec6079e637a1ea8868b57b095e14eb8b1466",
+      "class_id": "P1",
+      "slot_id": "M23-MT-003"
+    },
+    {
+      "case_id": "m23c-mt-06a17aedab0e1caeaf6b",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-06a17aedab0e1caeaf6b.json",
+      "case_sha256": "0693cc4958075d191abc80555495c2c96d47846c6c404c29fe6751ac110b289a",
+      "class_id": "P1",
+      "slot_id": "M23-MT-004"
+    },
+    {
+      "case_id": "m23c-mt-1af695b9f42cfecb436a",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-1af695b9f42cfecb436a.json",
+      "case_sha256": "e16a1854a935db5a8072317ab75fc6eea8419647ee41af3e8f37e070ac877c46",
+      "class_id": "P1",
+      "slot_id": "M23-MT-005"
+    },
+    {
+      "case_id": "m23c-mt-237c0e34cff1b2bd70a8",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-237c0e34cff1b2bd70a8.json",
+      "case_sha256": "3dcc38929705c97f2ca455a32fdd08cbbf442b9f4afd3c2530e17b26ccd01948",
+      "class_id": "P1",
+      "slot_id": "M23-MT-007"
+    },
+    {
+      "case_id": "m23c-mt-2240d87cbe0fd86ec7db",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-2240d87cbe0fd86ec7db.json",
+      "case_sha256": "2b7fda3fdf87ed437dc7669b33ef0712048102d1e536423c0941b8f02a238132",
+      "class_id": "P0",
+      "slot_id": "M23-MT-010"
+    },
+    {
+      "case_id": "m23c-mt-06e807766773b4635bf6",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-06e807766773b4635bf6.json",
+      "case_sha256": "a99d813b45fa3cd934bfa9b19073d9a6e55d42022f8e4e0dcf6f544fbe679fe7",
+      "class_id": "P0",
+      "slot_id": "M23-MT-012"
+    },
+    {
+      "case_id": "m23c-mt-1d817b4df864e0baea65",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-1d817b4df864e0baea65.json",
+      "case_sha256": "c6ed0a58764e493483abf4a2ca4d9236c5e3c201fd79281657cb9bdf980d37e1",
+      "class_id": "P0",
+      "slot_id": "M23-MT-016"
+    },
+    {
+      "case_id": "m23c-mt-15237230468d29776fbe",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-15237230468d29776fbe.json",
+      "case_sha256": "7617f06ab30a3beedca0e39f411955db83be82512b1f833f8ed0c90291c45e47",
+      "class_id": "P0",
+      "slot_id": "M23-MT-020"
+    },
+    {
+      "case_id": "m23c-mt-3d3201265deb371dab20",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-3d3201265deb371dab20.json",
+      "case_sha256": "f1bbf1a106b77b28258d4dd0c4ccba0cc326f051c6d1e0240b5dc29f325f89ec",
+      "class_id": "P0",
+      "slot_id": "M23-MT-023"
+    },
+    {
+      "case_id": "m23c-mt-00ba7c44d2c83caeab5a",
+      "case_path": "testes_cenarios/m2_3_campanha_v1/mcptox/casos/m23c-mt-00ba7c44d2c83caeab5a.json",
+      "case_sha256": "74b490a4878c2a9b5095dde64ce482e187b46021546e5dd7d1c8a287afde5813",
+      "class_id": "P1",
+      "slot_id": "M23-MT-028"
+    }
+  ],
+  "control_records": [
+    {
+      "case_id": "m23c-mtc-27dc9ffa83c81737be2a",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-01.approved.json",
+          "sha256": "92c3e056096cf790734780091e13ea06e873c18a428d4ad46258d811c0a96c3c"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-15b3c8c97f624b4eaf33e3669da53a88.json",
+          "sha256": "d27dc1b0ed34b222392794244dc9a42b2a77600e4ef4a8bfd8a9ddc08b5abfdb"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-01.json",
+          "sha256": "621946250b76b87bb99427a19d39d75dcf8793b8fc42e53986dae3ddfb2f5475"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-01.json",
+          "sha256": "cb00a4fddef0ee36d95bd4ba684fcf55d18beff6b5784759668891e741517076"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-01.current.json",
+          "sha256": "92c3e056096cf790734780091e13ea06e873c18a428d4ad46258d811c0a96c3c"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-15b3c8c97f624b4eaf33e3669da53a88.json",
+          "sha256": "653a33695c22771f952dfe2d0a5c67ab56867db018340b75b10f0a298fbd2b4c"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-15b3c8c97f624b4eaf33e3669da53a88.json",
+          "avaliacoes/R-C/m23v-15b3c8c97f624b4eaf33e3669da53a88.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-01"
+    },
+    {
+      "case_id": "m23c-mtc-9cceeb8d909d9813960f",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-02.approved.json",
+          "sha256": "bfc38dd2f7fbf6a0800abf038880e05eae2a71aa8006777bcbce823c68b95d26"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-b7d0d93d3034c9f8a50e81912d06439a.json",
+          "sha256": "03280cfdc17bf74c7822f48351dee1e3c6af245ae752d08d2116b5d94910b268"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-02.json",
+          "sha256": "295ec2ed0e7e031c673a83e7ba3e27a8652b69f7f37e5423da25fcec5b83e988"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-02.json",
+          "sha256": "0cde1d297a05eaa5ce37405fb5b401c5424aa9c05829ebad66ddf8f7d5cc9ca9"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-02.current.json",
+          "sha256": "bfc38dd2f7fbf6a0800abf038880e05eae2a71aa8006777bcbce823c68b95d26"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-b7d0d93d3034c9f8a50e81912d06439a.json",
+          "sha256": "c89fd7061149d50883a1e1cb5f5b186933eda2f4a6adda1e04e1c5f421f0f640"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-b7d0d93d3034c9f8a50e81912d06439a.json",
+          "avaliacoes/R-C/m23v-b7d0d93d3034c9f8a50e81912d06439a.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-02"
+    },
+    {
+      "case_id": "m23c-mtc-289e9d4631c38277a1e0",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-03.approved.json",
+          "sha256": "cb9c8345e87f0cb462d936fc0b05d80bbce8d8f24ab14975d538c7fe8947e73c"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-7b61d61d03e5e5c15ad166bc2ba04980.json",
+          "sha256": "c788c9efa1db729d7107f173014b0200d1fceabf9e2ddbc3174ef1cb9ff0e79b"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-03.json",
+          "sha256": "1ca84b0b46a1a561c04baa37cc5983f8f465020032b83ca7e0130d25b5f9f6a9"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-03.json",
+          "sha256": "b1b8573a6af7b6c3169e2a2180d326aa86e3a18fc468d4669ed4c267d1d7535b"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-03.current.json",
+          "sha256": "cb9c8345e87f0cb462d936fc0b05d80bbce8d8f24ab14975d538c7fe8947e73c"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-7b61d61d03e5e5c15ad166bc2ba04980.json",
+          "sha256": "bbc736c79213d39597d9c8528a3fa9350805a4f40410fc3213793033f94875d4"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-7b61d61d03e5e5c15ad166bc2ba04980.json",
+          "avaliacoes/R-C/m23v-7b61d61d03e5e5c15ad166bc2ba04980.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-03"
+    },
+    {
+      "case_id": "m23c-mtc-b5f3f57d5962cefe7501",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-04.approved.json",
+          "sha256": "80606ad69955f0787a978e3f9f8528e5e468671dfb580fca132f42839cf29f0f"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-25e05116921cf49b036c1f6979a77dbc.json",
+          "sha256": "0a7770a68e3d669153cd36764501937644d7dd440390b04758484c8ec5651593"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-04.json",
+          "sha256": "e6f22bb64c3082dce3df585c8ec035379090f4bf4f1039fbe8d4c104a60c8522"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-04.json",
+          "sha256": "761ca75b3c1b651d7691d4433cf3a0e7e8485d4534bd633face31d11b51f4a73"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-04.current.json",
+          "sha256": "80606ad69955f0787a978e3f9f8528e5e468671dfb580fca132f42839cf29f0f"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-25e05116921cf49b036c1f6979a77dbc.json",
+          "sha256": "5ae9fea5b400f5c08c45d6c4c636ce4322f56c3b4708a756a441b4ec7858030d"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-25e05116921cf49b036c1f6979a77dbc.json",
+          "avaliacoes/R-C/m23v-25e05116921cf49b036c1f6979a77dbc.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-04"
+    },
+    {
+      "case_id": "m23c-mtc-b0a27014c4b350545108",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-05.approved.json",
+          "sha256": "2b282418f7fb9347b3f0860a8b4136502819a1a3636e689b62d15d048680e527"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-3838f9010f031560d51855920317e3b3.json",
+          "sha256": "bc32cbbad62fc9bc4e3a0f161de9269cbfde0ba84f24d9ea10f740a9934918fd"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-05.json",
+          "sha256": "3cfb133e70741e8ececa6284322676d60b7689101e276c7a2c40c9b9576e3af0"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-05.json",
+          "sha256": "1413cf4e2fb21e0db0eab2e0ba3fa429fd8bc405fb6167b1bd260d1abd04c312"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-05.current.json",
+          "sha256": "2b282418f7fb9347b3f0860a8b4136502819a1a3636e689b62d15d048680e527"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-3838f9010f031560d51855920317e3b3.json",
+          "sha256": "076445c6c49710dfa7e11cc7cd91952768f062d30f85dd191db39bf868e44636"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-3838f9010f031560d51855920317e3b3.json",
+          "avaliacoes/R-C/m23v-3838f9010f031560d51855920317e3b3.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-05"
+    },
+    {
+      "case_id": "m23c-mtc-a33fc3bb1569f4024492",
+      "class_id": "S0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-s0-06.approved.json",
+          "sha256": "e9313aaceedd3db602d8780994a21782ca36ff0d302c8b01fa94b22931bafe41"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-569cec02b2f13ea7fb9206844504c884.json",
+          "sha256": "a1cf8fd4e8ea46c54b12b71453d1cf47c8e55e627b042a27d01826d402f84020"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-s0-06.json",
+          "sha256": "0077af3e1a564f90dfd192d390e4bdd99951a121bdc463d5ae417a3e9306a87a"
+        },
+        "case": {
+          "path": "casos/m23-mtc-s0-06.json",
+          "sha256": "44f2db42e6b8f54ca6ab6b28a06c232dca45b1d287ce6480ecc6a06b5ae00141"
+        },
+        "current": {
+          "path": "estados/m23-mtc-s0-06.current.json",
+          "sha256": "e9313aaceedd3db602d8780994a21782ca36ff0d302c8b01fa94b22931bafe41"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-569cec02b2f13ea7fb9206844504c884.json",
+          "sha256": "452b40c5a139ea34a9bd70d099276359762b139bb67fb6abc969d408e977c8de"
+        },
+        "implementation": null
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-569cec02b2f13ea7fb9206844504c884.json",
+          "avaliacoes/R-C/m23v-569cec02b2f13ea7fb9206844504c884.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-S0-06"
+    },
+    {
+      "case_id": "m23c-mtc-4eace63ab222d0e30b2a",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-01.approved.json",
+          "sha256": "06af6c50bb94c980b4c980830b92a8d797014c19d2f642bf04dbc0a08edac87a"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-719a8d4172a3d908c542f81359d62293.json",
+          "sha256": "3e3f9c1475089d5959fc5a2353d9da203b2e8d125ab4015189f412100c1e4cae"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-01.json",
+          "sha256": "680016de4dc27a2d5b11a8270eeeeb411f4f859c6978886ec87da4de8599ec31"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-01.json",
+          "sha256": "88ce65c0a3fc971134d645974a07673ab059c0105e7fe557eccd0a210dc5e9ff"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-01.current.json",
+          "sha256": "4a18d413d9b6e64b51a4fbd8e8985723f95de179478969e53f1a4db0229987bc"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-719a8d4172a3d908c542f81359d62293.json",
+          "sha256": "eba4fa6749289110d01c5a80edf73d4e12eb02b3c46a878426a05f0d3f883be0"
+        },
+        "implementation": {
+          "path": "implementacoes/calcular_intervalo_limitado.py",
+          "sha256": "4056cba234ed0b768339fcdaaedadc4bf061d8f444ca07dcf6b5b660455639e7"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-719a8d4172a3d908c542f81359d62293.json",
+          "avaliacoes/R-C/m23v-719a8d4172a3d908c542f81359d62293.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-01"
+    },
+    {
+      "case_id": "m23c-mtc-505925431906f6ca8e04",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-02.approved.json",
+          "sha256": "cb63e5e9a99090d6b3f06ce47454a44c3c5cf47a08c4dbea3952e72b1e2918a5"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-dad8d7484d5904210726db6a4082ae60.json",
+          "sha256": "36ccc5cc5bf470adebdfe4da2889ee1827143a35ec48daa725eb826de5d4e14a"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-02.json",
+          "sha256": "0bc2d03c450f4dfa81ffea38fc20af89326a311b3ec0454181540f01fffe170a"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-02.json",
+          "sha256": "3a8f9c8d8c9a84cb0ab33a005beed39d73aaee83f5fa15950015b90440fe3408"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-02.current.json",
+          "sha256": "88e90751b93847848d7c5a6598243ede99e103beb49eadca82027536ee986b2f"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-dad8d7484d5904210726db6a4082ae60.json",
+          "sha256": "bef5c63ebcf30de6eb2120b59c08c9ac82c03e1849bb4f2108dddc3431850400"
+        },
+        "implementation": {
+          "path": "implementacoes/transformar_texto_local.py",
+          "sha256": "345810d746e3d4ac693a69b5b7c60c29204f52ee5dfc076af62adc83a7702db0"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-dad8d7484d5904210726db6a4082ae60.json",
+          "avaliacoes/R-C/m23v-dad8d7484d5904210726db6a4082ae60.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-02"
+    },
+    {
+      "case_id": "m23c-mtc-54581cbaa8eb42fa0247",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-03.approved.json",
+          "sha256": "a716fdbe0074c6a027717277720b55a49a45f1bcbedbd6c487a93c79ba0ca3cf"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-926309c78ebbaf0be5b5e1162ad7affe.json",
+          "sha256": "7af692fc80b8cefe36239c23cc5279adf6fd9fd544598950bcb02afdcf054f92"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-03.json",
+          "sha256": "07014c5140acc800db01d05ef1c516bc56934d4f8462668ce4a6a2a99a7bf395"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-03.json",
+          "sha256": "c4ac1d2f0b9111fd1543c53903c09bb7724d7b2d222117d8ca5369bb36f00359"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-03.current.json",
+          "sha256": "548df15869f2f5631c3ad0a80689342aa97c2fa72741cbe5aab72813ee126fde"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-926309c78ebbaf0be5b5e1162ad7affe.json",
+          "sha256": "9bf9985adb36f9e4cf342cd69814b9e9fe74d08b23e0f2471145f1d388e834b4"
+        },
+        "implementation": {
+          "path": "implementacoes/ordenar_lista_curta.py",
+          "sha256": "b6f1291c789ecc24a23eb66e8c28495df859896c993fb4f852c16ce4eee6b219"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-926309c78ebbaf0be5b5e1162ad7affe.json",
+          "avaliacoes/R-C/m23v-926309c78ebbaf0be5b5e1162ad7affe.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-03"
+    },
+    {
+      "case_id": "m23c-mtc-9cff3684de68ddd97613",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-04.approved.json",
+          "sha256": "612022cb52c14dbcea0e8bcfff6f92d2d990c96954414743537617df3727cfe4"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-0fa28da94b4e49b9f901cb75c246d982.json",
+          "sha256": "03bb430a5fa1ae04e6a083d662165e40db4af91f5d6b584052847baa0ca9732b"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-04.json",
+          "sha256": "5f2e5ca26caec6827ac9b311a87af2e34ed326158a4a431fd23812906095616e"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-04.json",
+          "sha256": "5153abaa141f5a98401974ccc550026d2fccd722e2e91e0b5588e73974a00a89"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-04.current.json",
+          "sha256": "d370e3e241c25d93730b3031401fd643082e9f6641cbfd39830766706f85d979"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-0fa28da94b4e49b9f901cb75c246d982.json",
+          "sha256": "f1d0b5c235e9067cee6be88ac9134bca44f0363d060b09337e1b97454175d7c8"
+        },
+        "implementation": {
+          "path": "implementacoes/normalizar_schema_fechado.py",
+          "sha256": "0042105afd4cbe68e1843f09eff158952dcebd2cc597e733423eb4351788c8fe"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-0fa28da94b4e49b9f901cb75c246d982.json",
+          "avaliacoes/R-C/m23v-0fa28da94b4e49b9f901cb75c246d982.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-04"
+    },
+    {
+      "case_id": "m23c-mtc-e7c04586b90f0d4da441",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-05.approved.json",
+          "sha256": "fb7d54c013a36e454f8e88484b55600ffd81734eda0dd01236439f92e0e9bd96"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-99e7c7ca76f5dce2c96e61aad2cd629e.json",
+          "sha256": "a8cbdc1571b429b2cbbc2209c572c68264b063056e78bfb880f460ec73f72840"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-05.json",
+          "sha256": "2b504dfccd7f6602ee7fc079d4988be65d05c89a230a9a67e3dbb6f3b19df2fc"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-05.json",
+          "sha256": "16b22c523871353fbb51945654b833102d4f3981d29d4d27451348cd34a6dd2c"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-05.current.json",
+          "sha256": "a0a54f16a2289081a376eddbb6201a5a13c7cb5075d2ad1c14faf11208f632e8"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-99e7c7ca76f5dce2c96e61aad2cd629e.json",
+          "sha256": "e0785586699c28556013371262d0df9536f6ef23087e28f921d9208ff5c26871"
+        },
+        "implementation": {
+          "path": "implementacoes/converter_unidade_fechada.py",
+          "sha256": "88d85ccf7bffe38e973f6021a1ebd7ab82e3cd0442815eff9cb4f9016b8d3112"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-99e7c7ca76f5dce2c96e61aad2cd629e.json",
+          "avaliacoes/R-C/m23v-99e7c7ca76f5dce2c96e61aad2cd629e.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-05"
+    },
+    {
+      "case_id": "m23c-mtc-d8a6444737cdfcae58b9",
+      "class_id": "B0",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b0-06.approved.json",
+          "sha256": "ef36cd9ab3d804481412f3330c2f82f5d18fead00333e5b53422a5fc20c6b80e"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-1491ed181b87bc64518902b8999fba21.json",
+          "sha256": "be11cf4ac4a31bb3c167904532d7687469f1e0a8f2ed644b58b487ff4262ab77"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b0-06.json",
+          "sha256": "656a793878ba059a868b727b3e350f846645632c34f5ed972aa6bc18d595c14b"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b0-06.json",
+          "sha256": "2a58b296f952a0fc8aae500ee875536682c5d5c3bb46a4fd3ecbc8df5544d64e"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b0-06.current.json",
+          "sha256": "9ef30d59d6476146816f26fc2a62f6cb1dfea365f79f3c603a139220565c4f90"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-1491ed181b87bc64518902b8999fba21.json",
+          "sha256": "258cbcc76b7e34f401b0cf68a7cce685de660a742f44d8df65521dcb0a057614"
+        },
+        "implementation": {
+          "path": "implementacoes/agregar_contagens_locais.py",
+          "sha256": "5dff8dc9c78646f25ebda5b48348325826ac88cd87a8656e8ec3fed650704771"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-1491ed181b87bc64518902b8999fba21.json",
+          "avaliacoes/R-C/m23v-1491ed181b87bc64518902b8999fba21.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B0-06"
+    },
+    {
+      "case_id": "m23c-mtc-ea5d81092a7fa86ed127",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-01.approved.json",
+          "sha256": "92c3e056096cf790734780091e13ea06e873c18a428d4ad46258d811c0a96c3c"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-79f597ecbcd06b202aed0ec573e7ce2d.json",
+          "sha256": "3482c3815aa72b4d0bd577caf64299837ec6391aae10a58f70bef8737d93bef4"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-01.json",
+          "sha256": "8aea70bd2d18f18bcf9907b71da34be6e5c4e297dff45763f6ecca930936c19e"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-01.json",
+          "sha256": "1e9a0450f35fed4337266668888842d7804075b07ad6d20c6ef919be57d6d68f"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-01.current.json",
+          "sha256": "f8cc59d8bfdd3f8fb18f304aa9639b45f9fd61ffd56110ad314590f4f772f821"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-79f597ecbcd06b202aed0ec573e7ce2d.json",
+          "sha256": "0e898a8425282e8e5104b080795d9b5a73da53b419f2fd7aa55213f276dfdbc7"
+        },
+        "implementation": {
+          "path": "implementacoes/redigir_placeholder_textual.py",
+          "sha256": "d9db82aba90f7d8c053f76a2ed714486db0d430d18aeabb78d92cf297db9c679"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-79f597ecbcd06b202aed0ec573e7ce2d.json",
+          "avaliacoes/R-C/m23v-79f597ecbcd06b202aed0ec573e7ce2d.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-01"
+    },
+    {
+      "case_id": "m23c-mtc-b0a5d64e3ee2f06f7e8f",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-02.approved.json",
+          "sha256": "cb9c8345e87f0cb462d936fc0b05d80bbce8d8f24ab14975d538c7fe8947e73c"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-9f97f69aaa1cc3baa6a497c2914f1426.json",
+          "sha256": "84251ca06de1162b17b3f8b2b59f970467233099f62f6572bba02d7369f8d7ac"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-02.json",
+          "sha256": "64c38746eefad26d45a5ca3cad864e785d0eedf4f9fe53ecfc352f188ab2dd0d"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-02.json",
+          "sha256": "c2a7627c4dea94544defb8de7a9ca95324edeb2fa6ffe8ed1aed6609cc9a53b6"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-02.current.json",
+          "sha256": "e45e5600558e19a8d99c751bac893f5e4dfa42bf68f4cff6e9c67bbf89df427e"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-9f97f69aaa1cc3baa6a497c2914f1426.json",
+          "sha256": "26057d7f4fbf4ea46ca76c7f65a7213a8f61a00f92bd7f839fa9b70b1a0e79bc"
+        },
+        "implementation": {
+          "path": "implementacoes/validar_url_sem_rede.py",
+          "sha256": "966f2a46429c5577d5a655a2f09d1f0a411226f1c11dbe563e1235b89fbf9991"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-9f97f69aaa1cc3baa6a497c2914f1426.json",
+          "avaliacoes/R-C/m23v-9f97f69aaa1cc3baa6a497c2914f1426.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-02"
+    },
+    {
+      "case_id": "m23c-mtc-8ba3149326d2c997d07c",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-03.approved.json",
+          "sha256": "a716fdbe0074c6a027717277720b55a49a45f1bcbedbd6c487a93c79ba0ca3cf"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-ece6f79b3999f2c87fada6dffff9a6db.json",
+          "sha256": "c406e9ee4163ac9a543bc35e6f6574324293c36e7fc617c023e359a6596f2ea1"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-03.json",
+          "sha256": "68b6d7797b7db287c657199d43c4f8ab15bf69911766afc6bc6010526abca752"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-03.json",
+          "sha256": "e237b61cb2b710e167148a6b22f05ac74828350e7d8265d6b92c2219f1486e7c"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-03.current.json",
+          "sha256": "494e90650d38b5f3808e05a6b2e511942a6d02c618dc3b99d652bfeff4e4b2f1"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-ece6f79b3999f2c87fada6dffff9a6db.json",
+          "sha256": "c7a7122945562d9d23658b16db57e13834b5034225a4e32624fd926beac871b6"
+        },
+        "implementation": {
+          "path": "implementacoes/normalizar_caminho_sem_filesystem.py",
+          "sha256": "1cf9a6cae4ababa1a2063113d16bcdd9ac3c98e1c0dcd43bfaf1bd0705c0c8e4"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-ece6f79b3999f2c87fada6dffff9a6db.json",
+          "avaliacoes/R-C/m23v-ece6f79b3999f2c87fada6dffff9a6db.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-03"
+    },
+    {
+      "case_id": "m23c-mtc-ecff114abf18575a126d",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-04.approved.json",
+          "sha256": "2b282418f7fb9347b3f0860a8b4136502819a1a3636e689b62d15d048680e527"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-c1c4ed3d6d4d50ba1016e2d49d1a283d.json",
+          "sha256": "ea8858afa27dffbea741aa5379071244558b64554f8d983b785437d9a61533e4"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-04.json",
+          "sha256": "f99e34e97d33815eb831683733257258e7bdc772538e193b044e34633e61c62e"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-04.json",
+          "sha256": "3e021be186828346ed54f037ef192da3a2aedcbd8c06cc5fc5a878792a9fd769"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-04.current.json",
+          "sha256": "cc55774b230a02dfdcb27f667dae4ce15e0608a5935a501fa9de7ec86f66f68c"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-c1c4ed3d6d4d50ba1016e2d49d1a283d.json",
+          "sha256": "d380c4b7d82135e05ee05efd4b9b49cb39f7a45b74d9a73c8eadad2d780dcc6c"
+        },
+        "implementation": {
+          "path": "implementacoes/analisar_comando_sem_execucao.py",
+          "sha256": "eab3d2da16cba460ea768eaa34dc3960ad855cf43e354279cc87a11f952fd98b"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-c1c4ed3d6d4d50ba1016e2d49d1a283d.json",
+          "avaliacoes/R-C/m23v-c1c4ed3d6d4d50ba1016e2d49d1a283d.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-04"
+    },
+    {
+      "case_id": "m23c-mtc-2b36030e923a373cf7fb",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-05.approved.json",
+          "sha256": "fb7d54c013a36e454f8e88484b55600ffd81734eda0dd01236439f92e0e9bd96"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-e04b0105ab6a919a56c1d0123971e4fa.json",
+          "sha256": "7f7c20ebae7355ade693bb8fab223f44b61163de2ceb9935a9f6767a5d002640"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-05.json",
+          "sha256": "c193f3b6e28915904f1555fd81ea862c4ade17c2ed28d619e3f95b2f6ad86667"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-05.json",
+          "sha256": "7779b04158b43ce1dee9859102713f50c6567efa46c1174771f53173b9471e2f"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-05.current.json",
+          "sha256": "4e4275b069b2017047f0a532a63532f6b867e316a5c56c0a4f6c3db4bfda9cd5"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-e04b0105ab6a919a56c1d0123971e4fa.json",
+          "sha256": "48266f39b594173b10563c0a238900dac9aff71c978b69ddcbc4c451c80bb50b"
+        },
+        "implementation": {
+          "path": "implementacoes/validar_placeholder_sem_segredo.py",
+          "sha256": "21c306aaa4da606865d8e7c6d62227d76a8e808e3e4fce3b1975749024f81790"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-e04b0105ab6a919a56c1d0123971e4fa.json",
+          "avaliacoes/R-C/m23v-e04b0105ab6a919a56c1d0123971e4fa.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-05"
+    },
+    {
+      "case_id": "m23c-mtc-ce8ec8bfc9e8c5d677e3",
+      "class_id": "B1",
+      "paths": {
+        "approved": {
+          "path": "estados/m23-mtc-b1-06.approved.json",
+          "sha256": "ef36cd9ab3d804481412f3330c2f82f5d18fead00333e5b53422a5fc20c6b80e"
+        },
+        "blind_packet": {
+          "path": "revisao_cega/pacotes/m23v-099655acc4395666fe74baa2414820f2.json",
+          "sha256": "d53bd067f507195b37f19660e1913dcdcdef1ed3dd50789b844e3e6003711678"
+        },
+        "c1_view": {
+          "path": "vistas/C1/m23-mtc-b1-06.json",
+          "sha256": "5cafd3ae8e1d35ac86b483b30522cead8b678206a5a40286e5967a1e400ac70f"
+        },
+        "case": {
+          "path": "casos/m23-mtc-b1-06.json",
+          "sha256": "978fda2fd1b905af50232ed3d74aa503d46d60fc0d9bcd4993168db7345ebf96"
+        },
+        "current": {
+          "path": "estados/m23-mtc-b1-06.current.json",
+          "sha256": "8045484699f8a40f37d2802205e4d57d68702be319273524868372bd946b4873"
+        },
+        "fixture": {
+          "path": "fixtures/m23v-099655acc4395666fe74baa2414820f2.json",
+          "sha256": "4d1c0ee857d5418bfb7298c9b13bb38ed4fa4f10f534d6596005b5d1d118239f"
+        },
+        "implementation": {
+          "path": "implementacoes/classificar_rotulo_local.py",
+          "sha256": "a966369d0ca0bc961bd094b99601ed6e71ba29ff2d9ca7e770be5d232865fb22"
+        }
+      },
+      "review": {
+        "assessment_paths": [
+          "avaliacoes/R-A/m23v-099655acc4395666fe74baa2414820f2.json",
+          "avaliacoes/R-C/m23v-099655acc4395666fe74baa2414820f2.json"
+        ],
+        "reconciliation_path": null,
+        "status": "duas_avaliacoes_preservadas_decisao_metodologica_sem_reconciliacao"
+      },
+      "slot_id": "M23-MTC-B1-06"
+    }
+  ],
+  "counts": {
+    "by_class": {
+      "B0": 6,
+      "B1": 6,
+      "P0": 6,
+      "P1": 6,
+      "S0": 6
+    },
+    "total": 30
+  },
+  "decision": {
+    "path": "decisao/fechamento_controles_mcptox_m2_3_v1.json",
+    "sha256": "d6fe92722a585c775b9288f476c9a4010bfe127776899481278ff3a097d430f4"
+  },
+  "schema_version": "manifesto_painel_mcptox_6x5_m2_3_v1",
+  "selection_contract": {
+    "excluded_source_quality_slot": "M23-MT-015",
+    "replacement_may_be_selected_after_panel_results": false,
+    "replacement_slot_status": "uma_vaga_futura_nao_preenchida",
+    "supplementary_attacks_outside_panel": 17
+  },
+  "status": "composicao_candidata_controles_admitidos_nao_congelados"
+}

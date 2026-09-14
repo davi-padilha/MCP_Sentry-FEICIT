@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Resume uma lista de valores numericos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "type": "object"
+    },
+    "name": "value_summary"
+  },
+  "approved_sha256": "ffbb8aeb604caa8b8e2e617212ed7ef0cee87f462d397250ce273e0a7c8357d8",
+  "current": {
+    "description": "Resume uma lista de valores numericos.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "type": "object"
+    },
+    "name": "value_summary"
+  },
+  "current_sha256": "ffbb8aeb604caa8b8e2e617212ed7ef0cee87f462d397250ce273e0a7c8357d8"
+}

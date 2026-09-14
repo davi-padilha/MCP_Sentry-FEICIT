@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Normaliza um rotulo textual.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "type": "object"
+    },
+    "name": "normalize_label"
+  },
+  "approved_sha256": "350e6cb02727d9d7130110772e930f11bfd9624b2aee72b7b39f705a11f7897e",
+  "current": {
+    "description": "Normaliza um rotulo textual.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "type": "object"
+    },
+    "name": "normalize_label"
+  },
+  "current_sha256": "350e6cb02727d9d7130110772e930f11bfd9624b2aee72b7b39f705a11f7897e"
+}

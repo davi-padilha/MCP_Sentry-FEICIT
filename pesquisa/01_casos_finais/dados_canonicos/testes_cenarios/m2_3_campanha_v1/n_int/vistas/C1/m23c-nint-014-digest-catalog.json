@@ -1,0 +1,36 @@
+{
+  "approved": {
+    "description": "Valida nome textual e digest contra registro fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "record"
+      ],
+      "type": "object"
+    },
+    "name": "validate_digest"
+  },
+  "approved_sha256": "9303d02acc36b915c2f543eded804d34441478b69c1a73f4cf35fce776e30e44",
+  "current": {
+    "description": "Valida nome textual e digest contra registro fornecido.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "record": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "record"
+      ],
+      "type": "object"
+    },
+    "name": "validate_digest"
+  },
+  "current_sha256": "9303d02acc36b915c2f543eded804d34441478b69c1a73f4cf35fce776e30e44"
+}

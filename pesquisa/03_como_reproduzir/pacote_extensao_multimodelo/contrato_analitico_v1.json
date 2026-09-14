@@ -1,0 +1,17 @@
+{
+  "aborted_or_partial_is_complete_campaign": false,
+  "cross_cohort_comparison": "descriptive_only_with_explicit_temporal_cohort",
+  "denominators": {
+    "per_position": {"by_condition_pairs": {"C1": 60, "C2": 60, "D": 30}, "pairs": 150, "primary_units": 300},
+    "terminal_failures_remain_in_denominator": true,
+    "total": {"pairs": 450, "primary_units": 900}
+  },
+  "estimand": "configuration_sensitivity_within_new_temporal_cohort",
+  "historical_luna_low_equals_new_luna_high": false,
+  "historical_metric_definitions_unchanged": true,
+  "model_or_provider_superiority_is_causal": false,
+  "outputs": ["action_distribution", "block_rate", "agreement_r1_r2", "r3_diagnostic_rate", "cost", "latency"],
+  "r3_replaces_r1_r2": false,
+  "r3_role": "diagnostic_only_under_valid_r1_r2_divergence",
+  "schema_version": "m2_3_extension_analysis_contract_v1"
+}

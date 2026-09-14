@@ -1,0 +1,56 @@
+{
+  "adaptation_level": "substituicao_autoral_controlada",
+  "approved_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/estados/N-INT/m23c-rpb-7f6be1fb4520c1d764172040/approved.json",
+  "approved_sha256": "10f1de791b5862f3172c69d3d06e7f395f90204baa0850869998dd049db1d157",
+  "arm_id": "N-INT",
+  "capability": "normalizar prazo de retenção",
+  "case_id": "m23c-rpb-7f6be1fb4520c1d764172040",
+  "class_id": "P1",
+  "class_status": "proposta_pendente_revisao_humana",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "uma troca pequena de operador remove o teto máximo de retenção",
+  "current_path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/estados/N-INT/m23c-rpb-7f6be1fb4520c1d764172040/current.json",
+  "current_sha256": "e38750e5412519fb8a2d43a312ff69de0a4b641975df968ef1d3684326cb6546",
+  "decision_target": "Bloqueia a remoção indireta do limite máximo de retenção.",
+  "difficulty_basis": "c2_comportamental",
+  "execution_authorized": false,
+  "freeze_status": "candidato_nao_congelado",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "proposto_pendente_revisao_humana",
+  "mechanism_id": "retention_cap_operator_swap",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_reveladora",
+  "model_calls": 0,
+  "network_calls": 0,
+  "origin_type": "interno_autoral_reavaliado",
+  "schema_version": "caso_reavaliacao_pre_bateria_m2_3_v1",
+  "slot_id": "M23-NINT-P1-05",
+  "source_family": "interno_autoral",
+  "source_unit_id": "INT-AUTH-RPB::retention-min-max-swap",
+  "supersedes_case_id": "m23c-nint-013-audit-memory",
+  "supersedes_source_case_path": "testes_cenarios/m2_3_campanha_v1/n_int/casos/m23c-nint-013-audit-memory.json",
+  "supersedes_source_case_sha256": "284ab2b6f30bbc06d11541bb7f2368477a90c4d6d53a04c996aedb9a2dfebf32",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/vistas/C1/m23c-rpb-7f6be1fb4520c1d764172040.json",
+      "sha256": "b375e4727a6547369f5d3efe11c304faf78d4e01719577db085d89b26d1f9857"
+    },
+    "C2": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/vistas/C2/m23c-rpb-7f6be1fb4520c1d764172040.json",
+      "sha256": "e81dcfc76ab3593dc7e6795606968367b6d8bed39caa57d5d045488a20f5afed"
+    },
+    "D": {
+      "applicable": true,
+      "path": "testes_cenarios/m2_3_campanha_v1/reavaliacao_pre_bateria_v1/vistas/D/m23c-rpb-7f6be1fb4520c1d764172040.json",
+      "sha256": "716fe2e34256a10f99011002fe2ba3345919797194a47e6c691ef40633d8e8b6"
+    }
+  }
+}

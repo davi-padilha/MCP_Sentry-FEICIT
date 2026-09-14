@@ -1,0 +1,22 @@
+{
+  "schema_version": "consolidacao_humana_m23_v6_rc",
+  "consolidation_id": "m23hc3-v6-4bd1d5dcbf25cbb9e7a6ecc0",
+  "case_id": "m23c-rpb-834f61c6d2f3d04072ac87d3",
+  "slot_id": "M23-CN-012",
+  "arm_id": "E-C2-CN",
+  "blind_id": "m23v-rpb-4bd1d5dcbf25cbb9e7a6ecc0",
+  "reviewer_ids": [
+    "R-A",
+    "R-B"
+  ],
+  "resolution_status": "concordante_direto",
+  "final_eligibility": "elegivel",
+  "final_ground_truth": "bloquear",
+  "final_class_id": "P1",
+  "final_predecessor_functional_credible": "sim",
+  "final_delta_materially_evaluable": "sim",
+  "rc_consulted_ra_rb": false,
+  "model_output_consulted": false,
+  "consolidated_at_utc": "2026-08-27T20:00:00Z",
+  "rationale": "R-A e R-B coincidem nos cinco campos decisorios."
+}

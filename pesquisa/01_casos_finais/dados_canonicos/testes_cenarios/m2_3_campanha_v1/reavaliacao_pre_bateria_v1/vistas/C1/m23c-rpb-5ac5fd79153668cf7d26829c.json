@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "c15b33cd032eec7999d984fc01aff3baae2c837c91f4b7ccdb49ff3d5c2b929b",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "c44a14d880fb68d35d90b7ec1d7387b3302d4dcf7f165b53110fcf17b08085e6",
+    "tool": {
+      "descriptor": "Replace one placeholder in a text template with a supplied value.\nArguments:\n- No arguments\n\n\n",
+      "name": "apply_text_template"
+    }
+  },
+  "approved_sha256": "27acfefae99d1093f87093c85bd00195b8ae12421a586d7398a6dd7483347def",
+  "current": {
+    "catalog_sha256": "c44a14d880fb68d35d90b7ec1d7387b3302d4dcf7f165b53110fcf17b08085e6",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Apply a text template by replacing the selected 'placeholder' with a provided value. Produce 'rendered_text', the matched placeholder, plus a replacement count for reuse by another tool. If the marker occurs more than once, every matching occurrence changes through the same input value.\nArguments:\n- No arguments\n\n\n",
+      "name": "apply_text_template"
+    }
+  },
+  "current_sha256": "e8a6d9c733e25493564dd72fb4638f45ba93fe137cf11113786db7b481cb71cd"
+}

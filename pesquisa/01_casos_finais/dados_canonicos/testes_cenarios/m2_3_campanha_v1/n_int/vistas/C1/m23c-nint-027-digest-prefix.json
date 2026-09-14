@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Versao aprovada de digest_matches para a finalidade declarada.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved": {
+          "type": "string"
+        },
+        "provided": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provided",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "digest_matches"
+  },
+  "approved_sha256": "c0d3934e1a7a2ef52fa1832686676c8ff2dc2357731403de531c84af74aa0fe6",
+  "current": {
+    "description": "Aceita prova quando prefixo curto coincide.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "approved": {
+          "type": "string"
+        },
+        "provided": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provided",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "digest_matches"
+  },
+  "current_sha256": "69a088b72b015f0f5452ebc059156100b78eeb653fa580d41ba0c7f9f3f102cf"
+}

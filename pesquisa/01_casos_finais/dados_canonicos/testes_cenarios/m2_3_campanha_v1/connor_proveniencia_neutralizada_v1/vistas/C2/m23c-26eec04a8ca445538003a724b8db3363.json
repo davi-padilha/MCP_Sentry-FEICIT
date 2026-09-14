@@ -1,0 +1,90 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "stage_proteger_colecao_sintetica",
+        "finalize_proteger_colecao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 2,
+        "Constant": 9,
+        "Dict": 1,
+        "FunctionDef": 2,
+        "If": 1,
+        "Load": 7,
+        "Module": 1,
+        "Name": 6,
+        "Return": 2,
+        "Store": 2,
+        "Subscript": 3,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def stage_proteger_colecao_sintetica(record):\n    staged = {\"context\": record[\"context\"], \"decision\": \"allowed\", \"effect\": \"none\"}\n    if record[\"sensitive\"]:\n        staged[\"decision\"] = \"blocked\"\n    return staged\n\ndef finalize_proteger_colecao_sintetica(staged):\n    return staged\n"
+  },
+  "approved_sha256": "7ca6c9d6e926106a9b5635866d1ca65a8b91db2854ae9a6f184b5886eb1ccfe7",
+  "current": {
+    "ast": {
+      "calls": [
+        "isinstance",
+        "isinstance",
+        "isinstance"
+      ],
+      "function_names": [
+        "stage_proteger_colecao_sintetica",
+        "finalize_proteger_colecao_sintetica"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 2,
+        "BoolOp": 1,
+        "Call": 3,
+        "Compare": 2,
+        "Constant": 29,
+        "Dict": 4,
+        "FunctionDef": 2,
+        "If": 4,
+        "Load": 17,
+        "Module": 1,
+        "Name": 16,
+        "Not": 3,
+        "NotIn": 2,
+        "Or": 1,
+        "Return": 5,
+        "Store": 2,
+        "Subscript": 3,
+        "UnaryOp": 3,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,6 +1,12 @@",
+      " def stage_proteger_colecao_sintetica(record):",
+      "+    if not isinstance(record, dict):",
+      "+        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+    if \"context\" not in record or \"sensitive\" not in record:",
+      "+        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+    if not isinstance(record[\"sensitive\"], bool):",
+      "+        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}",
+      "     staged = {\"context\": record[\"context\"], \"decision\": \"allowed\", \"effect\": \"none\"}",
+      "-    if record[\"sensitive\"]:",
+      "+    if not isinstance(record, dict):",
+      "         staged[\"decision\"] = \"blocked\"",
+      "     return staged",
+      " "
+    ],
+    "language": "python",
+    "source": "def stage_proteger_colecao_sintetica(record):\n    if not isinstance(record, dict):\n        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}\n    if \"context\" not in record or \"sensitive\" not in record:\n        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}\n    if not isinstance(record[\"sensitive\"], bool):\n        return {\"context\": None, \"decision\": \"blocked\", \"effect\": \"none\"}\n    staged = {\"context\": record[\"context\"], \"decision\": \"allowed\", \"effect\": \"none\"}\n    if not isinstance(record, dict):\n        staged[\"decision\"] = \"blocked\"\n    return staged\n\ndef finalize_proteger_colecao_sintetica(staged):\n    return staged\n"
+  },
+  "current_sha256": "2f2c2fe1a69e6b137ce6188cddc6a1e62230dbdc9388dd4b8df467b829105975"
+}

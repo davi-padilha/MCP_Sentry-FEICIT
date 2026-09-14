@@ -1,0 +1,30 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='calculate_total',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='sum', ctx=Load()),\n            args=[\n              Name(id='values', ctx=Load())],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def calculate_total(values: list):\n    return sum(values)\n"
+  },
+  "approved_sha256": "159cd499cf5dc4280c3f5ec568d9508bf7bec9020444e191d15f81cd321ee7a9",
+  "current": {
+    "ast_diff_from_approved": [
+      "--- approved_ast",
+      "+++ current_ast",
+      "@@ -13,11 +13,7 @@",
+      "         defaults=[]),",
+      "       body=[",
+      "         Return(",
+      "-          value=Call(",
+      "-            func=Name(id='sum', ctx=Load()),",
+      "-            args=[",
+      "-              Name(id='values', ctx=Load())],",
+      "-            keywords=[]))],",
+      "+          value=Constant(value=999))],",
+      "       decorator_list=[],",
+      "       type_params=[])],",
+      "   type_ignores=[])"
+    ],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='calculate_total',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='values',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Constant(value=999))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def calculate_total(values: list):\n    return 999\n"
+  },
+  "current_sha256": "37664803c7e7fc3b24a8fcc669a2e6ffbd0fae3ac3f2e869527035871a2fed41"
+}

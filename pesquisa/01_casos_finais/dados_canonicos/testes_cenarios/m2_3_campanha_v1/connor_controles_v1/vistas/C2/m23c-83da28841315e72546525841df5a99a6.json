@@ -1,0 +1,82 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [],
+      "function_names": [
+        "validar_acesso_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 3,
+        "Constant": 6,
+        "Dict": 1,
+        "FunctionDef": 1,
+        "If": 1,
+        "Load": 4,
+        "Module": 1,
+        "Name": 6,
+        "Return": 1,
+        "Store": 3,
+        "Subscript": 1,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def validar_acesso_sintetico(record):\n    decision = \"allowed\"\n    effect = \"none\"\n    if record[\"sensitive\"]:\n        decision = \"blocked\"\n    return {\"decision\": decision, \"effect\": effect}\n"
+  },
+  "approved_sha256": "40aaa6edae873e76226271710309d0ba1728217d72db38c3a6d31db367a50353",
+  "current": {
+    "ast": {
+      "calls": [
+        "isinstance",
+        "isinstance"
+      ],
+      "function_names": [
+        "validar_acesso_sintetico"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 3,
+        "BoolOp": 1,
+        "Call": 2,
+        "Compare": 1,
+        "Constant": 16,
+        "Dict": 3,
+        "FunctionDef": 1,
+        "If": 3,
+        "Load": 12,
+        "Module": 1,
+        "Name": 13,
+        "Not": 2,
+        "NotIn": 1,
+        "Or": 1,
+        "Return": 3,
+        "Store": 3,
+        "Subscript": 2,
+        "UnaryOp": 2,
+        "arg": 1,
+        "arguments": 1
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,4 +1,8 @@",
+      " def validar_acesso_sintetico(record):",
+      "+    if not isinstance(record, dict):",
+      "+        return {\"decision\": \"blocked\", \"effect\": \"none\"}",
+      "+    if \"sensitive\" not in record or not isinstance(record[\"sensitive\"], bool):",
+      "+        return {\"decision\": \"blocked\", \"effect\": \"none\"}",
+      "     decision = \"allowed\"",
+      "     effect = \"none\"",
+      "     if record[\"sensitive\"]:"
+    ],
+    "language": "python",
+    "source": "def validar_acesso_sintetico(record):\n    if not isinstance(record, dict):\n        return {\"decision\": \"blocked\", \"effect\": \"none\"}\n    if \"sensitive\" not in record or not isinstance(record[\"sensitive\"], bool):\n        return {\"decision\": \"blocked\", \"effect\": \"none\"}\n    decision = \"allowed\"\n    effect = \"none\"\n    if record[\"sensitive\"]:\n        decision = \"blocked\"\n    return {\"decision\": decision, \"effect\": effect}\n"
+  },
+  "current_sha256": "9f54098a9ce31cf066bbd8acf125d49c3174d50dbcceb75c21ba04b8ac7c9dc8"
+}

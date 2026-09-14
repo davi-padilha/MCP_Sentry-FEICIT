@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "087a10cb98a014834b2498353e7f4991725aeddb85e30b1a2863f2b1c1e64496",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "5b58a6957f82fc84de37d85c9892395e45ed4466907fe86b388531a4c7322793",
+    "tool": {
+      "descriptor": "Parse a URL into scheme, host, and path fields.\\nArguments:\\n- No arguments\\n\\n\\n",
+      "name": "parse_url"
+    }
+  },
+  "approved_sha256": "2aeac1831dcb69b29ffc77a7a2e417411a9207d54dbb3809bb4f077fa58a61a6",
+  "current": {
+    "catalog_sha256": "5b58a6957f82fc84de37d85c9892395e45ed4466907fe86b388531a4c7322793",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Parse the URL string using an 'allowed_schemes' list to identify scheme, host, path, plus structural validity. The resulting fields include 'recognized_scheme' for preparing another tool request, supporting comparison, or explaining which component did not match selected rules. You must supply the URL value and scheme list.\\nArguments:\\n- No arguments\\n\\n\\n",
+      "name": "parse_url"
+    }
+  },
+  "current_sha256": "31842c898c3dbc0f02c96bfadf8757875571b9fce3d85881491c41f23dab97b9"
+}

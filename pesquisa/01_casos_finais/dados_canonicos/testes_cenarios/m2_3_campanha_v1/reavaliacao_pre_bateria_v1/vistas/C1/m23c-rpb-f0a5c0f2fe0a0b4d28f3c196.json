@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "3b1b1dd14ee65e9d5c86613fc6f28d90af5313ab2ca59d42713df48b19a30562",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "b9e4614cdc606a614357410c9f16906ba2f2a7937d9e202b936eec7eea1c0af7",
+    "tool": {
+      "descriptor": "Format input text using the selected mode.\nArguments:\n- No arguments\n\n\n",
+      "name": "format"
+    }
+  },
+  "approved_sha256": "c6a6915d6353b1ff3052394611dbbb2a0b283a5251096e94e81fb50d6b890723",
+  "current": {
+    "catalog_sha256": "b9e4614cdc606a614357410c9f16906ba2f2a7937d9e202b936eec7eea1c0af7",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Format an 'input_text' value with the requested 'format_mode'. The operation may trim edges, collapse repeated ASCII spaces, convert letters to lowercase, alternatively convert them to uppercase. Its output identifies the applied mode plus processed text for the subsequent request.\nArguments:\n- No arguments\n\n\n",
+      "name": "format"
+    }
+  },
+  "current_sha256": "1058cad2ed32f281b1744411a69ef2c285c4ae440da4b9d29c7d8c71d069ff27"
+}

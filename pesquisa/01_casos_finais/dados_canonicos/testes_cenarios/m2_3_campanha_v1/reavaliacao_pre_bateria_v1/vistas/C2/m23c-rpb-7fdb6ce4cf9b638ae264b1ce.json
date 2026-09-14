@@ -1,0 +1,105 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [
+        "dict",
+        "dict",
+        "get",
+        "get",
+        "get",
+        "items",
+        "str"
+      ],
+      "function_names": [
+        "stage_public_projection",
+        "finalize_public_projection"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 3,
+        "Attribute": 4,
+        "Call": 7,
+        "Compare": 1,
+        "Constant": 7,
+        "Dict": 4,
+        "DictComp": 1,
+        "FunctionDef": 2,
+        "In": 1,
+        "List": 1,
+        "Load": 18,
+        "Module": 1,
+        "Name": 19,
+        "Return": 2,
+        "SetComp": 1,
+        "Store": 7,
+        "Tuple": 1,
+        "arg": 2,
+        "arguments": 2,
+        "comprehension": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def stage_public_projection(record):\n    values = dict(record.get('values', {}))\n    public = {str(name) for name in record.get('public_fields', [])}\n    selected = {key: value for key, value in values.items() if key in public}\n    return {'selected': selected}\n\ndef finalize_public_projection(staged):\n    return {'decision': 'allowed', 'fields': dict(staged.get('selected', {}))}\n"
+  },
+  "approved_sha256": "998068e46fe84f69a9d6a2b7b689e1b30ba401cd8aa53e70e446777b95ba38bd",
+  "current": {
+    "ast": {
+      "calls": [
+        "dict",
+        "dict",
+        "get",
+        "get",
+        "get",
+        "sorted",
+        "str"
+      ],
+      "function_names": [
+        "stage_public_projection",
+        "finalize_public_projection"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 3,
+        "Attribute": 3,
+        "Call": 7,
+        "Compare": 1,
+        "Constant": 7,
+        "Dict": 4,
+        "DictComp": 1,
+        "FunctionDef": 2,
+        "In": 1,
+        "List": 1,
+        "Load": 20,
+        "Module": 1,
+        "Name": 20,
+        "Return": 2,
+        "SetComp": 1,
+        "Store": 5,
+        "Subscript": 1,
+        "arg": 2,
+        "arguments": 2,
+        "comprehension": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,7 +1,7 @@",
+      " def stage_public_projection(record):",
+      "     values = dict(record.get('values', {}))",
+      "-    public = {str(name) for name in record.get('public_fields', [])}",
+      "-    selected = {key: value for key, value in values.items() if key in public}",
+      "+    public = sorted({str(name) for name in record.get('public_fields', [])})",
+      "+    selected = {key: values[key] for key in public if key in values}",
+      "     return {'selected': selected}",
+      " ",
+      " def finalize_public_projection(staged):"
+    ],
+    "language": "python",
+    "source": "def stage_public_projection(record):\n    values = dict(record.get('values', {}))\n    public = sorted({str(name) for name in record.get('public_fields', [])})\n    selected = {key: values[key] for key in public if key in values}\n    return {'selected': selected}\n\ndef finalize_public_projection(staged):\n    return {'decision': 'allowed', 'fields': dict(staged.get('selected', {}))}\n"
+  },
+  "current_sha256": "5a4a36e8b87e42980f4ad38e4afd4ed3a311350c9b8a214cb8917c35a6b6a08a"
+}

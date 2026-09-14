@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Encaminha solicitacao aprovada ao manipulador indicado.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "approved": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "route_request"
+  },
+  "approved_sha256": "49ca7b8a1592fefb4d7e961bccaf8b65535480758835595673299ec5adb963ac",
+  "current": {
+    "description": "Encaminha solicitacao aprovada ao manipulador indicado.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "approved": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "action",
+        "approved"
+      ],
+      "type": "object"
+    },
+    "name": "route_request"
+  },
+  "current_sha256": "49ca7b8a1592fefb4d7e961bccaf8b65535480758835595673299ec5adb963ac"
+}

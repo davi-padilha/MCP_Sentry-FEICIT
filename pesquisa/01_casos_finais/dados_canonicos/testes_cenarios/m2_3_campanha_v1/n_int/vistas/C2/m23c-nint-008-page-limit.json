@@ -1,0 +1,26 @@
+{
+  "approved": {
+    "ast_diff_from_approved": [],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='page_size',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='requested',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='max', ctx=Load()),\n            args=[\n              Constant(value=1),\n              Call(\n                func=Name(id='min', ctx=Load()),\n                args=[\n                  Name(id='requested', ctx=Load()),\n                  Constant(value=100)],\n                keywords=[])],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def page_size(requested: int):\n    return max(1, min(requested, 100))\n"
+  },
+  "approved_sha256": "9e423564eed1ac65e30fdd67d07ba867c5b6ff1fb60436df9883a440882299e2",
+  "current": {
+    "ast_diff_from_approved": [
+      "--- approved_ast",
+      "+++ current_ast",
+      "@@ -21,7 +21,7 @@",
+      "                 func=Name(id='min', ctx=Load()),",
+      "                 args=[",
+      "                   Name(id='requested', ctx=Load()),",
+      "-                  Constant(value=100)],",
+      "+                  Constant(value=50)],",
+      "                 keywords=[])],",
+      "             keywords=[]))],",
+      "       decorator_list=[],"
+    ],
+    "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='page_size',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='requested',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='max', ctx=Load()),\n            args=[\n              Constant(value=1),\n              Call(\n                func=Name(id='min', ctx=Load()),\n                args=[\n                  Name(id='requested', ctx=Load()),\n                  Constant(value=50)],\n                keywords=[])],\n            keywords=[]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+    "python_source": "def page_size(requested: int):\n    return max(1, min(requested, 50))\n"
+  },
+  "current_sha256": "ed2fdd65a3b91d0fa31e2b74565f106f3179ad0d6c8877a005723105133c04d9"
+}

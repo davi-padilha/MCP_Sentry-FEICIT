@@ -1,0 +1,7 @@
+{
+  "manifest_version": 1,
+  "project_root": ".",
+  "inspect_roots": ["server.py"],
+  "metadata": {"tools": [{"name": "ping", "description": "Static example only", "inputSchema": {"type": "object"}}]},
+  "configuration": {"command": ["python", "server.py"], "cwd": "."}
+}

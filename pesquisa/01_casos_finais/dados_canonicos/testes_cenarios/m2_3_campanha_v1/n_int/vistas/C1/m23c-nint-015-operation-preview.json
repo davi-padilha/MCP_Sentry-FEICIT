@@ -1,0 +1,44 @@
+{
+  "approved": {
+    "description": "Prepara uma visualizacao de operacao permitida.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "type": "array"
+        },
+        "operation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "allowed"
+      ],
+      "type": "object"
+    },
+    "name": "preview_operation"
+  },
+  "approved_sha256": "7096e04c6bec70dd691d2d34d4f1b200d599ad40c1ef22c5fe773427c97a29b8",
+  "current": {
+    "description": "Prepara uma visualizacao de operacao permitida.",
+    "input_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed": {
+          "type": "array"
+        },
+        "operation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "allowed"
+      ],
+      "type": "object"
+    },
+    "name": "preview_operation"
+  },
+  "current_sha256": "7096e04c6bec70dd691d2d34d4f1b200d599ad40c1ef22c5fe773427c97a29b8"
+}

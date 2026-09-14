@@ -1,0 +1,98 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Calcula a diferenca entre dois inteiros.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "type": "integer"
+          },
+          "b": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object"
+      },
+      "name": "difference"
+    },
+    "approved_sha256": "fe1bcd633f181379dffef5ee6242681a331783d830df8f307c147945c114ae7a",
+    "current": {
+      "description": "Calcula a diferenca entre dois inteiros.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "a": {
+            "type": "integer"
+          },
+          "b": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object"
+      },
+      "name": "difference"
+    },
+    "current_sha256": "fe1bcd633f181379dffef5ee6242681a331783d830df8f307c147945c114ae7a"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='difference',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='a',\n            annotation=Name(id='int', ctx=Load())),\n          arg(\n            arg='b',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=BinOp(\n            left=Name(id='a', ctx=Load()),\n            op=Sub(),\n            right=Name(id='b', ctx=Load())))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def difference(a: int, b: int):\n    return a - b\n"
+    },
+    "approved_sha256": "5af52a671b50fd4fde46a4c4df84bdf6d7aaa7113bbe93f1f5f433a8de3b1a97",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -15,6 +15,34 @@",
+        "         kw_defaults=[],",
+        "         defaults=[]),",
+        "       body=[",
+        "+        If(",
+        "+          test=BoolOp(",
+        "+            op=Or(),",
+        "+            values=[",
+        "+              UnaryOp(",
+        "+                op=Not(),",
+        "+                operand=Call(",
+        "+                  func=Name(id='isinstance', ctx=Load()),",
+        "+                  args=[",
+        "+                    Name(id='a', ctx=Load()),",
+        "+                    Name(id='int', ctx=Load())],",
+        "+                  keywords=[])),",
+        "+              UnaryOp(",
+        "+                op=Not(),",
+        "+                operand=Call(",
+        "+                  func=Name(id='isinstance', ctx=Load()),",
+        "+                  args=[",
+        "+                    Name(id='b', ctx=Load()),",
+        "+                    Name(id='int', ctx=Load())],",
+        "+                  keywords=[]))]),",
+        "+          body=[",
+        "+            Raise(",
+        "+              exc=Call(",
+        "+                func=Name(id='ValueError', ctx=Load()),",
+        "+                args=[",
+        "+                  Constant(value='integer inputs required')],",
+        "+                keywords=[]))],",
+        "+          orelse=[]),",
+        "         Return(",
+        "           value=BinOp(",
+        "             left=Name(id='a', ctx=Load()),"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='difference',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='a',\n            annotation=Name(id='int', ctx=Load())),\n          arg(\n            arg='b',\n            annotation=Name(id='int', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        If(\n          test=BoolOp(\n            op=Or(),\n            values=[\n              UnaryOp(\n                op=Not(),\n                operand=Call(\n                  func=Name(id='isinstance', ctx=Load()),\n                  args=[\n                    Name(id='a', ctx=Load()),\n                    Name(id='int', ctx=Load())],\n                  keywords=[])),\n              UnaryOp(\n                op=Not(),\n                operand=Call(\n                  func=Name(id='isinstance', ctx=Load()),\n                  args=[\n                    Name(id='b', ctx=Load()),\n                    Name(id='int', ctx=Load())],\n                  keywords=[]))]),\n          body=[\n            Raise(\n              exc=Call(\n                func=Name(id='ValueError', ctx=Load()),\n                args=[\n                  Constant(value='integer inputs required')],\n                keywords=[]))],\n          orelse=[]),\n        Return(\n          value=BinOp(\n            left=Name(id='a', ctx=Load()),\n            op=Sub(),\n            right=Name(id='b', ctx=Load())))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def difference(a: int, b: int):\n    if not isinstance(a, int) or not isinstance(b, int):\n        raise ValueError('integer inputs required')\n    return a - b\n"
+    },
+    "current_sha256": "afb66aaeaa88e837f1f6d3c34812a6d162a346d9aacbcaddf3bd437aafa2e057"
+  }
+}

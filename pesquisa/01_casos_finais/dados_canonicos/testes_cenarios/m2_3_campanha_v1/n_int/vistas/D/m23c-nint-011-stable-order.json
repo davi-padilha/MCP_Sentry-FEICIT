@@ -1,0 +1,92 @@
+{
+  "C1": {
+    "approved": {
+      "description": "Ordena registros por prioridade.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "records": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "records"
+        ],
+        "type": "object"
+      },
+      "name": "ordered_records"
+    },
+    "approved_sha256": "3f00d99ad12ff0ac4847e2838eac63989bb08a4998f1cb7b8744f94d819d013e",
+    "current": {
+      "description": "Ordena registros por prioridade.",
+      "input_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "records": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "records"
+        ],
+        "type": "object"
+      },
+      "name": "ordered_records"
+    },
+    "current_sha256": "3f00d99ad12ff0ac4847e2838eac63989bb08a4998f1cb7b8744f94d819d013e"
+  },
+  "C2": {
+    "approved": {
+      "ast_diff_from_approved": [],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='ordered_records',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='records',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='sorted', ctx=Load()),\n            args=[\n              Name(id='records', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='key',\n                value=Lambda(\n                  args=arguments(\n                    posonlyargs=[],\n                    args=[\n                      arg(arg='item')],\n                    kwonlyargs=[],\n                    kw_defaults=[],\n                    defaults=[]),\n                  body=Call(\n                    func=Attribute(\n                      value=Name(id='item', ctx=Load()),\n                      attr='get',\n                      ctx=Load()),\n                    args=[\n                      Constant(value='priority'),\n                      Constant(value=0)],\n                    keywords=[])))]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def ordered_records(records: list):\n    return sorted(records, key=lambda item: item.get('priority', 0))\n"
+    },
+    "approved_sha256": "b13404260288c53858e446639af164c77cc3e2ae30e8557249dfda5bd13acdcf",
+    "current": {
+      "ast_diff_from_approved": [
+        "--- approved_ast",
+        "+++ current_ast",
+        "@@ -28,15 +28,27 @@",
+        "                     kwonlyargs=[],",
+        "                     kw_defaults=[],",
+        "                     defaults=[]),",
+        "-                  body=Call(",
+        "-                    func=Attribute(",
+        "-                      value=Name(id='item', ctx=Load()),",
+        "-                      attr='get',",
+        "-                      ctx=Load()),",
+        "-                    args=[",
+        "-                      Constant(value='priority'),",
+        "-                      Constant(value=0)],",
+        "-                    keywords=[])))]))],",
+        "+                  body=Tuple(",
+        "+                    elts=[",
+        "+                      Call(",
+        "+                        func=Attribute(",
+        "+                          value=Name(id='item', ctx=Load()),",
+        "+                          attr='get',",
+        "+                          ctx=Load()),",
+        "+                        args=[",
+        "+                          Constant(value='priority'),",
+        "+                          Constant(value=0)],",
+        "+                        keywords=[]),",
+        "+                      Call(",
+        "+                        func=Attribute(",
+        "+                          value=Name(id='item', ctx=Load()),",
+        "+                          attr='get',",
+        "+                          ctx=Load()),",
+        "+                        args=[",
+        "+                          Constant(value='id'),",
+        "+                          Constant(value='')],",
+        "+                        keywords=[])],",
+        "+                    ctx=Load())))]))],",
+        "       decorator_list=[],",
+        "       type_params=[])],",
+        "   type_ignores=[])"
+      ],
+      "ast_dump": "Module(\n  body=[\n    FunctionDef(\n      name='ordered_records',\n      args=arguments(\n        posonlyargs=[],\n        args=[\n          arg(\n            arg='records',\n            annotation=Name(id='list', ctx=Load()))],\n        kwonlyargs=[],\n        kw_defaults=[],\n        defaults=[]),\n      body=[\n        Return(\n          value=Call(\n            func=Name(id='sorted', ctx=Load()),\n            args=[\n              Name(id='records', ctx=Load())],\n            keywords=[\n              keyword(\n                arg='key',\n                value=Lambda(\n                  args=arguments(\n                    posonlyargs=[],\n                    args=[\n                      arg(arg='item')],\n                    kwonlyargs=[],\n                    kw_defaults=[],\n                    defaults=[]),\n                  body=Tuple(\n                    elts=[\n                      Call(\n                        func=Attribute(\n                          value=Name(id='item', ctx=Load()),\n                          attr='get',\n                          ctx=Load()),\n                        args=[\n                          Constant(value='priority'),\n                          Constant(value=0)],\n                        keywords=[]),\n                      Call(\n                        func=Attribute(\n                          value=Name(id='item', ctx=Load()),\n                          attr='get',\n                          ctx=Load()),\n                        args=[\n                          Constant(value='id'),\n                          Constant(value='')],\n                        keywords=[])],\n                    ctx=Load())))]))],\n      decorator_list=[],\n      type_params=[])],\n  type_ignores=[])",
+      "python_source": "def ordered_records(records: list):\n    return sorted(records, key=lambda item: (item.get('priority', 0), item.get('id', '')))\n"
+    },
+    "current_sha256": "1ac048c46b78a08519dee0f5a00239dc0dedabb4df126017a7dd45e4d1c65603"
+  }
+}

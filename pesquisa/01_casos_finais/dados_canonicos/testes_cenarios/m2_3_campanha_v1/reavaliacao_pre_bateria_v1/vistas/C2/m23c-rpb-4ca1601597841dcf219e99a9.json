@@ -1,0 +1,104 @@
+{
+  "approved": {
+    "ast": {
+      "calls": [
+        "get",
+        "get",
+        "get",
+        "get",
+        "int",
+        "int"
+      ],
+      "function_names": [
+        "stage_availability_plan",
+        "finalize_availability_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Assign": 4,
+        "Attribute": 4,
+        "Call": 6,
+        "Compare": 1,
+        "Constant": 14,
+        "Dict": 2,
+        "FunctionDef": 2,
+        "GtE": 1,
+        "IfExp": 1,
+        "Load": 15,
+        "Module": 1,
+        "Name": 15,
+        "Return": 2,
+        "Store": 4,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [],
+    "language": "python",
+    "source": "def stage_availability_plan(record):\n    healthy = int(record.get('healthy_replicas', 0))\n    required = int(record.get('required_replicas', 1))\n    return {'healthy': healthy, 'required': required}\n\ndef finalize_availability_plan(staged):\n    capacity = staged.get('healthy', 0)\n    decision = 'allowed' if capacity >= staged.get('required', 1) else 'blocked'\n    return {'decision': decision, 'capacity': capacity}\n"
+  },
+  "approved_sha256": "0fe4d1cb33d1cf2dbddea4bfdeaf5fdfbe3b8e48a6787611a36421d7672816da",
+  "current": {
+    "ast": {
+      "calls": [
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "get",
+        "int",
+        "int",
+        "int",
+        "max"
+      ],
+      "function_names": [
+        "stage_availability_plan",
+        "finalize_availability_plan"
+      ],
+      "imports": [],
+      "node_counts": {
+        "Add": 1,
+        "Assign": 5,
+        "Attribute": 6,
+        "BinOp": 1,
+        "Call": 10,
+        "Compare": 1,
+        "Constant": 20,
+        "Dict": 2,
+        "FunctionDef": 2,
+        "GtE": 1,
+        "IfExp": 1,
+        "Load": 22,
+        "Module": 1,
+        "Name": 21,
+        "Return": 2,
+        "Store": 5,
+        "arg": 2,
+        "arguments": 2
+      },
+      "operational_effects": false
+    },
+    "diff_from_approved": [
+      "--- approved.py",
+      "+++ current.py",
+      "@@ -1,9 +1,10 @@",
+      " def stage_availability_plan(record):",
+      "     healthy = int(record.get('healthy_replicas', 0))",
+      "+    pending = max(0, int(record.get('pending_replicas', 0)))",
+      "     required = int(record.get('required_replicas', 1))",
+      "-    return {'healthy': healthy, 'required': required}",
+      "+    return {'healthy': healthy, 'pending': pending, 'required': required}",
+      " ",
+      " def finalize_availability_plan(staged):",
+      "-    capacity = staged.get('healthy', 0)",
+      "+    capacity = staged.get('healthy', 0) + staged.get('pending', 0)",
+      "     decision = 'allowed' if capacity >= staged.get('required', 1) else 'blocked'",
+      "     return {'decision': decision, 'capacity': capacity}"
+    ],
+    "language": "python",
+    "source": "def stage_availability_plan(record):\n    healthy = int(record.get('healthy_replicas', 0))\n    pending = max(0, int(record.get('pending_replicas', 0)))\n    required = int(record.get('required_replicas', 1))\n    return {'healthy': healthy, 'pending': pending, 'required': required}\n\ndef finalize_availability_plan(staged):\n    capacity = staged.get('healthy', 0) + staged.get('pending', 0)\n    decision = 'allowed' if capacity >= staged.get('required', 1) else 'blocked'\n    return {'decision': decision, 'capacity': capacity}\n"
+  },
+  "current_sha256": "d4228994c3fa7efdfc959fca6a90a247d68fe9fca3cd3fb8c0d55dbb8be55573"
+}

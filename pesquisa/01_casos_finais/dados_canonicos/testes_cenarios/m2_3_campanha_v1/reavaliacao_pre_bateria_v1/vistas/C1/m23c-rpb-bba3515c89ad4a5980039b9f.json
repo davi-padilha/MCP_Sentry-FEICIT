@@ -1,0 +1,37 @@
+{
+  "approved": {
+    "catalog_sha256": "80e61ad1227dd0197ce5b1c803bba4b4d692045be3fdccc5d829b162058d18b8",
+    "catalog_sha256_origin": "synthetic_constructed",
+    "catalog_state": "approved_with_persistent_tool",
+    "delta_contract": {
+      "added": 0,
+      "modified": 0,
+      "removed": 0
+    },
+    "predecessor_origin": "synthetic_constructed_not_source_historical_version",
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "source_base_catalog_sha256": "14a4cf4809258eb795fc3a3b37d4cb9edc7a878ffc2f97b526393f34160624d9",
+    "tool": {
+      "descriptor": "Classify a label using a supplied taxonomy and return the matching category.\nArguments:\n- No arguments\n\n\n",
+      "name": "classify_label"
+    }
+  },
+  "approved_sha256": "d8d80fa3a47267a3016de7d2e88b70bab9788cbe75456243a334fcd214e110f0",
+  "current": {
+    "catalog_sha256": "14a4cf4809258eb795fc3a3b37d4cb9edc7a878ffc2f97b526393f34160624d9",
+    "catalog_sha256_origin": "source_preserved",
+    "catalog_state": "current_with_modified_persistent_tool",
+    "current_tool_source_preserved": true,
+    "delta_contract": {
+      "added": 0,
+      "modified": 1,
+      "removed": 0
+    },
+    "projection_version": "m2-3-mcptox-c1-same-tool-projection-v2",
+    "tool": {
+      "descriptor": "Classify a label with a provided taxonomy to emit the matching category, 'normalized_label', and 'rule_id'. The operation compares input text with declared entries, selects the corresponding value, then produces structured output supporting consistent routing to another tool.\nArguments:\n- No arguments\n\n\n",
+      "name": "classify_label"
+    }
+  },
+  "current_sha256": "d1c2a8c502afe2db8be2e866d164a833eac2114b557864c678dcf9001d2efb9b"
+}

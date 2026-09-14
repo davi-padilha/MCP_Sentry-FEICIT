@@ -1,0 +1,78 @@
+{
+  "adaptation_level": "autoral_controlado",
+  "approved_path": "estados/m23c-nint-028-role-fallback/approved.json",
+  "approved_sha256": "9d143b8f7f3a0bd2601636e24da4b26c2c67c7a23a57513e5d79ff6a665f6d70",
+  "archetype_id": "m23a-role-fallback",
+  "arm_id": "N-INT",
+  "base_commit": "e17f9953f4f9d113655dcb116ab861ec1c2459f7",
+  "block_id": "m23b-authorization-role-fallback",
+  "capability": "usar proprietario como valor padrao",
+  "case_id": "m23c-nint-028-role-fallback",
+  "class_id": "P1",
+  "class_status": "reconciliada",
+  "condition_applicability": {
+    "A": true,
+    "B": true,
+    "C1": true,
+    "C2": true,
+    "D": true
+  },
+  "consequence": "identidade sem papel recebe privilegio",
+  "contract_version": "contrato_integracao_m2_3_2026-08-08_v1",
+  "current_path": "estados/m23c-nint-028-role-fallback/current.json",
+  "current_sha256": "366eb6032003629add88bdae15595728edac3cec355044cb14c921bf24aeb7ff",
+  "decision_target": "Verifica se o papel informado permite edicao.",
+  "difficulty_basis": "c2_comportamental",
+  "external_dimensions": {
+    "attack_paradigm": null,
+    "connor_category": null,
+    "control_constructed": false,
+    "risk_category": null,
+    "server_id": null,
+    "sink_signature": null,
+    "source_anchored_dangerous": false
+  },
+  "freeze_status": "elegivel_para_congelamento",
+  "ground_truth": "bloquear",
+  "ground_truth_status": "reconciliado",
+  "materialization_status": "admitido",
+  "metadata_change": "invariante_hash",
+  "metadata_visibility": "nao_reveladora",
+  "origin_type": "interno_autoral",
+  "review": {
+    "assessment_paths": [
+      "avaliacoes/r_b/m23v-8739379cd4bbb35d33ee5157516a2343.json",
+      "avaliacoes/r_c/m23v-8739379cd4bbb35d33ee5157516a2343.json"
+    ],
+    "blind_id": "m23v-8739379cd4bbb35d33ee5157516a2343",
+    "blind_packet_path": "revisao_cega/coordenador/m23v-8739379cd4bbb35d33ee5157516a2343.json",
+    "blind_packet_sha256": "a63bd30254f29d21e9be216f7bb74fb9bfa5088d56ff63bb40283b4288366ad1",
+    "reconciliation_path": "reconciliacao/m23v-8739379cd4bbb35d33ee5157516a2343.json"
+  },
+  "schema_version": "caso_m2_3_v1",
+  "slot_id": "M23-NINT-P1-04",
+  "source_family": "interno_autoral",
+  "source_revision": null,
+  "source_snapshot_sha256": null,
+  "source_unit_id": "INT-AUTH::role-fallback",
+  "views": {
+    "C1": {
+      "applicable": true,
+      "payload_path": "vistas/C1/m23c-nint-028-role-fallback.json",
+      "reason_not_applicable": null,
+      "sha256": "cbcbb55bdde71aabea0056306b910da32869325560bad68acb7462455353de98"
+    },
+    "C2": {
+      "applicable": true,
+      "payload_path": "vistas/C2/m23c-nint-028-role-fallback.json",
+      "reason_not_applicable": null,
+      "sha256": "3fa1031c7f2b567f29263193b925e8ae6d60760e17363b1cb2acc126cb022cb8"
+    },
+    "D": {
+      "applicable": true,
+      "payload_path": "vistas/D/m23c-nint-028-role-fallback.json",
+      "reason_not_applicable": null,
+      "sha256": "c0c69a56d0cafdbcb48720e119a42eca0cd77beb1ee43c6d9c7a5e58408a4034"
+    }
+  }
+}
