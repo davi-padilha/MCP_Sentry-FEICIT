@@ -2,7 +2,7 @@
 
 Este repositório reúne somente a parte essencial do projeto:
 
-- `pesquisa/`: casos finais, resultados e material de reprodução da campanha M2.3;
+- `pesquisa/`: casos finais, resultados e código essencial da campanha M2.3;
 - `gateway/`: gateway MCP Sentry e a Donna MCP funcional;
 - `documentacao/`: metodologia, arquitetura, critérios e fechamento dos resultados.
 
@@ -27,4 +27,3 @@ precisam ser configurados no ambiente de demonstração.
 - gateway e Donna: branch `development_sentry`, commit `0efb9ae`.
 
 O repositório MCP-Sentry original permanece como arquivo histórico completo.
-

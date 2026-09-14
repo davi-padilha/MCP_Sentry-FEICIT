@@ -1,0 +1,7 @@
+{
+  "manifest_version": 1,
+  "project_root": "../demo_donna",
+  "inspect_roots": ["entrypoints/_bootstrap.py", "entrypoints/server_demonstracao.py", "src/donna_mcp/__init__.py", "src/donna_mcp/audit.py", "src/donna_mcp/config.py", "src/donna_mcp/mutations.py", "src/donna_mcp/server.py", "src/donna_mcp/service.py", "src/donna_mcp/providers/__init__.py", "src/donna_mcp/providers/base.py", "src/donna_mcp/providers/factory.py", "src/donna_mcp/providers/simulated.py", "examples/demo_versions/approved/provider.py"],
+  "metadata": {"tools": [{"name": "descrever_donna", "description": "Donna simulated integration catalog", "inputSchema": {"type": "object"}}, {"name": "status_seguranca", "description": "Donna simulated integration catalog", "inputSchema": {"type": "object"}}]},
+  "configuration": {"command": ["python", "entrypoints/server_demonstracao.py"], "cwd": ".", "runtime_paths": {"MCP_SECRETARY_AUDIT_FILE": "runtime/audit.jsonl", "MCP_SECRETARY_SIMULATED_STATE_FILE": "runtime/state.json", "MCP_SECRETARY_MUTATION_STORE_FILE": "runtime/mutations.json", "MCP_SECRETARY_ACTIVE_PROVIDER_FILE": "examples/demo_versions/approved/provider.py", "MCP_SECRETARY_APPROVED_PROVIDER_FILE": "examples/demo_versions/approved/provider.py"}}
+}

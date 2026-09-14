@@ -2,13 +2,13 @@
 
 Esta pasta reúne os 90 casos finais da M2.3.
 
-- `catalogo_humano_90_casos/`: fichas fáceis de consultar, organizadas por
-  braço e classe;
-- `manifesto_oficial_e_hashes/`: composição oficial e hashes da bateria;
-- `dados_canonicos/`: somente os 286 arquivos efetivamente referenciados
-  pelo manifesto final.
+- `controle_de_integridade/`: lista oficial dos casos e hashes de conferência;
+- `arquivos_da_bateria/casos_completos/`: os 90 casos em JSON;
+- `arquivos_da_bateria/entradas_dos_modelos/`: as 150 entradas C1, C2 e D;
+- `arquivos_da_bateria/INDICE_DOS_90_CASOS.csv`: índice simples de consulta.
 
-Os caminhos originais foram mantidos dentro de `dados_canonicos/` para deixar
-clara a proveniência. Comece pelo catálogo humano; use os JSONs apenas quando
-precisar inspecionar o conteúdo exato de um caso.
+Comece por `INDICE_DOS_90_CASOS.csv`. Ele mostra braço, classe, gabarito e
+condições disponíveis, sem repetir cada caso em uma ficha separada.
 
+Os nomes técnicos dos JSONs foram mantidos porque funcionam como identificadores
+estáveis entre os casos, as entradas dos modelos e os resultados.
