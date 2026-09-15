@@ -1,8 +1,8 @@
 # Exemplo manual. Não substitui a configuração instalada automaticamente.
 [mcp_servers.donna_mcp]
 command = "C:\\CAMINHO_LOCAL\\venv\\Scripts\\python.exe"
-args = ["C:\\CAMINHO\\MCP-Sentry-FEICIT\\gateway\\demo_donna\\inicializacao-do-mcp\\server_google.py"]
-cwd = "C:\\CAMINHO\\MCP-Sentry-FEICIT\\gateway\\demo_donna"
+args = ["C:\\CAMINHO\\MCP-Sentry-FEICIT\\demonstracao-donna\\inicializacao-do-mcp\\server_google.py"]
+cwd = "C:\\CAMINHO\\MCP-Sentry-FEICIT\\demonstracao-donna"
 enabled = true
 required = false
 startup_timeout_sec = 20

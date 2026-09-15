@@ -172,7 +172,8 @@ uma conta Google.
 ## Ambiente compartilhado da demonstração Donna
 
 Para a demonstração integrada, use o interpretador absoluto criado por
-`gateway/demo_donna/scripts/powershell/setup.ps1`. O script instala Donna e
+`demonstracao-donna/ferramentas-para-demonstracao/scripts-em-powershell/setup.ps1`.
+O script instala Donna e
 este gateway nesse mesmo ambiente; assim, o launcher `-m
 mcp_sentry_gateway.gateway` e o backend Donna não dependem de `PYTHONPATH`, do
 diretório atual ou dos aliases `python`/`py`. Isto prepara somente o ambiente

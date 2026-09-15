@@ -7,7 +7,7 @@ from mcp_sentry_gateway.core import approve
 from mcp_sentry_gateway.gateway import StdioGateway
 
 GATEWAY_ROOT = Path(__file__).parents[1]
-DONNA = GATEWAY_ROOT / "demo_donna"
+DONNA = GATEWAY_ROOT.parent / "demonstracao-donna"
 TEMPLATE = GATEWAY_ROOT / "configuracao_demo" / "CONFIGURACAO_DA_DONNA.json"
 def _donna_python():
     override = os.getenv("MCP_SENTRY_DONNA_PYTHON")
@@ -51,7 +51,7 @@ class T5Tests(unittest.TestCase):
         shutil.copytree(
             DONNA,
             project,
-            ignore=shutil.ignore_patterns(".venv", "runtime", "local_data", "__pycache__", "*.pyc"),
+            ignore=shutil.ignore_patterns(".venv", "dados-gerados-pelo-mcp", "versao-em-uso-do-mcp", "local_data", "__pycache__", "*.pyc"),
         )
         state = temp / "state"; state.mkdir()
         manifest = json.loads(TEMPLATE.read_text(encoding="utf-8"))
@@ -64,4 +64,4 @@ class T5Tests(unittest.TestCase):
         self.assertFalse(response.get("isError"), response)
         self.assertIn("content", response)
         self.assertTrue(gateway.backend.copy_root.is_dir())
-        self.assertFalse((project / "runtime" / "state.json").exists())
+        self.assertFalse((project / "dados-gerados-pelo-mcp" / "estado-da-simulacao.json").exists())

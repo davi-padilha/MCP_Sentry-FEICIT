@@ -177,7 +177,7 @@ integridade ja aplicada ao modo Google real.
 No PowerShell, de qualquer diretorio:
 
 ```powershell
-& "C:\caminho\MCP-Sentry-FEICIT\gateway\demo_donna\ferramentas-para-demonstracao\scripts-em-powershell\setup.ps1"
+& "C:\caminho\MCP-Sentry-FEICIT\demonstracao-donna\ferramentas-para-demonstracao\scripts-em-powershell\setup.ps1"
 ```
 
 O script cria `.venv`, instala as dependencias fixadas e instala de forma
