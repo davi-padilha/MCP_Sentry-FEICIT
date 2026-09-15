@@ -7,7 +7,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from .core import SentryError, canon, digest, inspect, safe_text, write, write_text_report
+from .core import SECURITY_REPORTS_DIR, UPDATE_REVIEWS_DIR, SentryError, canon, digest, inspect, safe_text, write, write_text_report
 
 POLICY_VERSION = "mcp-sentry-review-v1"
 VERDICT_FIELDS = {"review_id", "reviewed_hash", "dossier_hash", "policy_version", "decision", "justification", "risks"}
@@ -17,7 +17,7 @@ HUMAN_APPROVAL_TTL_SECONDS = 30 * 60
 
 
 def _now(): return datetime.now(timezone.utc).isoformat()
-def _path(store, review_id): return store / "reviews" / f"{review_id}.json"
+def _path(store, review_id): return store / UPDATE_REVIEWS_DIR / f"{review_id}.json"
 
 def _load(path):
     try: return json.loads(path.read_text(encoding="utf-8"))
@@ -114,7 +114,7 @@ def security_status(manifest_path: Path, store: Path):
     if record["status"] == "blocked":
         return {"status": "blocked", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"]}
     if record["status"] == "allowed_once":
-        if not (store / "reports" / f"review-{record['review_id']}.txt").is_file() or not (store / "reports" / f"operator-approval-{record['review_id']}.txt").is_file():
+        if not (store / SECURITY_REPORTS_DIR / f"review-{record['review_id']}.txt").is_file() or not (store / SECURITY_REPORTS_DIR / f"operator-approval-{record['review_id']}.txt").is_file():
             return {"status": "blocked", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"], "reason": "decision_audit_report_missing"}
         return {"status": "allowed_once", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"]}
     if record["status"] == "awaiting_human_approval":
@@ -147,13 +147,13 @@ def submit_verdict(manifest_path: Path, store: Path, verdict):
     if not isinstance(verdict.get("risks"), list) or not all(isinstance(item, str) for item in verdict["risks"]): raise SentryError("riscos inválidos")
     record, result = ensure_pending(manifest_path, store)
     if record is None or record["review_id"] != verdict["review_id"]: raise SentryError("revisão pendente inexistente")
-    lock = store / "reviews" / f"{record['review_id']}.submit.lock"
+    lock = store / UPDATE_REVIEWS_DIR / f"{record['review_id']}.submit.lock"
     try:
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except FileExistsError as exc:
         raise SentryError("submissão de veredito já está em andamento") from exc
     os.close(fd)
-    staged_report = store / "reports" / f".review-{record['review_id']}.{uuid.uuid4().hex}.tmp"
+    staged_report = store / SECURITY_REPORTS_DIR / f".review-{record['review_id']}.{uuid.uuid4().hex}.tmp"
     try:
         # Reload under the exclusive transition lock; only one pending verdict can commit.
         record = _expire_if_needed(_load(_path(store, verdict["review_id"])), store)
@@ -172,7 +172,7 @@ def submit_verdict(manifest_path: Path, store: Path, verdict):
         record["decided_at"] = _now()
         write_text_report(staged_report, _decision_summary(record))
         write(_path(store, record["review_id"]), record)
-        os.replace(staged_report, store / "reports" / f"review-{record['review_id']}.txt")
+        os.replace(staged_report, store / SECURITY_REPORTS_DIR / f"review-{record['review_id']}.txt")
         return {"status": record["status"], "review_id": record["review_id"], "current_hash": dossier["current_hash"],
                 "next_action": "external_operator_approval_required" if verdict["decision"] == "allow" else "blocked"}
     finally:
@@ -195,13 +195,13 @@ def approve_review_execution(manifest_path: Path, store: Path, review_id: str,
     record, result = ensure_pending(manifest_path, store)
     if record is None or record["review_id"] != review_id:
         raise SentryError("revisão pendente inexistente")
-    lock = store / "reviews" / f"{review_id}.operator-approval.lock"
+    lock = store / UPDATE_REVIEWS_DIR / f"{review_id}.operator-approval.lock"
     try:
         fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except FileExistsError as exc:
         raise SentryError("aprovação do operador já está em andamento") from exc
     os.close(fd)
-    staged_report = store / "reports" / f".operator-approval-{review_id}.{uuid.uuid4().hex}.tmp"
+    staged_report = store / SECURITY_REPORTS_DIR / f".operator-approval-{review_id}.{uuid.uuid4().hex}.tmp"
     try:
         record = _expire_if_needed(_load(_path(store, review_id)), store)
         dossier = record["dossier"]
@@ -214,7 +214,7 @@ def approve_review_execution(manifest_path: Path, store: Path, review_id: str,
         record["operator_approved_at"] = _now()
         write_text_report(staged_report, _operator_approval_summary(record))
         write(_path(store, review_id), record)
-        os.replace(staged_report, store / "reports" / f"operator-approval-{review_id}.txt")
+        os.replace(staged_report, store / SECURITY_REPORTS_DIR / f"operator-approval-{review_id}.txt")
         return {"status": "allowed_once", "review_id": review_id,
                 "current_hash": dossier["current_hash"], "next_action": "reconnect_required"}
     finally:
@@ -230,11 +230,11 @@ def consume_allowed_once(manifest_path: Path, store: Path):
     record, result = ensure_pending(manifest_path, store)
     if record is None or record.get("status") != "allowed_once":
         raise SentryError("não existe autorização de uso único disponível")
-    if not (store / "reports" / f"review-{record['review_id']}.txt").is_file() or not (store / "reports" / f"operator-approval-{record['review_id']}.txt").is_file():
+    if not (store / SECURITY_REPORTS_DIR / f"review-{record['review_id']}.txt").is_file() or not (store / SECURITY_REPORTS_DIR / f"operator-approval-{record['review_id']}.txt").is_file():
         raise SentryError("relatório auditável da autorização está ausente")
     if record["dossier"]["current_hash"] != result["dossier"]["current_hash"]:
         raise SentryError("autorização não corresponde ao estado atual")
-    marker = store / "reviews" / (record["review_id"] + ".consume.lock")
+    marker = store / UPDATE_REVIEWS_DIR / (record["review_id"] + ".consume.lock")
     try:
         fd = os.open(marker, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     except FileExistsError as exc:

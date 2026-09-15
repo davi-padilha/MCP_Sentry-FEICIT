@@ -23,6 +23,12 @@ _PEM_PRIVATE_KEY = re.compile(
     r"-----END (?P=kind)-----"
 )
 EXECUTION_ENVELOPE_VERSION = 1
+APPROVED_VERSION_FILE = "versao-aprovada.json"
+APPROVED_EXECUTION_FILE = "configuracao-de-execucao-aprovada.json"
+CONNECTION_RECORDS_DIR = "conexoes-observadas"
+SECURITY_REPORTS_DIR = "relatorios-de-seguranca"
+UPDATE_REVIEWS_DIR = "revisoes-de-atualizacoes"
+VERIFIED_COPIES_DIR = "copias-verificadas"
 # Values remain only in the host environment.  The ordered names are bound into
 # the separately promoted execution envelope so a semantic verdict cannot add
 # a new channel to the protected backend.
@@ -157,7 +163,7 @@ def execution_envelope(capture_result):
         "passthrough_names": list(TRUSTED_PASSTHROUGH_NAMES),
     }
 
-def _envelope_path(store): return store / "trusted-execution-envelope.json"
+def _envelope_path(store): return store / APPROVED_EXECUTION_FILE
 
 def load_execution_envelope(store):
     path = _envelope_path(store)
@@ -171,14 +177,14 @@ def load_execution_envelope(store):
     return envelope
 
 def approve(manifest_path:Path, store:Path):
-    current=capture(manifest_path); external(store, Path(current["root"])); baseline=store/"baseline.json"
+    current=capture(manifest_path); external(store, Path(current["root"])); baseline=store/APPROVED_VERSION_FILE
     if baseline.exists(): raise SentryError("baseline já existe; approve não o sobrescreve")
     data={"schema_version":1,"created_at":datetime.now(timezone.utc).isoformat(),"capture":current}; data["integrity_hash"]=digest(canon(current)); write(baseline,data)
     write(_envelope_path(store), execution_envelope(current))
     return {"status":"approved","integrity_hash":data["integrity_hash"],"baseline":str(baseline)}
 
 def inspect(manifest_path:Path, store:Path):
-    baseline_path=store/"baseline.json"
+    baseline_path=store/APPROVED_VERSION_FILE
     if not baseline_path.exists(): raise SentryError("não existe baseline; execute approve primeiro")
     baseline=json.loads(baseline_path.read_text(encoding="utf-8")); current=capture(manifest_path, baseline["capture"]["manifest"]["inspect_roots"]); external(store,Path(current["root"]))
     old={x["path"]:x for x in baseline["capture"]["files"]}; new={x["path"]:x for x in current["files"]}; changes=[]
@@ -195,7 +201,7 @@ def inspect(manifest_path:Path, store:Path):
         "configuration":{"approved":approved_manifest["configuration"], "current":current["manifest"]["configuration"]},
     }; dossier["dossier_hash"]=digest(canon(dossier))
     result={"created_at":datetime.now(timezone.utc).isoformat(),"status":"unchanged" if not changes else "review_required","dossier":dossier}
-    report_base=store/"reports"/("inspect-"+dossier["dossier_hash"])
+    report_base=store/SECURITY_REPORTS_DIR/("inspect-"+dossier["dossier_hash"])
     summary_lines = [
         "MCP Sentry inspection summary",
         f"status: {result['status']}",
@@ -217,7 +223,7 @@ def inspect(manifest_path:Path, store:Path):
     result["report"]=str(report); result["summary_report"]=str(report_base.with_suffix(".txt")); return result
 
 def accept_current(manifest_path:Path, store:Path):
-    baseline=store/"baseline.json"
+    baseline=store/APPROVED_VERSION_FILE
     if not baseline.exists(): raise SentryError("não existe baseline; execute approve primeiro")
     old=json.loads(baseline.read_text(encoding="utf-8")); current=capture(manifest_path,old["capture"]["manifest"]["inspect_roots"]); external(store,Path(current["root"]))
     data={"schema_version":1,"created_at":datetime.now(timezone.utc).isoformat(),"capture":current}; data["integrity_hash"]=digest(canon(current)); write(baseline,data); return {"status":"accepted_current","integrity_hash":data["integrity_hash"]}
@@ -231,7 +237,7 @@ def promote_execution_envelope(manifest_path: Path, store: Path, human_confirmat
     if human_confirmation != "PROMOTE_EXECUTION_ENVELOPE":
         raise SentryError("promoção do envelope exige atestação operacional explícita")
     current = capture(manifest_path); external(store, Path(current["root"]))
-    if not (store / "baseline.json").exists(): raise SentryError("não existe baseline; execute approve primeiro")
+    if not (store / APPROVED_VERSION_FILE).exists(): raise SentryError("não existe versão aprovada; execute approve primeiro")
     write(_envelope_path(store), execution_envelope(current))
     return {"status": "execution_envelope_promoted", "envelope_hash": digest(canon(execution_envelope(current)))}
 

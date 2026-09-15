@@ -8,6 +8,23 @@ local da Donna.
 O subprojeto permanece separado das baterias A/B/C1/C2/D e nao produz evidencia
 experimental.
 
+## Estrutura da demonstracao
+
+- `codigo-fonte-do-mcp/`: implementação da Donna; `donna_mcp` e `providers`
+  permanecem como nomes técnicos de pacotes Python.
+- `configuracao-do-mcp/`: exemplos de configuração e variáveis de ambiente.
+- `dados-gerados-pelo-mcp/`: auditoria, estado da simulação e ações pendentes
+  produzidos localmente durante o uso.
+- `documentacao/`: roteiros e orientações da demonstração.
+- `ferramentas-para-demonstracao/`: scripts em Python e PowerShell para
+  preparar, verificar e executar os cenários.
+- `inicializacao-do-mcp/`: programas que o cliente MCP ou os scripts iniciam.
+- `testes-automatizados/`: testes da Donna MCP.
+- `versao-em-uso-do-mcp/`: a cópia atualmente selecionada para a simulação ou
+  integração Google.
+- `versoes-para-demonstracao/`: versões aprovada e maliciosa simulada, usadas
+  para comparar os cenários sem alterar o código comum.
+
 ## Capacidades
 
 O servidor expoe treze tools:
@@ -90,7 +107,7 @@ Pré-requisitos em cada máquina:
 No notebook e depois no desktop, abra PowerShell nesta pasta e execute:
 
 ```powershell
-.\scripts\powershell\install_portable.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\install_portable.ps1
 ```
 
 O instalador:
@@ -106,7 +123,7 @@ Se uma entrada manual chamada `donna_mcp` já existir, o instalador
 interrompe sem reescrevê-la. Para apenas gerar o trecho, sem registrar:
 
 ```powershell
-.\scripts\powershell\install_portable.ps1 -SkipCodexRegistration
+.\ferramentas-para-demonstracao\scripts-em-powershell\install_portable.ps1 -SkipCodexRegistration
 ```
 
 Use o mesmo `credentials.json` de cliente OAuth Desktop nas duas máquinas,
@@ -114,13 +131,13 @@ transferido por canal seguro, mas autorize cada computador separadamente. Não
 copie nem sincronize `token.json`:
 
 ```powershell
-.\scripts\powershell\authenticate_portable.ps1 -CredentialsFile "C:\caminho\client_secret.json"
+.\ferramentas-para-demonstracao\scripts-em-powershell\authenticate_portable.ps1 -CredentialsFile "C:\caminho\client_secret.json"
 ```
 
 Depois, reinicie o Codex e execute:
 
 ```powershell
-.\scripts\powershell\diagnose_portable.ps1 -CheckMcp
+.\ferramentas-para-demonstracao\scripts-em-powershell\diagnose_portable.ps1 -CheckMcp
 ```
 
 O diagnóstico com `-CheckMcp` inicializa o servidor, lista as treze tools e chama
@@ -160,7 +177,7 @@ integridade ja aplicada ao modo Google real.
 No PowerShell, de qualquer diretorio:
 
 ```powershell
-& "C:\caminho\MCP-Sentry-FEICIT\gateway\demo_donna\scripts\powershell\setup.ps1"
+& "C:\caminho\MCP-Sentry-FEICIT\gateway\demo_donna\ferramentas-para-demonstracao\scripts-em-powershell\setup.ps1"
 ```
 
 O script cria `.venv`, instala as dependencias fixadas e instala de forma
@@ -172,7 +189,7 @@ indice de pacotes somente na preparacao.
 Se o Python nao for encontrado automaticamente:
 
 ```powershell
-.\scripts\powershell\setup.ps1 -PythonExecutable "C:\caminho\python.exe"
+.\ferramentas-para-demonstracao\scripts-em-powershell\setup.ps1 -PythonExecutable "C:\caminho\python.exe"
 ```
 
 ## Demonstracao recomendada
@@ -180,7 +197,7 @@ Se o Python nao for encontrado automaticamente:
 Mantenha o painel aberto em outro terminal:
 
 ```powershell
-.\scripts\powershell\run_dashboard.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\run_dashboard.ps1
 ```
 
 Abra `http://127.0.0.1:8765`. O painel mostra acoes normais, efeitos ocultos
@@ -189,14 +206,14 @@ simulados e bloqueios do Sentry.
 ### 1. Versao aprovada
 
 ```powershell
-.\scripts\powershell\activate_demo_approved.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\activate_demo_approved.ps1
 ```
 
 Encerre qualquer conexao anterior antes de executar o comando. Ele ativa o
 snapshot aprovado, reinicia o calendario e as confirmacoes locais da
 demonstracao e limpa a auditoria anterior. Nenhuma credencial ou dado do Google
 e tocado. No cliente MCP, inicie `donna_mcp`, que aponta para
-`entrypoints/server_demonstracao.py`. Faca o pedido do roteiro, apresente a previa e
+`inicializacao-do-mcp/server_demonstracao.py`. Faca o pedido do roteiro, apresente a previa e
 confirme a acao. O fluxo util e concluido sem acao oculta.
 
 ### 2. Atualizacao de rug pull
@@ -204,13 +221,13 @@ confirme a acao. O fluxo util e concluido sem acao oculta.
 Encerre a conexao e ative a atualizacao:
 
 ```powershell
-.\scripts\powershell\activate_demo_rug_pull.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\activate_demo_rug_pull.ps1
 ```
 
 O comando reinicia somente o calendario e as confirmacoes simuladas, preserva
 a auditoria do estagio aprovado e grava o snapshot posterior no mesmo artefato
-executavel canonico `runtime/active_version/provider.py`. O metadado local
-ignorado `runtime/active_version/version.json` tambem e atualizado, mas nao e
+executavel canonico `versao-em-uso-do-mcp/simulacao-controlada/provider.py`. O metadado local
+ignorado `versao-em-uso-do-mcp/simulacao-controlada/version.json` tambem e atualizado, mas nao e
 carregado pelo servidor. Reinicie a mesma conexao `donna_mcp`: ponto de entrada, configuracao e estado inicial
 continuam comparaveis. A resposta util continua normal, enquanto o painel
 registra o participante ou BCC ficticio com `network_performed=false`.
@@ -222,28 +239,28 @@ do MCP Sentry, que por sua vez iniciará este mesmo servidor. O gateway compara
 a versão aprovada e a atual antes de executar a Donna. Siga o manual em
 `../mcp_sentry/usuario-final/README.md`; não aplique este fluxo a Google real.
 O mecanismo embutido anterior foi preservado apenas em
-`examples/legado_sentry_embutido/` e nao integra o Donna MCP canonico.
+uma referencia legada, fora da estrutura canonica da Donna MCP.
 
 Compare os dois pacotes logicos, que usam os mesmos caminhos canonicos:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\python\compare_versions.py
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\compare_versions.py
 ```
 
 ## Google real (fluxo manual legado)
 
-O mesmo `donna_mcp` e `entrypoints/server_google.py` tambem suportam a demonstracao de
+O mesmo `donna_mcp` e `inicializacao-do-mcp/server_google.py` tambem suportam a demonstracao de
 atualizacao aprovada→rug pull. Antes de iniciar o servidor Google pela primeira
 vez, ative o snapshot aprovado:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\python\activate_google_live_version.py approved
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\activate_google_live_version.py approved
 ```
 
 Para simular uma atualizacao posterior, encerre a conexao MCP, execute:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\python\activate_google_live_version.py rug-pull
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\activate_google_live_version.py rug-pull
 ```
 
 e reinicie a mesma conexao `donna_mcp`. O caminho configurado, o nome do MCP e
@@ -260,7 +277,7 @@ demonstracao. Use somente conteudo e contas controlados.
 
 ```powershell
 $env:MCP_SECRETARY_MODE = "live-google"
-.\.venv\Scripts\python.exe scripts\python\authenticate_google.py
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\authenticate_google.py
 ```
 
 O token fica em `local_data/token.json`, ignorado pelo Git. O servidor real nao
@@ -270,7 +287,7 @@ uma orientacao clara para executar o script de autenticacao.
 Depois da autorizacao:
 
 ```powershell
-.\scripts\powershell\run_live_google.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\run_live_google.ps1
 ```
 
 Escopos solicitados:
@@ -284,14 +301,14 @@ Quando os escopos aumentarem, execute novamente o autenticador. Ele detecta o
 token sem as novas permissoes e inicia uma nova tela de consentimento:
 
 ```powershell
-.\scripts\powershell\authenticate_portable.ps1
+.\ferramentas-para-demonstracao\scripts-em-powershell\authenticate_portable.ps1
 ```
 
 Se os escopos mudarem, remova somente o token local e autorize novamente.
 
 ## Configuracao no Codex
 
-Use `config/codex_config.example.toml` e ajuste os caminhos absolutos. Ele
+Use `configuracao-do-mcp/codex_config.example.toml` e ajuste os caminhos absolutos. Ele
 define uma conexão direta `donna_mcp`, útil apenas para a demonstração direta.
 Para a demonstração protegida, substitua essa entrada pelo launcher do MCP
 Sentry conforme o manual do gateway. O setup já deixa a versão aprovada ativa.
@@ -304,9 +321,9 @@ compartilham essa configuração local.
 ## Verificacoes locais essenciais
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe scripts\python\verify_mcp.py
-.\.venv\Scripts\python.exe scripts\python\compare_versions.py
+.\.venv\Scripts\python.exe -m unittest discover -s testes-automatizados -v
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\verify_mcp.py
+.\.venv\Scripts\python.exe ferramentas-para-demonstracao\scripts-em-python\compare_versions.py
 ```
 
 O verificador MCP inicia processos locais do mesmo ponto de entrada e reproduz

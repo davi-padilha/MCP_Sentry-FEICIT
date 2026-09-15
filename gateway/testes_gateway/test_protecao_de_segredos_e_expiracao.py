@@ -102,7 +102,7 @@ class T6ADebtClosureTests(unittest.TestCase):
         )})["structuredContent"]
         self.assertEqual(submitted["status"], "blocked")
         inspection = Path(inspect(self.manifest, self.store)["summary_report"]).read_text(encoding="utf-8")
-        decision = (self.store / "reports" / f"review-{pending['review_id']}.txt").read_text(encoding="utf-8")
+        decision = (self.store / "relatorios-de-seguranca" / f"review-{pending['review_id']}.txt").read_text(encoding="utf-8")
         self.assertIn("changes: 1", inspection)
         self.assertIn("decision: block", decision)
         self.assertIn("justification:", decision)
@@ -149,13 +149,13 @@ class T6ADebtClosureTests(unittest.TestCase):
                 text = artifact.read_text(encoding="utf-8")
                 for secret in forbidden:
                     self.assertNotIn(secret, text, artifact)
-        baseline = (self.store / "baseline.json").read_text(encoding="utf-8")
+        baseline = (self.store / "versao-aprovada.json").read_text(encoding="utf-8")
         self.assertIn("[REDACTED]", baseline)
 
     def test_pending_review_expires_and_rejects_verdict(self):
         self.approve(); self.change_server()
         mcp, pending, dossier = self.pending()
-        path = self.store / "reviews" / f"{pending['review_id']}.json"
+        path = self.store / "revisoes-de-atualizacoes" / f"{pending['review_id']}.json"
         record = json.loads(path.read_text(encoding="utf-8")); record["created_at"] = "2000-01-01T00:00:00+00:00"
         path.write_text(json.dumps(record), encoding="utf-8")
         status = mcp.call_tool("sentry_security_status")["structuredContent"]
@@ -171,7 +171,7 @@ class T6ADebtClosureTests(unittest.TestCase):
         mcp, pending, dossier = self.pending()
         self.assertEqual(mcp.call_tool("sentry_submit_verdict", {"verdict": self.verdict(pending, dossier)})["structuredContent"]["status"], "awaiting_human_approval")
         self.assertEqual(self.approve_recommendation(pending, dossier)["status"], "allowed_once")
-        path = self.store / "reviews" / f"{pending['review_id']}.json"
+        path = self.store / "revisoes-de-atualizacoes" / f"{pending['review_id']}.json"
         record = json.loads(path.read_text(encoding="utf-8")); record["decided_at"] = "2000-01-01T00:00:00+00:00"
         path.write_text(json.dumps(record), encoding="utf-8")
         gateway = StdioGateway(self.manifest, self.store); self.addCleanup(gateway.backend.close)
@@ -201,7 +201,7 @@ class T6ADebtClosureTests(unittest.TestCase):
         with self.assertRaisesRegex(SentryError, "não corresponde"):
             approve_review_execution(self.manifest, self.store, pending["review_id"], "wrong", dossier["dossier_hash"], "APPROVE_REVIEW_EXECUTION")
         self.assertEqual(self.approve_recommendation(pending, dossier)["status"], "allowed_once")
-        self.assertTrue((self.store / "reports" / f"operator-approval-{pending['review_id']}.txt").is_file())
+        self.assertTrue((self.store / "relatorios-de-seguranca" / f"operator-approval-{pending['review_id']}.txt").is_file())
 
     def test_operator_approval_cli_is_outside_the_mcp_surface(self):
         self.approve(); self.change_server()
@@ -218,7 +218,7 @@ class T6ADebtClosureTests(unittest.TestCase):
         self.assertEqual(json.loads(output.getvalue())["status"], "allowed_once")
 
     def test_accept_current_is_a_separate_explicit_promotion(self):
-        self.approve(); original = json.loads((self.store / "baseline.json").read_text(encoding="utf-8"))["integrity_hash"]
+        self.approve(); original = json.loads((self.store / "versao-aprovada.json").read_text(encoding="utf-8"))["integrity_hash"]
         self.change_server()
         self.assertEqual(inspect(self.manifest, self.store)["status"], "review_required")
         promoted = accept_current(self.manifest, self.store)
@@ -241,9 +241,9 @@ class T6ADebtClosureTests(unittest.TestCase):
         with mock.patch("mcp_sentry_gateway.review.write", side_effect=OSError("fixture store failure")):
             result = mcp.call_tool("sentry_submit_verdict", {"verdict": self.verdict(pending, dossier)})["structuredContent"]
         self.assertEqual(result["status"], "security_blocked")
-        record = json.loads((self.store / "reviews" / f"{pending['review_id']}.json").read_text(encoding="utf-8"))
+        record = json.loads((self.store / "revisoes-de-atualizacoes" / f"{pending['review_id']}.json").read_text(encoding="utf-8"))
         self.assertEqual(record["status"], "pending")
-        self.assertFalse((self.store / "reports" / f"review-{pending['review_id']}.txt").exists())
+        self.assertFalse((self.store / "relatorios-de-seguranca" / f"review-{pending['review_id']}.txt").exists())
 
     def test_concurrent_verdicts_cannot_both_commit(self):
         self.approve(); self.change_server()
@@ -268,7 +268,7 @@ class T6ADebtClosureTests(unittest.TestCase):
         self.assertFalse(worker.is_alive())
         self.assertEqual(second["status"], "security_blocked")
         self.assertEqual(first_result["structuredContent"]["status"], "awaiting_human_approval")
-        record = json.loads((self.store / "reviews" / f"{pending['review_id']}.json").read_text(encoding="utf-8"))
+        record = json.loads((self.store / "revisoes-de-atualizacoes" / f"{pending['review_id']}.json").read_text(encoding="utf-8"))
         self.assertEqual(record["verdict"]["decision"], "allow")
 
     def test_missing_final_decision_report_never_authorizes_spawn(self):
@@ -298,7 +298,7 @@ class T6ADebtClosureTests(unittest.TestCase):
 
     def test_legacy_baseline_with_reserved_namespace_fails_tools_list_closed(self):
         self.approve()
-        baseline_path = self.store / "baseline.json"
+        baseline_path = self.store / "versao-aprovada.json"
         baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
         baseline["capture"]["manifest"]["metadata"]["tools"][0]["name"] = "sentry_shadow"
         baseline_path.write_text(json.dumps(baseline), encoding="utf-8")

@@ -21,8 +21,6 @@ relatórios de cada campanha e, se necessário, os resultados brutos.
 ## Limites
 
 - a comparação C1/C2/D pertence ao núcleo N-INT;
-- a extensão foi executada em outra coorte temporal;
 - os resultados não demonstram um modelo universalmente superior;
 - falhas e recusas permanecem nos denominadores definidos pela metodologia;
 - o gateway e a demonstração Donna não são resultados da bateria científica.
-

@@ -1,7 +1,8 @@
 .venv/
 .env
 local_data/
-runtime/
+dados-gerados-pelo-mcp/
+versao-em-uso-do-mcp/
 credentials.json
 token.json
 __pycache__/

@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 
-from .core import SentryError
+from .core import APPROVED_VERSION_FILE, SentryError
 from .review import get_pending, security_status, submit_verdict
 
 VERDICT_SCHEMA = {
@@ -91,7 +91,7 @@ class MinimumMcp:
         self.lifecycle_reader = lifecycle_reader
 
     def tools_list(self):
-        baseline = self.store / "baseline.json"
+        baseline = self.store / APPROVED_VERSION_FILE
         if not baseline.exists(): return {"tools": CONTROL_TOOLS}
         try: approved = json.loads(baseline.read_text(encoding="utf-8"))["capture"]["manifest"]["metadata"].get("tools", [])
         except (OSError, ValueError, KeyError, TypeError): approved = []

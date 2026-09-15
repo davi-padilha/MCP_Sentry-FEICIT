@@ -41,7 +41,7 @@ class T6BMcpConformanceTests(unittest.TestCase):
         self.assertEqual(response["instructions"], SERVER_INSTRUCTIONS)
         self.assertLessEqual(len(response["instructions"]), 512)
         self.assertIn("read every", response["instructions"])
-        observations = list((self.store / "observations").glob("initialize-*.json"))
+        observations = list((self.store / "conexoes-observadas").glob("initialize-*.json"))
         self.assertEqual(len(observations), 1)
         record = json.loads(observations[0].read_text(encoding="utf-8"))
         self.assertEqual(record["clientInfo"]["name"], "fixture-client")
@@ -57,7 +57,7 @@ class T6BMcpConformanceTests(unittest.TestCase):
             "clientSecret": "fixture-client-secret",
         }))
         self.assertIn("result", initialized)
-        record = json.loads(next((self.store / "observations").glob("initialize-*.json")).read_text(encoding="utf-8"))
+        record = json.loads(next((self.store / "conexoes-observadas").glob("initialize-*.json")).read_text(encoding="utf-8"))
         self.assertEqual(record["clientInfo"]["token"], "[REDACTED]")
         self.assertEqual(record["clientInfo"]["api-key"], "[REDACTED]")
         self.assertEqual(record["clientInfo"]["Authorization"], "[REDACTED]")
@@ -72,18 +72,18 @@ class T6BMcpConformanceTests(unittest.TestCase):
     def test_initialize_selects_a_supported_version_or_rejects_malformed_client_without_backend(self):
         negotiated = self.gateway.handle(self.initialize(protocol="2099-01-01"))["result"]
         self.assertEqual(negotiated["protocolVersion"], "2025-06-18")
-        observation = json.loads(next((self.store / "observations").glob("initialize-*.json")).read_text(encoding="utf-8"))
+        observation = json.loads(next((self.store / "conexoes-observadas").glob("initialize-*.json")).read_text(encoding="utf-8"))
         self.assertEqual(observation["observed_protocol_version"], "2099-01-01")
         self.assertEqual(observation["selected_protocol_version"], "2025-06-18")
         malformed = self.gateway.handle({"jsonrpc": "2.0", "id": 2, "method": "initialize", "params": {"protocolVersion": "2025-06-18"}})
         self.assertEqual(malformed["error"]["code"], -32602)
         self.assertIsNone(self.gateway.backend.process)
-        self.assertEqual(len(list((self.store / "observations").glob("initialize-*.json"))), 1)
+        self.assertEqual(len(list((self.store / "conexoes-observadas").glob("initialize-*.json"))), 1)
 
     def test_initialize_observation_redacts_string_embedded_secret_without_corrupting_json(self):
         response = self.gateway.handle(self.initialize(client_info={"name": "fixture", "version": "1", "notes": 'token="fixture-secret"'}))
         self.assertIn("result", response)
-        record = json.loads(next((self.store / "observations").glob("initialize-*.json")).read_text(encoding="utf-8"))
+        record = json.loads(next((self.store / "conexoes-observadas").glob("initialize-*.json")).read_text(encoding="utf-8"))
         self.assertEqual(record["clientInfo"]["notes"], 'token="[REDACTED]"')
 
     def test_control_tools_publish_complete_verdict_and_output_schemas(self):

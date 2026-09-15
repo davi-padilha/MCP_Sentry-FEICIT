@@ -72,10 +72,10 @@ class T6CPreparationTests(unittest.TestCase):
         ):
             candidate = dict(trusted); candidate[field] = replacement
             self.assertNotEqual(candidate, trusted, field)
-        before = (self.store / "trusted-execution-envelope.json").read_bytes()
+        before = (self.store / "configuracao-de-execucao-aprovada.json").read_bytes()
         self.project.joinpath("server.py").write_text('def ping(): return "changed"\n', encoding="utf-8")
         accept_current(self.manifest, self.store)
-        self.assertEqual((self.store / "trusted-execution-envelope.json").read_bytes(), before)
+        self.assertEqual((self.store / "configuracao-de-execucao-aprovada.json").read_bytes(), before)
         self.assertEqual(execution_envelope(capture(self.manifest)), trusted)
 
     def test_backend_environment_is_minimal_and_secret_passthrough_value_never_enters_store(self):
@@ -111,7 +111,7 @@ class T6CPreparationTests(unittest.TestCase):
         self.assertLessEqual(len(self.gateway.backend.stderr_text.encode("utf-8")), BACKEND_STDERR_LIMIT_BYTES)
 
     def test_verified_copy_cleanup_failure_is_observable_and_path_is_retained(self):
-        copy_root = self.store / "verified-runs" / "cleanup-fixture"
+        copy_root = self.store / "copias-verificadas" / "cleanup-fixture"
         copy_root.mkdir(parents=True)
         self.gateway.backend.copy_root = copy_root
         with mock.patch("mcp_sentry_gateway.gateway.shutil.rmtree", side_effect=OSError("fixture cleanup failure")):
@@ -145,7 +145,7 @@ class T6CPreparationTests(unittest.TestCase):
                 self.gateway.backend.request({"jsonrpc": "2.0", "id": 1})
         self.assertIsNone(self.gateway.backend.process)
         self.assertIsNone(self.gateway.backend.copy_root)
-        verified_runs = self.store / "verified-runs"
+        verified_runs = self.store / "copias-verificadas"
         self.assertFalse(verified_runs.exists() and any(verified_runs.iterdir()))
 
     def test_timeout_closes_the_backend_before_returning_a_failure(self):

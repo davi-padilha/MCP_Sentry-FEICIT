@@ -7,7 +7,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .core import SentryError, write
+from .core import SECURITY_REPORTS_DIR, SentryError, write
 
 LIFECYCLE_SCHEMA_VERSION = 1
 
@@ -17,11 +17,11 @@ def _now():
 
 
 def _path(store: Path):
-    return store / "reports" / "backend-lifecycle-current.json"
+    return store / SECURITY_REPORTS_DIR / "backend-lifecycle-current.json"
 
 
 def _session_path(store: Path, session_id: str):
-    return store / "reports" / f"backend-lifecycle-{session_id}.json"
+    return store / SECURITY_REPORTS_DIR / f"backend-lifecycle-{session_id}.json"
 
 
 def read_backend_lifecycle(store: Path):

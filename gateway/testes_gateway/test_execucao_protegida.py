@@ -29,7 +29,7 @@ class T3Tests(unittest.TestCase):
         before = self.call(0, "sentry_security_status")["structuredContent"]["backend_lifecycle"]
         self.assertEqual(before["spawn_attempts"], 0)
         self.assertEqual(before["last_event"], "gateway_started")
-        session_report = self.store / "reports" / f"backend-lifecycle-{before['gateway_session_id']}.json"
+        session_report = self.store / "relatorios-de-seguranca" / f"backend-lifecycle-{before['gateway_session_id']}.json"
         self.assertTrue(session_report.is_file())
         response = self.call(1, "ping")
         self.assertIn("content", response, response)
@@ -152,7 +152,7 @@ class T3Tests(unittest.TestCase):
         self.assertEqual(lifecycle["last_event"], "backend_closed")
 
     def test_persisted_lifecycle_rejects_boolean_spawn_count(self):
-        path = self.store / "reports" / "backend-lifecycle-current.json"
+        path = self.store / "relatorios-de-seguranca" / "backend-lifecycle-current.json"
         record = json.loads(path.read_text(encoding="utf-8"))
         record["spawn_attempts"] = True
         path.write_text(json.dumps(record), encoding="utf-8")

@@ -11,7 +11,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .core import SentryError, capture, digest, execution_envelope, external, inspect, is_secret_name, load, load_execution_envelope, safe_text, write
+from .core import CONNECTION_RECORDS_DIR, SentryError, VERIFIED_COPIES_DIR, capture, digest, execution_envelope, external, inspect, is_secret_name, load, load_execution_envelope, safe_text, write
 from .lifecycle import BackendLifecycle
 from .mcp_facade import MinimumMcp
 from .review import consume_allowed_once
@@ -78,7 +78,7 @@ class BackendSession:
         if digest(json.dumps(current, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()) != expected_hash:
             raise SentryError("estado mudou antes da cópia verificada")
         root = Path(current["root"])
-        self.copy_root = self.store / "verified-runs" / uuid.uuid4().hex
+        self.copy_root = self.store / VERIFIED_COPIES_DIR / uuid.uuid4().hex
         self.copy_root.mkdir(parents=True, exist_ok=False)
         try:
             for item in current["files"]:
@@ -289,7 +289,7 @@ class StdioGateway:
             "authentication": "none; values are observable client declarations, not proof of identity or authority",
         }
         try:
-            write(self.facade.store / "observations" / f"initialize-{uuid.uuid4().hex}.json", observation)
+            write(self.facade.store / CONNECTION_RECORDS_DIR / f"initialize-{uuid.uuid4().hex}.json", observation)
         except (OSError, ValueError, SentryError) as exc:
             return self._error(request_id, -32603, "security blocked: could not record initialization")
         self.backend.protocol_version = selected_protocol
