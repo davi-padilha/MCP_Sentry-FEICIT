@@ -5,7 +5,8 @@ Este repositório reúne somente a parte essencial do projeto:
 - `pesquisa/`: casos finais, resultados e código essencial da campanha M2.3;
 - `gateway/`: gateway MCP Sentry e a Donna MCP funcional;
 - `documentacao/`: metodologia, arquitetura, critérios e fechamento dos resultados;
-- `banner/`: arquivos finais do banner apresentado na FEICIT.
+- `banner/`: arquivos finais do banner apresentado na FEICIT;
+- `video/`: vídeo de apresentação do projeto na FEICIT.
 
 ## Por onde começar
 
@@ -13,6 +14,7 @@ Este repositório reúne somente a parte essencial do projeto:
 2. Para ver resultados prontos, abra `pesquisa/02_resultados/README.md`.
 3. Para usar ou demonstrar o produto, abra `gateway/README.md`.
 4. Para imprimir ou consultar o banner, abra `banner/`.
+5. Para assistir à apresentação, abra `video/`.
 
 ## Avisos importantes
 
