@@ -578,12 +578,13 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
           <div class="segmentos" role="group" aria-labelledby="rotulo-escopo-camada" id="escopo-camada">
             <button type="button" data-escopo="N-INT" aria-pressed="true">Núcleo N-INT · mesmos 30 casos</button>
             <button type="button" data-escopo="*" aria-pressed="false">Todos os conjuntos</button>
+            <button type="button" data-escopo="sem-claude" aria-pressed="false">Todos os conjuntos sem Claude</button>
           </div>
         </div>
         <div class="paineis tres">
-          <div class="painel"><h5>Custo</h5><span class="sub">US$ por 1.000 decisões · 6 modelos de nuvem</span><div class="grafico" id="g-camada-custo"></div></div>
-          <div class="painel"><h5>Tamanho da pergunta</h5><span class="sub">tokens de entrada por chamada · 8 modelos</span><div class="grafico" id="g-camada-tok"></div></div>
-          <div class="painel"><h5>Latência</h5><span class="sub">mediana em segundos · 6 modelos de nuvem</span><div class="grafico" id="g-camada-lat"></div></div>
+          <div class="painel"><h5>Custo</h5><span class="sub" id="sub-camada-custo">US$ por 1.000 decisões · 6 modelos de nuvem</span><div class="grafico" id="g-camada-custo"></div></div>
+          <div class="painel"><h5>Tamanho da pergunta</h5><span class="sub" id="sub-camada-tok">tokens de entrada por chamada · 8 modelos</span><div class="grafico" id="g-camada-tok"></div></div>
+          <div class="painel"><h5>Latência</h5><span class="sub" id="sub-camada-lat">mediana em segundos · 6 modelos de nuvem</span><div class="grafico" id="g-camada-lat"></div></div>
         </div>
         <p class="texto" id="nota-camada-local"></p>
       </div>
@@ -630,14 +631,14 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
       <div class="cabeca">
         <span class="grupo">Erros e justificativas</span>
         <h2 class="pergunta">Onde cada modelo errou e o que escreveu?</h2>
-        <p class="resposta"><b>372</b> decisões erradas ou inconclusivas e <b>23</b> sem resposta, com o texto de cada modelo. Use os filtros para achar um caso.</p>
+        <p class="resposta">O gráfico mostra <b>372</b> decisões erradas ou inconclusivas e <b>23</b> sem resposta. A lista abaixo inclui também as justificativas dos acertos e acompanha os filtros.</p>
       </div>
       <div class="visual">
         <div class="filtros">
           <label for="f-modelo">Modelo<select id="f-modelo"></select></label>
           <label for="f-conjunto">Conjunto<select id="f-conjunto"><option value="">todos</option><option>N-INT</option><option>MCPTox</option><option>Connor</option></select></label>
           <label for="f-defesa">Defesa<select id="f-defesa"><option value="">todas</option><option value="C1">C1 interface</option><option value="C2">C2 código</option><option value="D">D combinação</option></select></label>
-          <label for="f-tipo">Tipo<select id="f-tipo"><option value="">todos</option><option value="FN">perigo liberado</option><option value="FP">legítima bloqueada</option><option value="INC">inconclusiva</option><option value="F">sem resposta</option></select></label>
+          <label for="f-tipo">Tipo<select id="f-tipo"><option value="">todos</option><option value="ACERTO">acertos · só na lista</option><option value="FN">perigo liberado</option><option value="FP">legítima bloqueada</option><option value="INC">inconclusiva</option><option value="F">sem resposta</option></select></label>
           <label for="f-busca">Buscar no texto<input type="search" id="f-busca" placeholder="ex.: credenciais, 999, archived"></label>
         </div>
         <div class="legenda" id="legenda-erros"></div>
@@ -647,7 +648,7 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
         <button type="button" class="mais" id="mais-erros">Mostrar mais</button>
       </div>
       <div class="leitura">
-        <div><h4>Como ler</h4><p>O gráfico conta os tipos por modelo com os filtros de conjunto, defesa e busca. A lista mostra cada decisão com o trecho de justificativa, sem edição.</p></div>
+        <div><h4>Como ler</h4><p>O gráfico conta apenas erros, inconclusivas e falhas por modelo. A lista inferior mostra também os acertos, com as justificativas sem edição, e responde a todos os filtros. Ao escolher “acertos”, o gráfico fica vazio; as justificativas aparecem só na lista. R3 continua fora desta página.</p></div>
       </div>
     </section>
 
@@ -1479,10 +1480,25 @@ function desenharCustoModelo() {
 
 function desenharCustoCamada() {
   const conds = ['C1', 'C2', 'D'];
+  const semClaude = escopoCamada === 'sem-claude';
+  const escopo = semClaude ? '*' : escopoCamada;
+  const resumirSemClaude = (grupo, cond) => {
+    const registros = P.filter((p) => !p.id.includes('claude') && (grupo !== 'nuvem' || !p.id.startsWith('local-'))).map((p) => custo(`${p.id}|*|${cond}`));
+    const somar = (campo) => registros.reduce((total, k) => total + (k[campo] || 0), 0);
+    const cobertura = somar('tok_cobertura');
+    const mediaTokens = (campo) => Math.round(registros.reduce((total, k) => total + (k[campo] || 0) * (k.tok_cobertura || 0), 0) / cobertura);
+    const medianas = registros.map((k) => k.lat_mediana).sort((a, b) => a - b);
+    const meio = Math.floor(medianas.length / 2);
+    return { unidades: somar('unidades'), custo: somar('custo'), tok_entrada: mediaTokens('tok_entrada'), tok_saida: mediaTokens('tok_saida'), lat_mediana: medianas.length % 2 ? medianas[meio] : (medianas[meio - 1] + medianas[meio]) / 2 };
+  };
+  const resumo = (grupo, cond) => semClaude ? resumirSemClaude(grupo, cond) : custo(`${grupo}|${escopo}|${cond}`);
+  document.getElementById('sub-camada-custo').textContent = `US$ por 1.000 decisões · ${semClaude ? 5 : 6} modelos de nuvem`;
+  document.getElementById('sub-camada-tok').textContent = `${semClaude ? 'média aproximada de ' : ''}tokens de entrada por chamada · ${semClaude ? 7 : 8} modelos`;
+  document.getElementById('sub-camada-lat').textContent = `${semClaude ? 'mediana das medianas por modelo' : 'mediana'} em segundos · ${semClaude ? 5 : 6} modelos de nuvem`;
   const linha = (c, valor, rotulo, fracao) => ({ chave: c, codigo: c, nome: NOMES_COND[c], valor, rotulo, fracao, cor: COR_COND[c] });
-  const custoLinhas = conds.map((c) => { const k = custo(`nuvem|${escopoCamada}|${c}`); const v = por1000(k); return linha(c, v, `US$ ${virgula(v, 2)}`, `${k.unidades} decisões · US$ ${virgula(k.custo, 2)}`); });
-  const tokLinhas = conds.map((c) => { const k = custo(`todos|${escopoCamada}|${c}`); return linha(c, k.tok_entrada, k.tok_entrada.toLocaleString('pt-BR'), `saída: ${(k.tok_saida ?? 0).toLocaleString('pt-BR')}`); });
-  const latLinhas = conds.map((c) => { const k = custo(`nuvem|${escopoCamada}|${c}`); return linha(c, k.lat_mediana / 1000, `${virgula(k.lat_mediana / 1000)} s`, `p95 ${virgula(k.lat_p95 / 1000)} s`); });
+  const custoLinhas = conds.map((c) => { const k = resumo('nuvem', c); const v = por1000(k); return linha(c, v, `US$ ${virgula(v, 2)}`, `${k.unidades} decisões · US$ ${virgula(k.custo, 2)}`); });
+  const tokLinhas = conds.map((c) => { const k = resumo('todos', c); return linha(c, k.tok_entrada, k.tok_entrada.toLocaleString('pt-BR'), `saída: ${(k.tok_saida ?? 0).toLocaleString('pt-BR')}`); });
+  const latLinhas = conds.map((c) => { const k = resumo('nuvem', c); return linha(c, k.lat_mediana / 1000, `${virgula(k.lat_mediana / 1000)} s`, semClaude ? 'mediana dos tempos medianos dos cinco modelos' : `p95 ${virgula(k.lat_p95 / 1000)} s`); });
   const specs = [
     ['g-camada-custo', custoLinhas, { max: 5, ticks: [0, 1, 2, 3, 4, 5], formato: (v) => `${v}`, nomeValor: 'por 1.000 decisões' }],
     ['g-camada-tok', tokLinhas, { max: 2000, ticks: [0, 500, 1000, 1500, 2000], formato: (v) => `${v}`, nomeValor: 'tokens de entrada' }],
@@ -1491,8 +1507,8 @@ function desenharCustoCamada() {
   for (const [id, linhas, op] of specs) {
     graficos[id] = barras(document.getElementById(id), linhas, { ...op, esquerda: 96, direita: 130, passo: 58 });
   }
-  const loc = conds.map((c) => `${virgula(custo(`local|${escopoCamada}|${c}`).lat_mediana / 1000)} s (${c})`);
-  document.getElementById('nota-camada-local').textContent = `Nos dois modelos locais, sem cobrança, a latência mediana foi de ${loc.join(', ')}.`;
+  const loc = conds.map((c) => `${virgula(custo(`local|${escopo}|${c}`).lat_mediana / 1000)} s (${c})`);
+  document.getElementById('nota-camada-local').textContent = `Nos dois modelos locais, sem cobrança, a latência mediana foi de ${loc.join(', ')}.${semClaude ? ' Sem Claude, os tokens são estimados pelas médias disponíveis de cada modelo; a latência é a mediana das medianas, não a mediana de todas as chamadas.' : ''}`;
 }
 
 function desenharCustoCamadaModelo() {
@@ -1531,7 +1547,7 @@ const TIPOS = [
 const ERROS = [];
 for (const [p, c, cond, rep, est, just] of DADOS.unidades) {
   if (rep === 'R3') continue;
-  const tipo = est.startsWith('F:') ? 'F' : ['FN', 'FP', 'INC'].includes(est) ? est : null;
+  const tipo = est.startsWith('F:') ? 'F' : ehAcerto(est) ? 'ACERTO' : ['FN', 'FP', 'INC'].includes(est) ? est : null;
   if (!tipo) continue;
   const caso = CASOS[c];
   ERROS.push({ p, c, cond, rep, est, tipo, just, caso, busca: normalizar(`${acentuar(caso.cap)} ${caso.id} ${just} ${FALHAS[est.slice(2)] || ''}`) });
@@ -1539,17 +1555,17 @@ for (const [p, c, cond, rep, est, just] of DADOS.unidades) {
 function normalizar(s) { return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
 let limiteErros = 24;
 
-function filtrarErros(ignorarModelo = false) {
+function filtrarErros(ignorarModelo = false, soProblemas = false) {
   const modelo = document.getElementById('f-modelo').value;
   const conjunto = document.getElementById('f-conjunto').value;
   const defesa = document.getElementById('f-defesa').value;
   const tipo = document.getElementById('f-tipo').value;
   const busca = normalizar(document.getElementById('f-busca').value.trim());
-  return ERROS.filter((e) => (ignorarModelo || !modelo || String(e.p) === modelo) && (!conjunto || e.caso.arm === conjunto) && (!defesa || e.cond === defesa) && (!tipo || e.tipo === tipo) && (!busca || e.busca.includes(busca)));
+  return ERROS.filter((e) => (!soProblemas || e.tipo !== 'ACERTO') && (ignorarModelo || !modelo || String(e.p) === modelo) && (!conjunto || e.caso.arm === conjunto) && (!defesa || e.cond === defesa) && (!tipo || e.tipo === tipo) && (!busca || e.busca.includes(busca)));
 }
 
 function desenharErros() {
-  const base = filtrarErros(true);
+  const base = filtrarErros(true, true);
   const dados = [];
   let maior = 0;
   for (const l of LINHAS.filter((x) => !x.cabecalho)) {
@@ -1570,12 +1586,12 @@ function listarErros() {
   const lista = filtrarErros();
   const ordemArm = { 'N-INT': 0, MCPTox: 1, Connor: 2 };
   lista.sort((a, b) => a.p - b.p || ordemArm[a.caso.arm] - ordemArm[b.caso.arm] || acentuar(a.caso.cap).localeCompare(acentuar(b.caso.cap)) || a.cond.localeCompare(b.cond) || a.rep.localeCompare(b.rep));
-  const tipoPor = Object.fromEntries(TIPOS.map((t) => [t.cod, t]));
+  const tipoPor = Object.fromEntries([...TIPOS, { cod: 'ACERTO', rotulo: 'acerto' }].map((t) => [t.cod, t]));
   const cards = lista.slice(0, limiteErros).map((e) => el('figure', { class: 'erro-card' }, [
     el('div', { class: 'rotulos' }, [
       el('span', { class: 'etiqueta', texto: nomeModelo(e.p) }),
       el('span', { class: 'etiqueta', texto: `${e.caso.arm} · ${e.cond} · ${e.rep}` }),
-      el('span', { class: `acao ${e.tipo === 'INC' ? 'inc' : e.tipo === 'F' ? 'falha' : 'erro'}`, texto: tipoPor[e.tipo].rotulo }),
+      el('span', { class: `acao ${e.tipo === 'ACERTO' ? 'ok' : e.tipo === 'INC' ? 'inc' : e.tipo === 'F' ? 'falha' : 'erro'}`, texto: e.tipo === 'ACERTO' ? `${acaoDe(e.est)} · acerto` : tipoPor[e.tipo].rotulo }),
     ]),
     el('div', { class: 'cap' }, [acentuar(e.caso.cap), el('small', { texto: `${e.caso.id} · ${rotuloTipo(e.caso)}` })]),
     e.tipo === 'F' ? el('p', { class: 'sem', texto: `Sem resposta: ${FALHAS[e.est.slice(2)] || e.est.slice(2)}.` }) : el('blockquote', { texto: e.just ? `“${e.just}”` : 'sem justificativa no texto da resposta' }),
