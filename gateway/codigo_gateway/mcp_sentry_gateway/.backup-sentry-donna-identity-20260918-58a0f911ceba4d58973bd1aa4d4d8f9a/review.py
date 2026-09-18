@@ -130,12 +130,18 @@ def security_status(manifest_path: Path, store: Path):
             return {"status": "blocked", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"], "reason": "decision_audit_report_missing"}
         return {"status": "allowed_once", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"]}
     if record["status"] == "awaiting_human_approval":
-        return {"status": "awaiting_human_approval", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"], "assessment": assessment}
+        return {"status": "awaiting_human_approval", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"], "assessment": assessment, "next_action": "external_operator_approval_required"}
     if record["status"] == "consumed":
         return {"status": "blocked", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"]}
     if record["status"] == "expired":
         return {"status": "blocked", "current_hash": record["dossier"]["current_hash"], "review_required": False, "review_id": record["review_id"], "reason": "review_or_authorization_expired"}
-    return {"status": "review_required", "current_hash": record["dossier"]["current_hash"], "review_required": True, "review_id": record["review_id"]}
+    return {
+        "status": "review_required",
+        "current_hash": record["dossier"]["current_hash"],
+        "review_required": True,
+        "review_id": record["review_id"],
+        "next_action": "sentry_get_pending_review",
+    }
 
 def get_pending(manifest_path: Path, store: Path, review_id: str, page: int = 1, page_size: int = 20):
     if not isinstance(page, int) or not isinstance(page_size, int) or page < 1 or not 1 <= page_size <= 100: raise SentryError("paginação inválida")
@@ -147,13 +153,13 @@ def get_pending(manifest_path: Path, store: Path, review_id: str, page: int = 1,
     has_more = page < total_pages
     return {"review_id": review_id, "status": record["status"], "policy_version": POLICY_VERSION,
             "untrusted_content_notice": record["dossier"]["untrusted_content_notice"], "dossier_hash": record["dossier"]["dossier_hash"],
-            "current_hash": record["dossier"]["current_hash"], "baseline_hash": record["dossier"]["baseline_hash"], "page": page, "page_size": page_size,
+            "current_hash": record["dossier"]["current_hash"], "page": page, "page_size": page_size,
             "total_changes": len(changes), "total_pages": total_pages, "has_more": has_more,
             "next_page": page + 1 if has_more else None, "changes": changes[start:start + page_size],
             "metadata": record["dossier"]["metadata"], "configuration": record["dossier"]["configuration"]}
 
 def submit_verdict(manifest_path: Path, store: Path, verdict, *, source="local_operator_or_fixture", model=None):
-    if source not in {"local_operator_or_fixture", "client_submitted"}:
+    if source not in {"local_operator_or_fixture", "client_submitted", "client_sampling"}:
         raise SentryError("origem de parecer inválida")
     if not isinstance(verdict, dict) or set(verdict) != VERDICT_FIELDS: raise SentryError("schema de veredito inválido")
     if verdict.get("policy_version") != POLICY_VERSION or verdict.get("decision") not in {"allow", "block"}: raise SentryError("política ou decisão inválida")
@@ -192,7 +198,8 @@ def submit_verdict(manifest_path: Path, store: Path, verdict, *, source="local_o
         write_text_report(staged_report, _decision_summary(record))
         write(_path(store, record["review_id"]), record)
         os.replace(staged_report, store / SECURITY_REPORTS_DIR / f"review-{record['review_id']}.txt")
-        return {"status": record["status"], "review_id": record["review_id"], "current_hash": dossier["current_hash"]}
+        return {"status": record["status"], "review_id": record["review_id"], "current_hash": dossier["current_hash"],
+                "next_action": "external_operator_approval_required" if verdict["decision"] == "allow" else "blocked"}
     finally:
         staged_report.unlink(missing_ok=True)
         lock.unlink(missing_ok=True)
@@ -234,7 +241,7 @@ def approve_review_execution(manifest_path: Path, store: Path, review_id: str,
         write(_path(store, review_id), record)
         os.replace(staged_report, store / SECURITY_REPORTS_DIR / f"operator-approval-{review_id}.txt")
         return {"status": "allowed_once", "review_id": review_id,
-                "current_hash": dossier["current_hash"]}
+                "current_hash": dossier["current_hash"], "next_action": "reconnect_required"}
     finally:
         staged_report.unlink(missing_ok=True)
         lock.unlink(missing_ok=True)

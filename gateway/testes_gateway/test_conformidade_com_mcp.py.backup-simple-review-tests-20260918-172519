@@ -40,11 +40,7 @@ class T6BMcpConformanceTests(unittest.TestCase):
         self.assertEqual(response["protocolVersion"], "2025-06-18")
         self.assertEqual(response["instructions"], SERVER_INSTRUCTIONS)
         self.assertLessEqual(len(response["instructions"]), 512)
-        self.assertEqual(response["serverInfo"]["name"], "mcp-sentry-donna")
-        self.assertIn("Donna is its protected backend", response["instructions"])
-        self.assertIn("read-only diagnosis, not a bypass", response["instructions"])
-        self.assertIn("every evidence page", response["instructions"])
-        self.assertIn("Do not record an assessment merely", response["instructions"])
+        self.assertIn("Denied calls do not execute", response["instructions"])
         observations = list((self.store / "conexoes-observadas").glob("initialize-*.json"))
         self.assertEqual(len(observations), 1)
         record = json.loads(observations[0].read_text(encoding="utf-8"))
@@ -92,13 +88,9 @@ class T6BMcpConformanceTests(unittest.TestCase):
 
     def test_client_assessment_tools_never_publish_operator_execution_approval(self):
         tools = {tool["name"]: tool for tool in CONTROL_TOOLS}
-        self.assertEqual(set(tools), {"sentry_security_status", "sentry_review_current_block", "sentry_review_evidence", "sentry_record_assessment"})
-        self.assertTrue(tools["sentry_review_current_block"]["annotations"]["readOnlyHint"])
-        self.assertEqual(tools["sentry_review_current_block"]["title"], "Review the current Donna block")
+        self.assertEqual(set(tools), {"sentry_security_status", "sentry_review_evidence", "sentry_record_assessment"})
         self.assertTrue(tools["sentry_review_evidence"]["annotations"]["readOnlyHint"])
-        self.assertIn("explicit request to show, inspect, bring", tools["sentry_review_evidence"]["description"])
         self.assertFalse(tools["sentry_record_assessment"]["annotations"]["readOnlyHint"])
-        self.assertIn("separately and explicitly asks", tools["sentry_record_assessment"]["description"])
         self.assertFalse(VERDICT_SCHEMA["additionalProperties"])
         self.assertEqual(set(VERDICT_SCHEMA["required"]), {"review_id", "reviewed_hash", "dossier_hash", "policy_version", "decision", "justification", "risks"})
         self.assertIn("untrusted_content_notice", PENDING_OUTPUT_SCHEMA["required"])
@@ -106,11 +98,6 @@ class T6BMcpConformanceTests(unittest.TestCase):
         for tool in CONTROL_TOOLS:
             self.assertEqual(tool["outputSchema"]["type"], "object")
             self.assertEqual(tool["outputSchema"]["anyOf"][1]["required"], ["status", "reason"])
-
-    def test_catalog_declares_donna_as_a_protected_sentry_backend(self):
-        tools = self.gateway.handle({"jsonrpc": "2.0", "id": 8, "method": "tools/list"})["result"]["tools"]
-        donna_tool = next(tool for tool in tools if tool["name"] == "ping")
-        self.assertTrue(donna_tool["description"].startswith("Donna capability protected by MCP Sentry."))
 
     def test_error_structured_content_uses_the_declared_error_schema_for_each_control_tool(self):
         missing_store = self.temp / "missing-state"
@@ -130,11 +117,9 @@ class T6BMcpConformanceTests(unittest.TestCase):
     def test_control_tools_fail_closed_for_non_object_or_extra_arguments(self):
         for name, arguments in (
             ("sentry_security_status", ["x"]),
-            ("sentry_review_current_block", ["x"]),
             ("sentry_get_pending_review", ["x"]),
             ("sentry_submit_verdict", ["x"]),
             ("sentry_security_status", {"unexpected": True}),
-            ("sentry_review_current_block", {"unexpected": True}),
             ("sentry_get_pending_review", {"review_id": "missing", "unexpected": True}),
             ("sentry_submit_verdict", {"verdict": {}, "unexpected": True}),
         ):

@@ -3,7 +3,7 @@
   "project_root": "../../demonstracao-donna",
   "inspect_roots": [
     "inicializacao-do-mcp/_bootstrap.py",
-    "inicializacao-do-mcp/server_demonstracao.py",
+    "inicializacao-do-mcp/server_google.py",
     "codigo-fonte-do-mcp/donna_mcp/__init__.py",
     "codigo-fonte-do-mcp/donna_mcp/audit.py",
     "codigo-fonte-do-mcp/donna_mcp/config.py",
@@ -13,8 +13,8 @@
     "codigo-fonte-do-mcp/donna_mcp/providers/__init__.py",
     "codigo-fonte-do-mcp/donna_mcp/providers/base.py",
     "codigo-fonte-do-mcp/donna_mcp/providers/factory.py",
-    "codigo-fonte-do-mcp/donna_mcp/providers/simulated.py",
-    "versao-em-uso-do-mcp/simulacao-controlada/provider.py"
+    "codigo-fonte-do-mcp/donna_mcp/providers/google.py",
+    "versao-em-uso-do-mcp/integracao-google/provider.py"
   ],
   "metadata": {
     "tools": [
@@ -455,15 +455,13 @@
   "configuration": {
     "command": [
       "python",
-      "inicializacao-do-mcp/server_demonstracao.py"
+      "inicializacao-do-mcp/server_google.py"
     ],
     "cwd": ".",
     "runtime_paths": {
       "MCP_SECRETARY_AUDIT_FILE": "dados-gerados-pelo-mcp/historico-de-atividades.jsonl",
-      "MCP_SECRETARY_SIMULATED_STATE_FILE": "dados-gerados-pelo-mcp/estado-da-simulacao.json",
       "MCP_SECRETARY_MUTATION_STORE_FILE": "dados-gerados-pelo-mcp/estado-das-acoes.json",
-      "MCP_SECRETARY_ACTIVE_PROVIDER_FILE": "versao-em-uso-do-mcp/simulacao-controlada/provider.py",
-      "MCP_SECRETARY_APPROVED_PROVIDER_FILE": "versoes-para-demonstracao/simulacao-controlada/versao-aprovada/provider.py"
+      "MCP_SECRETARY_LIVE_GOOGLE_PROVIDER_FILE": "versao-em-uso-do-mcp/integracao-google/provider.py"
     }
   }
 }

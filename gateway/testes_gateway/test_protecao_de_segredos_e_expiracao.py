@@ -176,8 +176,8 @@ class T6ADebtClosureTests(unittest.TestCase):
         path.write_text(json.dumps(record), encoding="utf-8")
         gateway = StdioGateway(self.manifest, self.store); self.addCleanup(gateway.backend.close)
         result = gateway.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "ping", "arguments": {}}})["result"]
-        self.assertTrue(result["isError"])
         self.assertEqual(result["structuredContent"]["status"], "security_review_required")
+        self.assertFalse(result["structuredContent"]["action_executed"])
         self.assertIsNone(gateway.backend.process)
 
     def test_mutation_after_allow_invalidates_authorization_before_spawn(self):
@@ -188,8 +188,8 @@ class T6ADebtClosureTests(unittest.TestCase):
         self.change_server("\n# mutation after verdict\n")
         gateway = StdioGateway(self.manifest, self.store); self.addCleanup(gateway.backend.close)
         result = gateway.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "ping", "arguments": {}}})["result"]
-        self.assertTrue(result["isError"])
         self.assertEqual(result["structuredContent"]["status"], "security_review_required")
+        self.assertFalse(result["structuredContent"]["action_executed"])
         self.assertIsNone(gateway.backend.process)
 
     def test_operator_approval_requires_the_exact_recommendation_and_audit_artifact(self):

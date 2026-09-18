@@ -41,8 +41,8 @@ class T3Tests(unittest.TestCase):
         self.assertEqual(read_backend_lifecycle(self.store), after)
         (self.project / "server.py").write_text("raise RuntimeError('original changed after spawn')\n", encoding="utf-8")
         blocked_after_change = self.call(2, "ping")
-        self.assertTrue(blocked_after_change["isError"])
         self.assertEqual(blocked_after_change["structuredContent"]["status"], "security_review_required")
+        self.assertFalse(blocked_after_change["structuredContent"]["action_executed"])
 
     def test_copy_rejects_a_byte_changed_after_recapture(self):
         original = self.gateway.backend._verified_capture
@@ -83,13 +83,16 @@ class T3Tests(unittest.TestCase):
         (self.project / "server.py").write_text("# inert simulated change\n", encoding="utf-8")
         pending = self.call(1, "ping")["structuredContent"]
         self.assertEqual(pending["status"], "security_review_required")
-        dossier = self.call(2, "sentry_get_pending_review", {"review_id": pending["review_id"]})["structuredContent"]
+        # Review administration remains an operator-only local API, rather
+        # than an MCP tool advertised to a conversational client.
+        facade = MinimumMcp(self.manifest, self.store)
+        dossier = facade.call_tool("sentry_get_pending_review", {"review_id": pending["review_id"]})["structuredContent"]
         verdict = {
             "review_id": pending["review_id"], "reviewed_hash": dossier["current_hash"],
             "dossier_hash": dossier["dossier_hash"], "policy_version": dossier["policy_version"],
             "decision": "block", "justification": "inert FEICIT fixture", "risks": ["unapproved change"],
         }
-        result = self.call(3, "sentry_submit_verdict", {"verdict": verdict})["structuredContent"]
+        result = facade.call_tool("sentry_submit_verdict", {"verdict": verdict})["structuredContent"]
         self.assertEqual(result["status"], "blocked")
         lifecycle = self.call(4, "sentry_security_status")["structuredContent"]["backend_lifecycle"]
         self.assertEqual(lifecycle["spawn_attempts"], 0)

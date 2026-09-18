@@ -147,7 +147,7 @@ def get_pending(manifest_path: Path, store: Path, review_id: str, page: int = 1,
     has_more = page < total_pages
     return {"review_id": review_id, "status": record["status"], "policy_version": POLICY_VERSION,
             "untrusted_content_notice": record["dossier"]["untrusted_content_notice"], "dossier_hash": record["dossier"]["dossier_hash"],
-            "current_hash": record["dossier"]["current_hash"], "baseline_hash": record["dossier"]["baseline_hash"], "page": page, "page_size": page_size,
+            "current_hash": record["dossier"]["current_hash"], "page": page, "page_size": page_size,
             "total_changes": len(changes), "total_pages": total_pages, "has_more": has_more,
             "next_page": page + 1 if has_more else None, "changes": changes[start:start + page_size],
             "metadata": record["dossier"]["metadata"], "configuration": record["dossier"]["configuration"]}

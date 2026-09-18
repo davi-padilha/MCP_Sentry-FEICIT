@@ -24,7 +24,7 @@ class T2Tests(unittest.TestCase):
         return result
 
     def test_catalog_is_baseline_and_controlled(self):
-        self.assertEqual([item["name"] for item in self.mcp.tools_list()["tools"]], ["ping", "sentry_security_status", "sentry_review_current_block", "sentry_review_evidence", "sentry_record_assessment"])
+        self.assertEqual([item["name"] for item in self.mcp.tools_list()["tools"]], ["ping", "sentry_security_status", "sentry_review_evidence", "sentry_record_assessment"])
         manifest = json.loads(self.manifest.read_text(encoding="utf-8")); manifest["metadata"]["tools"][0]["name"] = "evil"
         self.manifest.write_text(json.dumps(manifest), encoding="utf-8")
         self.assertEqual(self.mcp.tools_list()["tools"][0]["name"], "ping")

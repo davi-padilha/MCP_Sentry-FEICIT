@@ -6,7 +6,7 @@ O MCP Sentry é uma camada local de proteção para um servidor MCP por `stdio`.
 Em vez de configurar o cliente para iniciar diretamente o servidor, você o
 configura para iniciar o Sentry. O Sentry só inicia o backend quando os arquivos
 atuais correspondem à versão aprovada ou quando uma alteração recebeu um
-parecer válido e autorização externa do operador vinculada aos mesmos hashes.
+veredito válido de revisão.
 
 Ele foi criado para reduzir o risco de uma atualização silenciosa alterar um
 servidor MCP previamente confiado. Não é antivírus, sandbox, autenticação de
@@ -88,20 +88,6 @@ Em uma instalação no ambiente virtual, o executável costuma estar em
 o backend protegido. Uma conexão direta paralela com o mesmo backend contorna
 o gateway.
 
-Para separar a análise da execução no Claude, use dois conectores Sentry com
-o mesmo `--manifest` e `--store`:
-
-- `--interface execution`: somente ferramentas do backend protegido;
-- `--interface review`: somente status, diff paginado e registro de parecer,
-  sem criar backend nem encaminhar ações externas;
-- sem a opção, `combined` mantém o catálogo antigo para compatibilidade.
-
-O segundo conector não é uma conexão direta com Donna. Não inclua a configuração
-OAuth nele. Registrar um parecer `allow` continua sem autorizar execução.
-Veja [AVALIACAO_SEMANTICA_CLIENTE.md](../documentacao/AVALIACAO_SEMANTICA_CLIENTE.md)
-para o prompt de revisão e a distinção entre testes de transporte e decisão do
-cliente/modelo.
-
 Para testar sem configurar um cliente, inicie o gateway no terminal:
 
 ```powershell
@@ -116,12 +102,9 @@ para uso manual comum.
 ## Quando uma atualização é encontrada
 
 1. O Sentry não inicia a versão alterada.
-2. O cliente recebe um status de revisão pendente e a indicação de que há um
-   diagnóstico Sentry separado, somente leitura — não uma aprovação ou bypass.
-3. Em uma mensagem separada, o usuário pode simplesmente pedir “Revise o
-   bloqueio do Sentry”. O revisor lê o dossiê completo e, se solicitado,
-   registra uma recomendação estruturada de permitir
-   ou bloquear.
+2. O cliente recebe um pedido de revisão e um identificador de revisão.
+3. O revisor lê o dossiê completo e envia uma recomendação estruturada de
+   permitir ou bloquear.
 4. Uma recomendação de permitir permanece bloqueada. Fora do MCP, o operador
    confere os hashes e aprova a revisão exata, gerando uma autorização única
    para aqueles mesmos bytes e exigindo nova conexão.
@@ -171,9 +154,10 @@ estarem disponíveis para escrita pelo modelo.
   monitoramento contínuo não fazem parte do MVP.
 - A demonstração Donna coberta pelo gateway é simulada e local. Google real,
   credenciais e efeitos externos não estão autorizados por este MVP.
-- O gateway não usa um modelo de IA próprio nem solicita avaliação automática
-  ao cliente. A revisão deve ser solicitada explicitamente pelo usuário no
-  cliente. O registro de parecer não libera execução. Consulte
+- O gateway não usa um modelo de IA próprio. Solicita sampling somente aos
+  clientes que declarem suporte. Sem essa capacidade, a revisão deve ser
+  solicitada explicitamente pelo usuário no cliente. O registro de parecer não
+  libera execução. Consulte
   [AVALIACAO_SEMANTICA_CLIENTE.md](../documentacao/AVALIACAO_SEMANTICA_CLIENTE.md).
 
 ## Verificar a instalação

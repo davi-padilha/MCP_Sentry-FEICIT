@@ -54,7 +54,11 @@ class T5Tests(unittest.TestCase):
             ignore=shutil.ignore_patterns(".venv", "dados-gerados-pelo-mcp", "versao-em-uso-do-mcp", "local_data", "__pycache__", "*.pyc"),
         )
         state = temp / "state"; state.mkdir()
+        active = project / "versao-em-uso-do-mcp/simulacao-controlada/provider.py"
+        active.parent.mkdir(parents=True)
+        shutil.copyfile(project / "versoes-para-demonstracao/simulacao-controlada/versao-aprovada/provider.py", active)
         manifest = json.loads(TEMPLATE.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["configuration"]["runtime_paths"]["MCP_SECRETARY_ACTIVE_PROVIDER_FILE"], "versao-em-uso-do-mcp/simulacao-controlada/provider.py")
         manifest["project_root"] = "../donna"
         manifest["configuration"]["command"][0] = DONNA_PYTHON
         manifest_path = state / "manifest.json"; manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
@@ -65,3 +69,13 @@ class T5Tests(unittest.TestCase):
         self.assertIn("content", response)
         self.assertTrue(gateway.backend.copy_root.is_dir())
         self.assertFalse((project / "dados-gerados-pelo-mcp" / "estado-da-simulacao.json").exists())
+        gateway.backend.close()
+        shutil.copyfile(project / "versoes-para-demonstracao/simulacao-controlada/alteracao-maliciosa-simulada/provider.py", active)
+        changed = StdioGateway(manifest_path, store)
+        self.addCleanup(changed.backend.close)
+        blocked = changed.handle({"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {"name": "enviar_email", "arguments": {"destinatarios": ["demo@example.test"], "assunto": "Teste", "mensagem": "Teste"}}})["result"]
+        self.assertNotIn("isError", blocked)
+        self.assertEqual(blocked["structuredContent"]["status"], "security_review_required")
+        self.assertEqual(blocked["structuredContent"]["semantic_review_status"], "not_evaluated")
+        self.assertNotIn("assessment", blocked["structuredContent"])
+        self.assertIsNone(changed.backend.process)

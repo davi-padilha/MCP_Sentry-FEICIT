@@ -1,0 +1,142 @@
+"""Protocol fixtures verify boundaries; they do not measure an actual model."""
+import json
+import queue
+import shutil
+import sys
+import tempfile
+import unittest
+from io import StringIO
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parents[1] / "codigo_gateway"))
+from mcp_sentry_gateway.core import approve
+from mcp_sentry_gateway.gateway import StdioGateway
+from mcp_sentry_gateway.review import security_status
+
+EXAMPLE = Path(__file__).parents[1] / "exemplo_mcp"
+
+
+class ClientReviewTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix="sentry-client-review-")
+        self.addCleanup(self.temp.cleanup)
+        root = Path(self.temp.name)
+        self.project = root / "project"
+        shutil.copytree(EXAMPLE, self.project)
+        self.manifest, self.store = self.project / "manifest.json", root / "store"
+        approve(self.manifest, self.store)
+        self.project.joinpath("server.py").write_text("# arbitrary change without BCC signature\n", encoding="utf-8")
+        self.gateway = StdioGateway(self.manifest, self.store)
+        self.addCleanup(self.gateway.backend.close)
+
+    def call(self, name="ping", arguments=None):
+        return self.gateway.handle({"jsonrpc": "2.0", "id": 99, "method": "tools/call", "params": {"name": name, "arguments": arguments or {}}})["result"]
+
+    @staticmethod
+    def sampled(decision="block"):
+        return {"role": "assistant", "model": "protocol-test-fixture", "stopReason": "endTurn", "content": {"type": "text", "text": json.dumps({"decision": decision, "justification": "Conclusão livre criada pelo revisor de teste.", "risks": ["risco identificado pelo revisor"]})}}
+
+    def test_no_sampling_never_invents_an_ai_assessment(self):
+        self.gateway.request_client = lambda *args: self.fail("sampling was not negotiated")
+        result = self.call()["structuredContent"]
+        self.assertEqual(result["semantic_review_status"], "not_evaluated")
+        self.assertNotIn("assessment", result)
+        self.assertIsNone(self.gateway.backend.process)
+
+    def test_sampling_block_records_client_justification_and_never_spawns(self):
+        calls = []
+        def request(method, params):
+            calls.append((method, params))
+            return self.sampled()
+        self.gateway.client_capabilities = {"sampling": {}}
+        self.gateway.request_client = request
+        result = self.call()
+        self.assertNotIn("isError", result)
+        self.assertEqual(calls[0][0], "sampling/createMessage")
+        self.assertEqual(calls[0][1]["includeContext"], "none")
+        self.assertNotIn("tools", calls[0][1])
+        payload = result["structuredContent"]
+        self.assertEqual(payload["assessment"]["source"], "client_sampling")
+        self.assertEqual(payload["assessment"]["conclusion"], "Conclusão livre criada pelo revisor de teste.")
+        self.assertFalse(payload["action_executed"])
+        self.assertEqual(self.gateway.backend.lifecycle.snapshot()["spawn_attempts"], 0)
+        self.call()
+        self.assertEqual(len(calls), 1)
+
+    def test_sampling_allow_is_only_a_recommendation_without_replaying_action(self):
+        self.gateway.client_capabilities = {"sampling": {}}
+        self.gateway.request_client = lambda *args: self.sampled("allow")
+        result = self.call()["structuredContent"]
+        self.assertEqual(result["status"], "security_blocked")
+        self.assertEqual(result["assessment"]["decision"], "allow")
+        self.assertEqual(security_status(self.manifest, self.store)["status"], "awaiting_human_approval")
+        self.assertEqual(self.gateway.backend.lifecycle.snapshot()["spawn_attempts"], 0)
+
+    def test_invalid_sampling_response_keeps_review_pending(self):
+        self.gateway.client_capabilities = {"sampling": {}}
+        self.gateway.request_client = lambda *args: {"role": "assistant", "model": "fixture", "content": {"type": "text", "text": "not JSON"}}
+        result = self.call()["structuredContent"]
+        self.assertEqual(result["status"], "security_review_required")
+        self.assertIn("not valid JSON", result["reason"])
+        self.assertNotIn("assessment", result)
+        self.assertIsNone(self.gateway.backend.process)
+
+    def test_mutation_during_sampling_cannot_commit_a_stale_assessment(self):
+        def request(*args):
+            self.project.joinpath("server.py").write_text("# changed during sampling\n", encoding="utf-8")
+            return self.sampled("allow")
+        self.gateway.client_capabilities = {"sampling": {}}
+        self.gateway.request_client = request
+        result = self.call()["structuredContent"]
+        self.assertEqual(result["status"], "security_review_required")
+        self.assertNotIn("assessment", result)
+        self.assertIsNone(self.gateway.backend.process)
+
+    def test_explicit_client_assessment_records_but_does_not_authorize_execution(self):
+        pending = self.call()["structuredContent"]
+        evidence = self.call("sentry_review_evidence", {"review_id": pending["review_id"]})["structuredContent"]
+        verdict = {"review_id": evidence["review_id"], "reviewed_hash": evidence["current_hash"], "dossier_hash": evidence["dossier_hash"], "policy_version": evidence["policy_version"], "decision": "block", "justification": "Parecer explícito do cliente.", "risks": []}
+        recorded = self.call("sentry_record_assessment", {"verdict": verdict})["structuredContent"]
+        self.assertEqual(recorded["status"], "blocked")
+        result = self.call()["structuredContent"]
+        self.assertEqual(result["assessment"]["source"], "client_submitted")
+        self.assertEqual(result["assessment"]["conclusion"], "Parecer explícito do cliente.")
+        self.assertFalse(result["action_executed"])
+
+    def test_client_cannot_record_an_assessment_without_reading_the_evidence(self):
+        pending = self.call()["structuredContent"]
+        result = self.call("sentry_record_assessment", {"verdict": {"review_id": pending["review_id"]}})
+        self.assertTrue(result["isError"])
+        self.assertIn("has not been read", result["structuredContent"]["reason"])
+        self.assertEqual(security_status(self.manifest, self.store)["status"], "review_required")
+
+    def test_stdio_routes_sampling_response_to_waiting_review(self):
+        incoming = queue.Queue()
+        for message in (
+            {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18", "capabilities": {"sampling": {}}, "clientInfo": {"name": "fixture", "version": "1"}}},
+            {"jsonrpc": "2.0", "method": "notifications/initialized"},
+            {"jsonrpc": "2.0", "id": 99, "method": "tools/call", "params": {"name": "ping", "arguments": {}}},
+        ):
+            incoming.put(json.dumps(message) + "\n")
+        class Reader:
+            def __iter__(self): return self
+            def __next__(self):
+                line = incoming.get(timeout=5)
+                if line is None: raise StopIteration
+                return line
+        outer = self
+        class Writer(StringIO):
+            def write(self, text):
+                result = super().write(text)
+                message = json.loads(text)
+                if message.get("method") == "sampling/createMessage":
+                    incoming.put(json.dumps({"jsonrpc": "2.0", "id": message["id"], "result": outer.sampled()}) + "\n")
+                if message.get("id") == 99:
+                    incoming.put(None)
+                return result
+        output = Writer()
+        self.gateway.serve(Reader(), output)
+        messages = [json.loads(line) for line in output.getvalue().splitlines()]
+        result = next(item["result"] for item in messages if item.get("id") == 99)
+        self.assertEqual(result["structuredContent"]["assessment"]["source"], "client_sampling")
+        self.assertEqual(self.gateway.backend.lifecycle.snapshot()["spawn_attempts"], 0)

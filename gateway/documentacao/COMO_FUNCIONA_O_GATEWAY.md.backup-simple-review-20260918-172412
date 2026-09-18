@@ -12,17 +12,16 @@ compara o código, a configuração e os metadados atuais com uma versão aprova
 5. uma revisão recomenda permitir ou bloquear;
 6. uma liberação exige confirmação externa do operador para os mesmos hashes.
 
-A resposta de bloqueio indica uma interface de diagnóstico independente,
-somente leitura; ela não recomenda aprovação nem tentativa de contorno. A
-revisão é uma tarefa posterior, solicitada pelo usuário, por exemplo “Revise o
-bloqueio do Sentry”. O cliente usa o diagnóstico que reúne as evidências e,
-se solicitado separadamente, registra sua própria justificativa vinculada aos
-hashes. Uma recomendação de permitir continua exigindo autorização externa do
-operador.
+A resposta de bloqueio não contém comandos que tentem orientar o modelo. Quando
+o cliente suporta sampling, o Sentry solicita a avaliação pela IA através do
+protocolo MCP. Sem sampling, o usuário solicita explicitamente a revisão através
+das ferramentas de evidência e registro. O cliente cria a justificativa, que fica
+vinculada aos hashes e pode ser consultada no status. Uma recomendação de permitir
+continua exigindo autorização externa do operador.
 
 Sem parecer, o status declara que a mudança ainda não foi avaliada semanticamente.
-Indicadores técnicos são evidência, não uma conclusão semântica. Veja o roteiro
-em [AVALIACAO_SEMANTICA_CLIENTE.md](AVALIACAO_SEMANTICA_CLIENTE.md).
+Uma assinatura estática de BCC não substitui a conclusão da IA. Veja os dois
+caminhos e o prompt em [AVALIACAO_SEMANTICA_CLIENTE.md](AVALIACAO_SEMANTICA_CLIENTE.md).
 
 ## O que ele protege
 

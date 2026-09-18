@@ -42,12 +42,13 @@ class T4Tests(unittest.TestCase):
         self.assertEqual(result.verdict_response["next_action"], "external_operator_approval_required")
         self.assertFalse((self.project / "executed.marker").exists())
 
-    def test_b_without_fixture_keeps_pending_and_offers_explicit_fallback(self):
+    def test_b_without_fixture_keeps_pending_without_exposing_a_chat_workflow(self):
         self.changed_state()
         result = self.flow.attempt_tool("ping", {})
         content = result.initial_response["structuredContent"]
         self.assertEqual(content["status"], "security_review_required")
-        self.assertEqual(content["fallback_action"], "request_explicit_pending_review")
+        self.assertFalse(content["action_executed"])
+        self.assertNotIn("fallback_action", content)
         self.assertIsNone(result.verdict_response)
         self.assertEqual(self.mcp.call_tool("sentry_security_status")["structuredContent"]["status"], "review_required")
 

@@ -1,0 +1,40 @@
+# Integração Claude → MCP Sentry → Donna
+
+Atualização local realizada em 18/09/2026. A conexão e o bloqueio já foram observados no Claude; a nova revisão semântica ainda exige validação real do cliente.
+
+## Configuração efetiva
+
+- JSON: `C:\Users\davig\AppData\Local\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json`.
+- Entrada: `donna_mcp`, executando `gateway\codigo_gateway\.venv\Scripts\mcp-sentry-gateway.exe`.
+- Manifesto: `gateway\configuracao_demo\CONFIGURACAO_DA_DONNA.json`.
+- Store: `C:\Users\davig\AppData\Local\MCP-Sentry\FEICIT-Demo-Claude-catalog-v2`.
+- Backups dos dois JSONs: sufixo `.backup-integracao-v2-20260918`.
+- MasterTool e permissões gerais da conta preservados.
+
+A baseline foi capturada com o provider benigno. Em seguida, foi restaurada a versão ativa `rug-pull`, sem limpar estados ou auditoria. O caminho de execução do provider coincide com o caminho inspecionado: `versao-em-uso-do-mcp/simulacao-controlada/provider.py`.
+
+## Evidências
+
+- A suíte cobre execução benigna, bloqueio de alteração e protocolo de avaliação do cliente. Os testes de sampling usam respostas simuladas, sem chamar um modelo real.
+- Processo exato definido no JSON: initialize, tools/list e tools/call responderam pelo transporte stdio.
+- Catálogo exposto ao Claude: 13 ferramentas Donna e `sentry_security_status`, `sentry_review_evidence`, `sentry_record_assessment`.
+- Status: `review_required`; review `review-946bf48024e92f07b4b307d3` na verificação (sujeita a expiração).
+- Chamada de `enviar_email`, com destinatário fictício `demo@example.test`, retorna `security_review_required`, `action_executed: false` e uma mensagem final neutra de que a Donna não foi iniciada.
+- `backend_lifecycle.spawn_attempts`: 0. Nenhum e-mail real enviado.
+- Claude reiniciado: initialize e tools/list concluídos às 04:31:28 UTC.
+
+## Arquitetura de revisão
+
+A comparação de integridade detecta a mudança e mantém a Donna parada. A resposta de bloqueio não contém comandos de revisão. A justificativa específica só aparece depois de o cliente criar e registrar um parecer: `assessment.conclusion`. A regra estática de BCC foi removida.
+
+O gateway implementa sampling para clientes que declarem essa capacidade. O Claude local observado não a declarou; nele a revisão deve ser solicitada explicitamente pelo usuário através das ferramentas de evidência e registro. A ferramenta de registro aceita uma recomendação, nunca uma autorização para iniciar Donna. Uma liberação continua sendo operação externa do operador. Veja o prompt e os critérios de validação em [AVALIACAO_SEMANTICA_CLIENTE.md](AVALIACAO_SEMANTICA_CLIENTE.md).
+
+## Preparação no Claude
+
+Os registros atuais estão em `C:\Users\davig\AppData\Local\Claude\logs`, não na pasta antiga de logs do LocalCache.
+
+Depois de qualquer atualização do gateway, encerre e reabra o Claude Desktop para ele reiniciar o processo MCP e atualizar o catálogo. Depois, testar:
+
+> Use apenas a ferramenta sentry_security_status do conector donna_mcp com argumentos {} e mostre o resultado. Não envie e-mails.
+
+Aprovar manualmente essa consulta se o Claude pedir. O resultado esperado é `review_required`, pois a versão ativa é a maliciosa simulada. Para a demo, a resposta de segurança é o comportamento correto: ela não pede que o Claude execute uma etapa adicional e não produz timeout.

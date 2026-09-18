@@ -129,6 +129,7 @@ def safe_text(raw):
     text = _SECRET_ASSIGNMENT.sub(lambda m: f"{m.group(1)}{m.group(2)}[REDACTED]{m.group(2)}", text)
     return _SECRET_UNQUOTED_ASSIGNMENT.sub(lambda m: f"{m.group(1)}[REDACTED]", text)
 
+
 def capture(manifest_path, roots_override=None):
     manifest, root = load(manifest_path); roots = roots_override or manifest["inspect_roots"]
     manifest_raw = manifest_path.read_bytes()

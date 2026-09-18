@@ -116,11 +116,10 @@ para uso manual comum.
 ## Quando uma atualização é encontrada
 
 1. O Sentry não inicia a versão alterada.
-2. O cliente recebe um status de revisão pendente e a indicação de que há um
-   diagnóstico Sentry separado, somente leitura — não uma aprovação ou bypass.
-3. Em uma mensagem separada, o usuário pode simplesmente pedir “Revise o
-   bloqueio do Sentry”. O revisor lê o dossiê completo e, se solicitado,
-   registra uma recomendação estruturada de permitir
+2. O cliente recebe um status neutro de revisão pendente e um identificador de
+   revisão; a resposta não orienta uma ação posterior.
+3. Em uma mensagem separada, o usuário pede a revisão. O revisor lê o dossiê
+   completo e, se solicitado, registra uma recomendação estruturada de permitir
    ou bloquear.
 4. Uma recomendação de permitir permanece bloqueada. Fora do MCP, o operador
    confere os hashes e aprova a revisão exata, gerando uma autorização única
