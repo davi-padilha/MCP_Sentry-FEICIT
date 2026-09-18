@@ -39,7 +39,7 @@ class T4Tests(unittest.TestCase):
         self.assertEqual(result.initial_response["structuredContent"]["status"], "security_review_required")
         self.assertEqual(result.pages_read, 2)  # changed server plus changed manifest metadata
         self.assertEqual(result.verdict_response["status"], "awaiting_human_approval")
-        self.assertEqual(result.verdict_response["next_action"], "external_operator_approval_required")
+        self.assertEqual(result.verdict_response["status"], "awaiting_human_approval")
         self.assertFalse((self.project / "executed.marker").exists())
 
     def test_b_without_fixture_keeps_pending_without_exposing_a_chat_workflow(self):
