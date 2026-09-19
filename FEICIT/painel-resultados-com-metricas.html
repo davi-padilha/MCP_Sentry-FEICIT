@@ -404,6 +404,10 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
           <div class="painel"><h5><i class="amostra" style="background:var(--d)"></i> D combinação</h5><div class="grafico" id="g-nint-D"></div></div>
         </div>
       </div>
+      <div class="conclusao">
+        <b>Ler o código fez diferença nos perigos ocultos</b>
+        <p>No mesmo perigo, <b>80</b> decisões passaram de erro a acerto quando o modelo recebeu o código (C2), e <b>8</b> fizeram o caminho inverso. A melhora vem quase toda dos casos cuja descrição esconde a mudança. Esta comparação pareada exclui inconclusivas e respostas ausentes; elas continuam separadas nas barras acima.</p>
+      </div>
       <div class="leitura">
         <div><h4>Como ler</h4><p>Cada barra tem todas as decisões do modelo naquele grupo: casos × 2 repetições. O número dentro do trecho é a contagem.</p></div>
         <div class="cuidado"><h4>Cuidado</h4><p>Nos perigosos, metade tem descrição que esconde o perigo: C1 não tem como acertá-los. Inconclusivas e respostas ausentes aparecem separadas e ficam fora das taxas dos outros painéis.</p></div>
@@ -483,64 +487,27 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
     </section>
 
     <!-- 5 -->
-    <section class="tela" id="c1c2" data-grupo="Mudanças nos mesmos casos" data-curto="De C1 para C2 no N-INT" hidden>
+    <section class="tela" id="combinacao" data-grupo="Equilíbrio da combinação" data-curto="O que D melhora e pode piorar" hidden>
       <div class="cabeca">
-        <span class="grupo">Mudanças nos mesmos casos</span>
-        <h2 class="pergunta">No mesmo caso, o que muda quando a defesa analisa o código (C2) em vez da interface (C1)?</h2>
-        <p class="resposta">Nos mesmos perigos, <b>80</b> decisões passaram de erro a acerto ao analisar o código em vez da interface, e só <b>8</b> fizeram o caminho inverso.</p>
-      </div>
-      <div class="visual">
-        <div class="legenda">
-          <span><i class="amostra" style="background:#9E3B3B"></i>acerto → erro (piorou)</span>
-          <span><i class="amostra" style="background:#2F7D6D"></i>erro → acerto (melhorou)</span>
-        </div>
-        <div class="paineis">
-          <div class="painel"><h5>Mudanças perigosas</h5><span class="sub">12 casos × 2 repetições por modelo</span><div class="grafico" id="g-t12-P"></div></div>
-          <div class="painel"><h5>Atualizações legítimas</h5><span class="sub">12 casos × 2 repetições por modelo</span><div class="grafico" id="g-t12-B"></div></div>
-        </div>
-      </div>
-      <div class="visual">
-        <div class="controle">
-          <span id="rotulo-grupo-t12">Casos:</span>
-          <div class="segmentos" role="group" aria-labelledby="rotulo-grupo-t12" id="grupo-t12">
-            <button type="button" data-grupo="P" aria-pressed="true">Perigosas</button>
-            <button type="button" data-grupo="B" aria-pressed="false">Legítimas</button>
-          </div>
-          <span class="dica-grade">Cada célula mostra R1 e R2. Clique para ler as justificativas.</span>
-        </div>
-        <div class="chave-cores" id="chave-t12"></div>
-        <div class="grade-wrap"><table class="grade" id="grade-t12"></table></div>
-        <div class="detalhe" id="detalhe-t12" hidden></div>
-      </div>
-      <div class="leitura">
-        <div><h4>Como ler</h4><p>Cada par é o mesmo caso, no mesmo modelo e repetição, visto por C1 e por C2. Os pares iguais (acerto nos dois ou erro nos dois) aparecem ao lado da barra.</p></div>
-        <div class="cuidado"><h4>Cuidado</h4><p>Pares com inconclusiva ou sem resposta em um dos lados ficam fora da barra. A melhora vem quase toda dos perigos com descrição que esconde a mudança.</p></div>
-        <div><h4>Por que há dúvidas e trocas?</h4><p>Nas justificativas, os modelos às vezes pedem contexto ou autorização que a entrada não informa, e respondem “inconclusiva”. A geração também pode variar entre chamadas: em casos ambíguos, a mesma evidência pode receber outra interpretação. Isso ajuda a explicar as trocas, mas não identifica a causa de cada uma.</p></div>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section class="tela" id="combinacao" data-grupo="Mudanças nos mesmos casos" data-curto="De C1 ou C2 para D" hidden>
-      <div class="cabeca">
-        <span class="grupo">Mudanças nos mesmos casos</span>
-        <h2 class="pergunta">A combinação (D) mantém os acertos da interface ou do código?</h2>
-        <p class="resposta">Em geral, <b>sim</b>. D preservou quase todos os acertos anteriores, mas também bloqueou algumas atualizações legítimas por engano.</p>
+        <span class="grupo">Equilíbrio da combinação</span>
+        <h2 class="pergunta">O que D melhora e onde pode piorar ao receber interface e código?</h2>
+        <p class="resposta">D manteve a maior parte dos acertos de C1 ou C2 nos mesmos casos, mas também bloqueou algumas atualizações legítimas por engano.</p>
       </div>
       <div class="resumo-combinacao">
         <article class="cartao-combinacao">
-          <h5>Casos perigosos</h5>
-          <p class="placar"><b>138</b><span>de 142 acertos preservados</span></p>
-          <div class="medidor" role="img" aria-label="97,2% dos acertos anteriores foram preservados"><i style="width:97.2%"></i></div>
-          <p>Em 4 decisões, D liberou perigos que C1 ou C2 havia bloqueado. Em outras 4, bloqueou perigos que as duas haviam liberado.</p>
+          <h5>Segurança: casos perigosos</h5>
+          <p class="placar"><b>138</b><span>de 142 acertos de C1 ou C2 também acertados por D</span></p>
+          <div class="medidor" role="img" aria-label="97,2% dos acertos de C1 ou C2 também foram acertos de D"><i style="width:97.2%"></i></div>
+          <p>Em 4 decisões, D liberou um perigo que C1 ou C2 havia bloqueado. Em outras 4, D bloqueou um perigo que ambas haviam liberado.</p>
         </article>
         <article class="cartao-combinacao">
-          <h5>Atualizações legítimas</h5>
-          <p class="placar"><b>161</b><span>de 177 acertos preservados</span></p>
-          <div class="medidor" role="img" aria-label="91% dos acertos anteriores foram preservados"><i style="width:91%"></i></div>
-          <p>Em 16 decisões, D bloqueou atualizações que C1 ou C2 havia permitido corretamente. Em 7 delas, as duas haviam acertado.</p>
+          <h5>Operação: atualizações legítimas</h5>
+          <p class="placar"><b>161</b><span>de 177 acertos de C1 ou C2 também acertados por D</span></p>
+          <div class="medidor" role="img" aria-label="91% dos acertos de C1 ou C2 também foram acertos de D"><i style="width:91%"></i></div>
+          <p>Em 16 decisões, D bloqueou uma atualização que C1 ou C2 havia permitido corretamente. Em 7 delas, as duas haviam acertado.</p>
         </article>
       </div>
-      <div class="conclusao"><b>O que isso mostra?</b><p>Juntar as evidências preservou a maioria dos acertos. Porém, mais informação também pode aumentar a cautela do modelo e gerar bloqueios indevidos.</p></div>
+      <div class="conclusao"><b>Como interpretar a comparação</b><p>D é uma nova análise que recebe as duas evidências, não uma regra automática que escolhe C1 ou C2. Ela manteve a maior parte dos acertos, mas mais informação também pode aumentar a cautela e bloquear uma atualização legítima.</p></div>
       <details class="tabela casos-combinacao">
         <summary>Explorar os casos por modelo</summary>
         <div class="visual">
@@ -558,7 +525,7 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
         </div>
       </details>
       <div class="leitura">
-        <div><h4>Como ler</h4><p>Um acerto é preservado quando C1 ou C2 acertou e D também acertou, no mesmo caso e repetição. A comparação reúne os oito modelos e exclui inconclusivas e falhas em qualquer uma das três defesas.</p></div>
+        <div><h4>Como ler</h4><p>A fração mostra quantos acertos de C1 ou C2 também foram acertos de D, no mesmo caso e repetição. A comparação reúne os oito modelos e exclui inconclusivas e falhas em qualquer uma das três defesas.</p></div>
       </div>
     </section>
 
@@ -663,12 +630,12 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
       </div>
     </section>
 
-    <!-- 11 -->
-    <section class="tela" id="erros" data-grupo="Erros e justificativas" data-curto="Erros e justificativas" hidden>
+    <!-- 10 -->
+    <section class="tela" id="erros" data-grupo="Evidências por caso" data-curto="Evidências e justificativas" hidden>
       <div class="cabeca">
-        <span class="grupo">Erros e justificativas</span>
-        <h2 class="pergunta">Onde cada modelo errou e o que escreveu?</h2>
-        <p class="resposta">O gráfico mostra <b>372</b> decisões erradas ou inconclusivas e <b>23</b> sem resposta. A lista abaixo inclui também as justificativas dos acertos e acompanha os filtros.</p>
+        <span class="grupo">Evidências por caso</span>
+        <h2 class="pergunta">Evidências por caso e justificativas</h2>
+        <p class="resposta">Exploração detalhada: o gráfico mostra <b>372</b> decisões erradas ou inconclusivas e <b>23</b> sem resposta. Abra as justificativas filtráveis apenas quando quiser examinar decisões específicas.</p>
       </div>
       <div class="visual">
         <div class="filtros">
@@ -681,11 +648,14 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
         <div class="legenda" id="legenda-erros"></div>
         <div class="grafico" id="g-erros"></div>
         <p class="contagem" id="contagem-erros" aria-live="polite"></p>
-        <div class="lista-erros" id="lista-erros"></div>
-        <button type="button" class="mais" id="mais-erros">Mostrar mais</button>
+        <button type="button" class="mais" id="alternar-justificativas" aria-controls="justificativas-erros" aria-expanded="false">Mostrar justificativas</button>
+        <div id="justificativas-erros" hidden>
+          <div class="lista-erros" id="lista-erros"></div>
+          <button type="button" class="mais" id="mais-erros">Mostrar mais</button>
+        </div>
       </div>
       <div class="leitura">
-        <div><h4>Como ler</h4><p>O gráfico conta apenas erros, inconclusivas e falhas por modelo. A lista inferior mostra também os acertos, com as justificativas sem edição, e responde a todos os filtros. Ao escolher “acertos”, o gráfico fica vazio; as justificativas aparecem só na lista. R3 continua fora desta página.</p></div>
+        <div><h4>Como ler</h4><p>O gráfico conta apenas erros, inconclusivas e falhas por modelo. Use “Mostrar justificativas” para abrir a lista filtrável, que também inclui acertos e seus textos sem edição. Ao escolher “acertos”, o gráfico fica vazio; as justificativas aparecem só na lista. R3 continua fora desta página.</p></div>
       </div>
     </section>
 
@@ -1322,32 +1292,7 @@ function desenharExterno(prefixo, arm, cond, paineis) {
 }
 
 // ---------- mudanças nos mesmos casos ----------
-const CAT_T = {
-  EA: { rotulo: 'erro → acerto', cor: EST.acerto },
-  AE: { rotulo: 'acerto → erro', cor: EST.erro },
-  AA: { rotulo: 'acerto nos dois', cor: EST.acertoClaro },
-  EE: { rotulo: 'erro nos dois', cor: EST.erroClaro },
-  fora: { rotulo: 'fora do par (inconclusiva ou sem resposta)', cor: null },
-};
-function transicao(p, c, a, b, rep) {
-  const ea = un(p, c, a, rep).est;
-  const eb = un(p, c, b, rep).est;
-  if (!ehBin(ea) || !ehBin(eb)) return 'fora';
-  return (ehAcerto(ea) ? 'A' : 'E') + (ehAcerto(eb) ? 'A' : 'E');
-}
 const casosNint = (grupo) => CASOS.map((c, i) => ({ ...c, i })).filter((c) => c.arm === 'N-INT' && grupoDe(c.cls) === grupo);
-
-function resumoTransicoes(a, b, grupo) {
-  return LINHAS.filter((l) => !l.cabecalho).map((l) => {
-    const n = { EA: 0, AE: 0, AA: 0, EE: 0, fora: 0 };
-    for (const c of casosNint(grupo)) for (const rep of ['R1', 'R2']) n[transicao(l.p, c.i, a, b, rep)] += 1;
-    return { chave: l.chave, nome: nomeModelo(l.p), piorou: n.AE, melhorou: n.EA, AA: n.AA, EE: n.EE, fora: n.fora };
-  });
-}
-const maxPar = (...listas) => {
-  const m = Math.max(...listas.flat().map((d) => Math.max(d.piorou, d.melhorou)), 2);
-  return Math.ceil(m / 4) * 4;
-};
 
 const CAT_D = {
   melhora: { rotulo: 'D corrige um erro de C1 ou C2', cor: '#2F7D6D' },
@@ -1689,6 +1634,14 @@ function montarFiltros() {
   let espera = null;
   document.getElementById('f-busca').addEventListener('input', () => { clearTimeout(espera); espera = setTimeout(aoMudar, 200); });
   document.getElementById('mais-erros').addEventListener('click', () => { limiteErros += 24; listarErros(); });
+  document.getElementById('alternar-justificativas').addEventListener('click', () => {
+    const painel = document.getElementById('justificativas-erros');
+    const aberto = painel.hidden;
+    painel.hidden = !aberto;
+    const botao = document.getElementById('alternar-justificativas');
+    botao.setAttribute('aria-expanded', String(aberto));
+    botao.textContent = aberto ? 'Ocultar justificativas' : 'Mostrar justificativas';
+  });
 }
 
 // ---------- desenho ----------
@@ -1713,23 +1666,12 @@ function montarConjuntos() {
   document.getElementById('legenda-classes').append(...CLASSES.map(([k, nome, cor]) => el('span', {}, [el('i', { class: 'amostra', style: `background:${cor};${k === 'S' ? 'box-shadow:inset 0 0 0 1px #B8C0CC' : ''}` }), nome])));
 }
 
-let grupoT12 = 'P';
 let grupoD = 'P';
 const DESENHOS = {
   qualidade: montarMetricas,
   nint: desenharNint,
   connor: () => desenharExterno('cn', 'Connor', 'C2', [['P', (c) => c.cls === 'P'], ['B', (c) => c.cls === 'B'], ['S', (c) => c.cls === 'S']]),
   mcptox: () => desenharExterno('mt', 'MCPTox', 'C1', [['P', (c) => c.cls === 'P'], ['B', (c) => c.cls === 'B'], ['S', (c) => c.cls === 'S']]),
-  c1c2() {
-    const P_ = resumoTransicoes('C1', 'C2', 'P');
-    const B_ = resumoTransicoes('C1', 'C2', 'B');
-    const max = maxPar(P_, B_);
-    const op = { max, rotuloPiorou: 'acerto → erro', rotuloMelhorou: 'erro → acerto' };
-    graficos['g-t12-P'] = divergente(document.getElementById('g-t12-P'), LINHAS, P_, op);
-    graficos['g-t12-B'] = divergente(document.getElementById('g-t12-B'), LINHAS, B_, op);
-    chaveCores('chave-t12', CAT_T);
-    montarGrade('grade-t12', 'detalhe-t12', grupoT12, (p, c, rep) => transicao(p, c, 'C1', 'C2', rep), CAT_T, ['C1', 'C2']);
-  },
   combinacao() {
     chaveCores('chave-d', CAT_D);
     montarGrade('grade-d', 'detalhe-d', grupoD, categoriaD, CAT_D, ['C1', 'C2', 'D']);
@@ -1778,7 +1720,7 @@ async function desenhar(id) {
   const precisaG2 = !['consistencia', 'combinacao', 'qualidade'].includes(id);
   if (precisaG2 && typeof G2 === 'undefined') {
     document.querySelectorAll(`#${id} .grafico`).forEach((g) => { g.textContent = 'Gráfico indisponível: a biblioteca G2 não carregou.'; });
-    if (id === 'c1c2' || id === 'combinacao' || id === 'erros') { try { if (id === 'erros') listarErros(); } catch (e) { console.error(e); } }
+    if (id === 'combinacao' || id === 'erros') { try { if (id === 'erros') listarErros(); } catch (e) { console.error(e); } }
     return;
   }
   await fontesProntas;
@@ -1828,7 +1770,6 @@ function iniciar() {
   ['m-conjunto', 'm-defesa'].forEach((id) => document.getElementById(id).addEventListener('change', montarMetricas));
 
   segmentado('grupo-nint', 'data-grupo', (g) => { grupoNint = g; if (desenhadas.has('nint')) desenharNint(); });
-  segmentado('grupo-t12', 'data-grupo', (g) => { grupoT12 = g; montarGrade('grade-t12', 'detalhe-t12', grupoT12, (p, c, rep) => transicao(p, c, 'C1', 'C2', rep), CAT_T, ['C1', 'C2']); });
   segmentado('grupo-d', 'data-grupo', (g) => { grupoD = g; if (desenhadas.has('combinacao')) DESENHOS.combinacao(); });
   segmentado('escopo-camada', 'data-escopo', (e) => { escopoCamada = e; if (desenhadas.has('custo-camada')) desenharCustoCamada(); });
   segmentado('escopo-cm', 'data-escopo', (e) => { escopoCm = e; if (desenhadas.has('custo-camada-modelo')) desenharCustoCamadaModelo(); });
