@@ -554,12 +554,12 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
       <div class="cabeca">
         <span class="grupo">Custo e latência</span>
         <h2 class="pergunta">Quanto custou e quanto demorou cada modelo?</h2>
-        <p class="resposta">O Claude Opus 5 custou cerca de <b>US$ 14</b> por 1.000 decisões, mais de 100 vezes o gpt-oss 20B; os modelos locais levaram de <b>11 a 14 segundos</b> por decisão.</p>
+        <p class="resposta">O Claude Opus 5 custou cerca de <b>US$ 0,014 por decisão</b>, mais de 100 vezes o gpt-oss 20B; os modelos locais levaram de <b>11 a 14 segundos</b> por decisão.</p>
       </div>
       <div class="visual">
         <div class="paineis">
-          <div class="painel"><h5>Custo <span class="sentido">US$ por 1.000 decisões</span></h5><span class="sub">R1 e R2 de todos os conjuntos</span><div class="grafico" id="g-custo-mod"></div></div>
-          <div class="painel"><h5>Latência <span class="sentido">segundos por chamada</span></h5><span class="sub">barra = mediana · linha = da mediana ao percentil 95</span><div class="grafico" id="g-lat-mod"></div></div>
+          <div class="painel"><h5>Custo <span class="sentido">US$ por decisão</span></h5><span class="sub">R1 e R2 de todos os conjuntos</span><div class="grafico" id="g-custo-mod"></div></div>
+          <div class="painel"><h5>Latência <span class="sentido">segundos por chamada</span></h5><span class="sub">mediana por chamada</span><div class="grafico" id="g-lat-mod"></div></div>
         </div>
         <details class="tabela" open><summary>Tabela completa</summary><div class="rolagem"><table id="tb-custo-mod"></table></div></details>
       </div>
@@ -574,7 +574,7 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
       <div class="cabeca">
         <span class="grupo">Custo e latência</span>
         <h2 class="pergunta">Quanto custa e demora cada defesa?</h2>
-        <p class="resposta">Ler o código dobra o tamanho da pergunta: a entrada média vai de cerca de <b>800 tokens</b> (C1) para <b>1.600</b> (C2) e <b>1.900</b> (D), e o custo sobe junto. O tempo de resposta quase não muda.</p>
+        <p class="resposta">Ler o código aumenta o custo por decisão; o tempo de resposta quase não muda entre as defesas.</p>
       </div>
       <div class="visual">
         <div class="controle">
@@ -585,9 +585,8 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
             <button type="button" data-escopo="sem-claude" aria-pressed="false">Todos os conjuntos sem Claude</button>
           </div>
         </div>
-        <div class="paineis tres">
-          <div class="painel"><h5>Custo</h5><span class="sub" id="sub-camada-custo">US$ por 1.000 decisões · 6 modelos de nuvem</span><div class="grafico" id="g-camada-custo"></div></div>
-          <div class="painel"><h5>Tamanho da pergunta</h5><span class="sub" id="sub-camada-tok">tokens de entrada por chamada · 8 modelos</span><div class="grafico" id="g-camada-tok"></div></div>
+        <div class="paineis">
+          <div class="painel"><h5>Custo</h5><span class="sub" id="sub-camada-custo">US$ por decisão · 6 modelos de nuvem</span><div class="grafico" id="g-camada-custo"></div></div>
           <div class="painel"><h5>Latência</h5><span class="sub" id="sub-camada-lat">mediana em segundos · 6 modelos de nuvem</span><div class="grafico" id="g-camada-lat"></div></div>
         </div>
         <p class="texto" id="nota-camada-local"></p>
@@ -618,15 +617,14 @@ button.celula-c small { font-size: 0.72rem; color: var(--tinta-2); }
           <span><i class="amostra redonda" style="background:var(--c2)"></i>C2 código</span>
           <span><i class="amostra redonda" style="background:var(--d)"></i>D combinação</span>
         </div>
-        <div class="paineis tres">
-          <div class="painel"><h5>Custo</h5><span class="sub">US$ por 1.000 decisões · escala logarítmica</span><div class="grafico" id="g-cm-custo"></div></div>
+        <div class="paineis">
+          <div class="painel"><h5>Custo</h5><span class="sub">US$ por decisão · escala logarítmica</span><div class="grafico" id="g-cm-custo"></div></div>
           <div class="painel"><h5>Latência</h5><span class="sub">mediana em segundos</span><div class="grafico" id="g-cm-lat"></div></div>
-          <div class="painel"><h5>Tokens de entrada</h5><span class="sub">média por chamada</span><div class="grafico" id="g-cm-tok"></div></div>
         </div>
       </div>
       <div class="leitura">
         <div><h4>Como ler</h4><p>Cada linha é um modelo e cada ponto, uma defesa. Na escala logarítmica do custo, cada marca vale 10 vezes a anterior.</p></div>
-        <div class="cuidado"><h4>Cuidado</h4><p>Modelos locais não aparecem no custo. O Claude Opus 5 registra quase o dobro de tokens de entrada para a mesma pergunta; a causa (tokenizador ou formato da chamada) não foi investigada.</p></div>
+        <div class="cuidado"><h4>Cuidado</h4><p>Modelos locais não aparecem no custo.</p></div>
       </div>
     </section>
 
@@ -1468,7 +1466,8 @@ function mostrarTrocas(p, colunas, r) {
 
 // ---------- custo e latência ----------
 const custo = (chave) => CUSTOS[chave];
-const por1000 = (k) => (k && k.unidades ? (1000 * k.custo) / k.unidades : 0);
+const porDecisao = (k) => (k && k.unidades ? k.custo / k.unidades : 0);
+const usd = (v) => `US$ ${virgula(v, v < 0.001 ? 5 : v < 0.01 ? 4 : 3)}`;
 let escopoCamada = 'N-INT';
 let escopoCm = 'N-INT';
 
@@ -1476,27 +1475,25 @@ function desenharCustoModelo() {
   const linhasCusto = P.map((pos, p) => {
     const k = custo(`${pos.id}|*|*`);
     const local = pos.id.startsWith('local-');
-    const v = por1000(k);
-    return { chave: `m${p}`, codigo: pos.nome, nome: pos.detalhe, valor: v, cor: pos.familia === 'fronteira' ? COR.fronteira : COR.menores, rotulo: local ? 'local' : `US$ ${virgula(v, 2)}`, fracao: local ? 'sem cobrança' : `total US$ ${virgula(k.custo, 2)}` };
+    const v = porDecisao(k);
+    return { chave: `m${p}`, codigo: pos.nome, nome: pos.detalhe, valor: v, cor: pos.familia === 'fronteira' ? COR.fronteira : COR.menores, rotulo: local ? 'local' : usd(v), fracao: local ? 'sem cobrança' : '' };
   });
-  graficos['g-custo-mod'] = barras(document.getElementById('g-custo-mod'), linhasCusto, { max: 15, ticks: [0, 5, 10, 15], formato: (v) => `${v}`, esquerda: 152, direita: 118, passo: 46, nomeValor: 'por 1.000 decisões' });
+  graficos['g-custo-mod'] = barras(document.getElementById('g-custo-mod'), linhasCusto, { max: 0.015, ticks: [0, 0.005, 0.01, 0.015], formato: (v) => virgula(v, v < 0.01 ? 3 : 2), esquerda: 152, direita: 118, passo: 46, nomeValor: 'por decisão' });
   const linhasLat = P.map((pos, p) => {
     const k = custo(`${pos.id}|*|*`);
     const med = k.lat_mediana / 1000;
-    const p95 = k.lat_p95 / 1000;
-    return { chave: `m${p}`, codigo: pos.nome, nome: pos.detalhe, valor: med, min: med, max: p95, cor: pos.familia === 'fronteira' ? COR.fronteira : COR.menores, rotulo: `${virgula(med)} s`, fracao: `p95 ${virgula(p95)} s` };
+    return { chave: `m${p}`, codigo: pos.nome, nome: pos.detalhe, valor: med, cor: pos.familia === 'fronteira' ? COR.fronteira : COR.menores, rotulo: `${virgula(med)} s`, fracao: '' };
   });
   graficos['g-lat-mod'] = barras(document.getElementById('g-lat-mod'), linhasLat, { max: 20, ticks: [0, 5, 10, 15, 20], formato: (v) => `${v} s`, esquerda: 152, direita: 104, passo: 46, nomeValor: 'mediana' });
 
-  const cab = ['Modelo', 'Decisões', 'Tentativas', 'Custo total', 'Por 1.000', 'Latência mediana', 'p95', 'Tokens de entrada', 'Tokens de saída'];
+  const cab = ['Modelo', 'Decisões', 'Tentativas', 'Custo total', 'Por decisão', 'Latência mediana'];
   const corpo = P.map((pos) => {
     const k = custo(`${pos.id}|*|*`);
     const local = pos.id.startsWith('local-');
     return el('tr', {}, [
       el('td', {}, rotuloModelo(pos)), el('td', { class: 'n', texto: String(k.unidades) }), el('td', { class: 'n', texto: String(k.tentativas) }),
-      el('td', { class: 'n', texto: local ? 'local' : `US$ ${virgula(k.custo, 3)}` }), el('td', { class: 'n', texto: local ? '—' : `US$ ${virgula(por1000(k), 2)}` }),
-      el('td', { class: 'n', texto: `${virgula(k.lat_mediana / 1000)} s` }), el('td', { class: 'n', texto: `${virgula(k.lat_p95 / 1000)} s` }),
-      el('td', { class: 'n', texto: k.tok_entrada ? k.tok_entrada.toLocaleString('pt-BR') : '—' }), el('td', { class: 'n', texto: k.tok_saida ? (k.tok_saida ?? 0).toLocaleString('pt-BR') : '—' }),
+      el('td', { class: 'n', texto: local ? 'local' : `US$ ${virgula(k.custo, 3)}` }), el('td', { class: 'n', texto: local ? '—' : usd(porDecisao(k)) }),
+      el('td', { class: 'n', texto: `${virgula(k.lat_mediana / 1000)} s` }),
     ]);
   });
   document.getElementById('tb-custo-mod').replaceChildren(el('thead', {}, el('tr', {}, cab.map((c, i) => el('th', { class: i ? 'n' : '', texto: c })))), el('tbody', {}, corpo));
@@ -1509,30 +1506,25 @@ function desenharCustoCamada() {
   const resumirSemClaude = (grupo, cond) => {
     const registros = P.filter((p) => !p.id.includes('claude') && (grupo !== 'nuvem' || !p.id.startsWith('local-'))).map((p) => custo(`${p.id}|*|${cond}`));
     const somar = (campo) => registros.reduce((total, k) => total + (k[campo] || 0), 0);
-    const cobertura = somar('tok_cobertura');
-    const mediaTokens = (campo) => Math.round(registros.reduce((total, k) => total + (k[campo] || 0) * (k.tok_cobertura || 0), 0) / cobertura);
     const medianas = registros.map((k) => k.lat_mediana).sort((a, b) => a - b);
     const meio = Math.floor(medianas.length / 2);
-    return { unidades: somar('unidades'), custo: somar('custo'), tok_entrada: mediaTokens('tok_entrada'), tok_saida: mediaTokens('tok_saida'), lat_mediana: medianas.length % 2 ? medianas[meio] : (medianas[meio - 1] + medianas[meio]) / 2 };
+    return { unidades: somar('unidades'), custo: somar('custo'), lat_mediana: medianas.length % 2 ? medianas[meio] : (medianas[meio - 1] + medianas[meio]) / 2 };
   };
   const resumo = (grupo, cond) => semClaude ? resumirSemClaude(grupo, cond) : custo(`${grupo}|${escopo}|${cond}`);
-  document.getElementById('sub-camada-custo').textContent = `US$ por 1.000 decisões · ${semClaude ? 5 : 6} modelos de nuvem`;
-  document.getElementById('sub-camada-tok').textContent = `${semClaude ? 'média aproximada de ' : ''}tokens de entrada por chamada · ${semClaude ? 7 : 8} modelos`;
+  document.getElementById('sub-camada-custo').textContent = `US$ por decisão · ${semClaude ? 5 : 6} modelos de nuvem`;
   document.getElementById('sub-camada-lat').textContent = `${semClaude ? 'mediana das medianas por modelo' : 'mediana'} em segundos · ${semClaude ? 5 : 6} modelos de nuvem`;
   const linha = (c, valor, rotulo, fracao) => ({ chave: c, codigo: c, nome: NOMES_COND[c], valor, rotulo, fracao, cor: COR_COND[c] });
-  const custoLinhas = conds.map((c) => { const k = resumo('nuvem', c); const v = por1000(k); return linha(c, v, `US$ ${virgula(v, 2)}`, ''); });
-  const tokLinhas = conds.map((c) => { const k = resumo('todos', c); return linha(c, k.tok_entrada, k.tok_entrada.toLocaleString('pt-BR'), `saída: ${(k.tok_saida ?? 0).toLocaleString('pt-BR')}`); });
-  const latLinhas = conds.map((c) => { const k = resumo('nuvem', c); return linha(c, k.lat_mediana / 1000, `${virgula(k.lat_mediana / 1000)} s`, semClaude ? 'mediana dos tempos medianos dos cinco modelos' : `p95 ${virgula(k.lat_p95 / 1000)} s`); });
+  const custoLinhas = conds.map((c) => { const k = resumo('nuvem', c); const v = porDecisao(k); return linha(c, v, usd(v), ''); });
+  const latLinhas = conds.map((c) => { const k = resumo('nuvem', c); return linha(c, k.lat_mediana / 1000, `${virgula(k.lat_mediana / 1000)} s`, semClaude ? 'mediana dos tempos medianos dos cinco modelos' : ''); });
   const specs = [
-    ['g-camada-custo', custoLinhas, { max: 5, ticks: [0, 1, 2, 3, 4, 5], formato: (v) => `${v}`, nomeValor: 'por 1.000 decisões' }],
-    ['g-camada-tok', tokLinhas, { max: 2000, ticks: [0, 500, 1000, 1500, 2000], formato: (v) => `${v}`, nomeValor: 'tokens de entrada' }],
+    ['g-camada-custo', custoLinhas, { max: 0.005, ticks: [0, 0.001, 0.002, 0.003, 0.004, 0.005], formato: (v) => virgula(v, 3), nomeValor: 'por decisão' }],
     ['g-camada-lat', latLinhas, { max: 3, ticks: [0, 1, 2, 3], formato: (v) => `${v} s`, nomeValor: 'mediana' }],
   ];
   for (const [id, linhas, op] of specs) {
     graficos[id] = barras(document.getElementById(id), linhas, { ...op, esquerda: 96, direita: 130, passo: 58 });
   }
   const loc = conds.map((c) => `${virgula(custo(`local|${escopo}|${c}`).lat_mediana / 1000)} s (${c})`);
-  document.getElementById('nota-camada-local').textContent = `Nos dois modelos locais, sem cobrança, a latência mediana foi de ${loc.join(', ')}.${semClaude ? ' Sem Claude, os tokens são estimados pelas médias disponíveis de cada modelo; a latência é a mediana das medianas, não a mediana de todas as chamadas.' : ''}`;
+  document.getElementById('nota-camada-local').textContent = `Nos dois modelos locais, sem cobrança, a latência mediana foi de ${loc.join(', ')}.${semClaude ? ' Sem Claude, a latência é a mediana das medianas, não a mediana de todas as chamadas.' : ''}`;
 }
 
 function desenharCustoCamadaModelo() {
@@ -1543,21 +1535,17 @@ function desenharCustoCamadaModelo() {
   });
   const conds = ['C1', 'C2', 'D'];
   const linhasP = linhas.map((l) => (l.cabecalho ? l : { ...l }));
-  graficos['g-cm-custo'] = pontos(document.getElementById('g-cm-custo'), linhasP, conds.map((c) => serie(c, (k, pos) => (pos.id.startsWith('local-') ? null : por1000(k)), (k, v) => `US$ ${virgula(v, 2)} por 1.000 · ${k.unidades} decisões`)), { dominio: [0.05, 50], ticks: [0.1, 1, 10], log: true, formato: (v) => `US$ ${String(v).replace('.', ',')}`, esquerda: 128, passo: 36 });
+  graficos['g-cm-custo'] = pontos(document.getElementById('g-cm-custo'), linhasP, conds.map((c) => serie(c, (k, pos) => (pos.id.startsWith('local-') ? null : porDecisao(k)), (k, v) => `${usd(v)} por decisão · ${k.unidades} decisões`)), { dominio: [0.00005, 0.05], ticks: [0.0001, 0.001, 0.01], log: true, formato: (v) => usd(v), esquerda: 128, passo: 36 });
   graficos['g-cm-lat'] = pontos(document.getElementById('g-cm-lat'), linhasP, conds.map((c) => serie(c, (k) => k.lat_mediana / 1000, (k, v) => `mediana ${virgula(v)} s · p95 ${virgula(k.lat_p95 / 1000)} s`)), { dominio: [0, 16], ticks: [0, 4, 8, 12, 16], formato: (v) => `${v} s`, esquerda: 128, passo: 36 });
-  graficos['g-cm-tok'] = pontos(document.getElementById('g-cm-tok'), linhasP, conds.map((c) => serie(c, (k) => k.tok_entrada, (k, v) => `${v.toLocaleString('pt-BR')} de entrada · ${(k.tok_saida ?? 0).toLocaleString('pt-BR')} de saída`)), { dominio: [0, 3500], ticks: [0, 1000, 2000, 3000], formato: (v) => `${v}`, esquerda: 128, passo: 36 });
-
   const nuvem = P.filter((p) => !p.id.startsWith('local-'));
-  const valores = nuvem.map((p) => conds.map((c) => por1000(custo(`${p.id}|${escopoCm}|${c}`))));
+  const valores = nuvem.map((p) => conds.map((c) => porDecisao(custo(`${p.id}|${escopoCm}|${c}`))));
   const fora = nuvem.filter((p, i) => !(valores[i][0] < valores[i][1] && valores[i][1] < valores[i][2]));
-  const todos = valores.flat();
-  const faixa = `de US$ ${virgula(Math.min(...todos), 2)} a US$ ${virgula(Math.max(...todos), 2)} por 1.000 decisões`;
   const resp = document.getElementById('resposta-cm');
   resp.replaceChildren();
   if (!fora.length) {
-    resp.append('Sim: nos seis modelos de nuvem, ', el('b', { texto: 'C1 é a defesa mais barata e D a mais cara' }), `. O que muda de um modelo para outro é a escala, ${faixa}.`);
+    resp.append('Sim: nos seis modelos de nuvem, ', el('b', { texto: 'C1 é a defesa mais barata e D a mais cara' }), '.');
   } else {
-    resp.append(`A ordem C1 < C2 < D vale para ${nuvem.length - fora.length} dos ${nuvem.length} modelos de nuvem; a exceção é ${fora.map(nomePosicao).join(', ')}. A escala vai ${faixa}.`);
+    resp.append(`A ordem C1 < C2 < D vale para ${nuvem.length - fora.length} dos ${nuvem.length} modelos de nuvem; a exceção é ${fora.map(nomePosicao).join(', ')}.`);
   }
 }
 
