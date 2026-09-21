@@ -1520,7 +1520,7 @@ function desenharCustoCamada() {
   document.getElementById('sub-camada-tok').textContent = `${semClaude ? 'média aproximada de ' : ''}tokens de entrada por chamada · ${semClaude ? 7 : 8} modelos`;
   document.getElementById('sub-camada-lat').textContent = `${semClaude ? 'mediana das medianas por modelo' : 'mediana'} em segundos · ${semClaude ? 5 : 6} modelos de nuvem`;
   const linha = (c, valor, rotulo, fracao) => ({ chave: c, codigo: c, nome: NOMES_COND[c], valor, rotulo, fracao, cor: COR_COND[c] });
-  const custoLinhas = conds.map((c) => { const k = resumo('nuvem', c); const v = por1000(k); return linha(c, v, `US$ ${virgula(v, 2)}`, `${k.unidades} decisões · US$ ${virgula(k.custo, 2)}`); });
+  const custoLinhas = conds.map((c) => { const k = resumo('nuvem', c); const v = por1000(k); return linha(c, v, `US$ ${virgula(v, 2)}`, ''); });
   const tokLinhas = conds.map((c) => { const k = resumo('todos', c); return linha(c, k.tok_entrada, k.tok_entrada.toLocaleString('pt-BR'), `saída: ${(k.tok_saida ?? 0).toLocaleString('pt-BR')}`); });
   const latLinhas = conds.map((c) => { const k = resumo('nuvem', c); return linha(c, k.lat_mediana / 1000, `${virgula(k.lat_mediana / 1000)} s`, semClaude ? 'mediana dos tempos medianos dos cinco modelos' : `p95 ${virgula(k.lat_p95 / 1000)} s`); });
   const specs = [
