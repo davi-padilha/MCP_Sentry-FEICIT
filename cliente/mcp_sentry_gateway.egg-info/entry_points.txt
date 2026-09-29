@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-sentry = mcp_sentry_gateway.cli:main
+mcp-sentry-gateway = mcp_sentry_gateway.gateway:main

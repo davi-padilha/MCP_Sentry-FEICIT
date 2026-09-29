@@ -1,3 +1,10 @@
+Metadata-Version: 2.4
+Name: mcp-sentry-gateway
+Version: 0.5.4
+Summary: Local integrity gateway for MCP servers over stdio
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
 # MCP Sentry para servidores MCP locais
 
 Esta pasta é o pacote do usuário final. O MCP Sentry é um gateway local para

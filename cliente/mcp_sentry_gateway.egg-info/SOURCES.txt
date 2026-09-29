@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+mcp_sentry_gateway/__init__.py
+mcp_sentry_gateway/cli.py
+mcp_sentry_gateway/core.py
+mcp_sentry_gateway/gateway.py
+mcp_sentry_gateway/lifecycle.py
+mcp_sentry_gateway/mcp_facade.py
+mcp_sentry_gateway/onboarding.py
+mcp_sentry_gateway/review.py
+mcp_sentry_gateway/setup.py
+mcp_sentry_gateway.egg-info/PKG-INFO
+mcp_sentry_gateway.egg-info/SOURCES.txt
+mcp_sentry_gateway.egg-info/dependency_links.txt
+mcp_sentry_gateway.egg-info/entry_points.txt
+mcp_sentry_gateway.egg-info/top_level.txt

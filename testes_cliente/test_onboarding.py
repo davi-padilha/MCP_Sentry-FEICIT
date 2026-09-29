@@ -70,6 +70,24 @@ class OnboardingTests(unittest.TestCase):
         with self.assertRaisesRegex(SentryError, "caminhos diferentes"):
             prepare_codex(args)
 
+    def test_prepare_uses_absolute_project_path_across_windows_drives(self):
+        with mock.patch("mcp_sentry_gateway.onboarding.os.path.relpath",
+                        side_effect=ValueError("path is on mount 'E:', start on mount 'C:'")):
+            result = prepare_codex(self.args())
+        self.assertEqual(result["status"], "prepared_for_review")
+        manifest = json.loads(self.manifest.read_text(encoding="utf-8"))
+        self.assertEqual(manifest["project_root"], str(self.project.resolve()))
+        self.assertEqual(doctor(self.manifest, self.store)["status"], "needs_attention")
+
+    def test_discovery_uses_configured_backend_timeout(self):
+        args = self.args()
+        args.backend_timeout_sec = 37
+        with mock.patch("mcp_sentry_gateway.onboarding.discover_tools", return_value=[{
+            "name": "echo", "inputSchema": {"type": "object"},
+        }]) as discover:
+            prepare_codex(args)
+        self.assertEqual(discover.call_args.args[-1], 37)
+
     def test_cli_routes_prepare_command(self):
         argv = [
             "mcp-sentry", "prepare-codex", "--name", "example",

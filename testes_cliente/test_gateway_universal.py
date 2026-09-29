@@ -26,7 +26,7 @@ for line in sys.stdin:
         ready = True
         continue
     elif method == "tools/list" and ready:
-        result = {"tools": [{"name": "echo", "description": "Echo a value", "inputSchema": {"type": "object", "properties": {"value": {"type": "string"}}, "required": ["value"]}}]}
+        result = {"tools": [{"name": "echo", "description": os.environ.get("SERVER_TOOL_DESCRIPTION", "Echo a value"), "inputSchema": {"type": "object", "properties": {"value": {"type": "string"}}, "required": ["value"]}}]}
     elif method == "tools/call" and ready and request.get("params", {}).get("name") == "echo":
         value = request["params"]["arguments"]["value"]
         result = {"content": [{"type": "text", "text": os.environ.get("SERVER_GREETING", "") + value}]}
@@ -131,6 +131,42 @@ class UniversalGatewayTests(unittest.TestCase):
         self.save_manifest()
         with self.assertRaisesRegex(SentryError, "passthrough_names"):
             load(self.manifest)
+
+    def test_runtime_catalog_change_blocks_tool_call(self):
+        self.manifest_data["configuration"]["passthrough_names"] = ["SERVER_TOOL_DESCRIPTION"]
+        self.save_manifest()
+        approve(self.manifest, self.state)
+        with mock.patch.dict(os.environ, {"SERVER_TOOL_DESCRIPTION": "Unexpected description"}):
+            gateway = StdioGateway(self.manifest, self.state, interface="execution")
+            self.addCleanup(gateway.backend.close)
+            result = gateway.handle(self.request(1, "tools/call", {
+                "name": "echo", "arguments": {"value": "hello"},
+            }))
+        self.assertEqual(result["result"]["structuredContent"]["status"], "security_blocked")
+        self.assertIn("catálogo MCP", result["result"]["structuredContent"]["reason"])
+        self.assertEqual(gateway.backend.lifecycle.snapshot()["spawn_attempts"], 1)
+
+    def test_approval_does_not_replace_orphaned_execution_envelope(self):
+        self.state.mkdir()
+        envelope = self.state / "configuracao-de-execucao-aprovada.json"
+        envelope.write_text('{"existing":"do not replace"}', encoding="utf-8")
+        with self.assertRaisesRegex(SentryError, "envelope de execução já existe"):
+            approve(self.manifest, self.state)
+        self.assertEqual(envelope.read_text(encoding="utf-8"), '{"existing":"do not replace"}')
+        self.assertFalse((self.state / "versao-aprovada.json").exists())
+
+    def test_capture_rejects_symlink_to_file_outside_project(self):
+        outside = self.temp / "outside.txt"
+        outside.write_text("outside", encoding="utf-8")
+        link = self.project / "linked.txt"
+        try:
+            link.symlink_to(outside)
+        except (OSError, NotImplementedError) as exc:
+            self.skipTest(f"symlinks unavailable: {exc}")
+        self.manifest_data["inspect_roots"].append("linked.txt")
+        self.save_manifest()
+        with self.assertRaisesRegex(SentryError, "escapa project_root"):
+            capture(self.manifest)
 
 
 if __name__ == "__main__":
