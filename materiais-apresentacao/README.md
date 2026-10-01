@@ -1,8 +1,8 @@
 # Materiais de apresentação
 
 Materiais de feira organizados por evento. `feicit/` contém os arquivos já
-existentes; os materiais futuros da MOSTRATEC podem ser criados em `mostratec/`
-quando a etapa 5 os produzir.
+existentes; [mostratec/](mostratec/README.md) contém um complemento curto sobre
+o valor do gateway, com fala e pequenos acréscimos propostos aos materiais.
 
 - [Painel original](feicit/paineis/painel-original.html).
 - [Painel complementar](feicit/paineis/painel-complementar.html): variante com
