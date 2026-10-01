@@ -2,6 +2,14 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.npm-cache/
+.lab-smoke/
+desenvolvimento/gateway/build/
+desenvolvimento/gateway/*.egg-info/
+
+# Instalacoes, dados e resultados descartaveis de futuros testes locais
+laboratorio/*
+!laboratorio/README.md
 
 # Configuracoes e credenciais locais
 .env

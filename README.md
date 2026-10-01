@@ -1,4 +1,4 @@
-# MCP Sentry — pesquisa, protótipo e materiais FEICIT
+# MCP Sentry — pesquisa, gateway e demonstrações
 
 Este repositório reúne uma pesquisa sobre a confiabilidade de decisões e
 controles de segurança em cenários MCP (*Model Context Protocol*), além de um
@@ -28,6 +28,26 @@ cliente precisa de uma forma de detectar mudanças antes de iniciar o serviço.
 > de seu escopo.
 
 ## Guia rápido da estrutura
+
+**Para entregar o MCP Sentry a um usuário, envie somente a pasta
+[pacote-usuario/](pacote-usuario/README.md).** Ela contém:
+
+- `mcp_sentry_gateway-0.8.0-py3-none-any.whl`: instalador Python do gateway.
+- `README.md`: requisitos, instalação, configuração e uso.
+
+O usuário precisa ter Python 3.11+ e o runtime do servidor protegido. Os MCPs,
+suas credenciais e dados são específicos de cada usuário e não integram este pacote.
+
+| Pasta | Finalidade |
+| --- | --- |
+| `pacote-usuario/` | Os arquivos que o usuário recebe. |
+| `desenvolvimento/gateway/` | Código, testes e empacotamento da versão atual. |
+| `prototipo-feicit/` | Versão anterior e cenários da FEICIT, preservados para reprodução. |
+| `documentacao/` | Guias do piloto e registros técnicos. |
+| `laboratorio/` | Instalações e execuções descartáveis dos testes. |
+| `demonstracao-donna/` | Servidor Donna e cenários reutilizáveis. |
+| `pesquisa/` | Casos, dados oficiais, análises e referência dos scripts científicos. |
+| `materiais-apresentacao/` | Painéis e banners organizados por evento. |
 
 ### `pesquisa/` — materiais da pesquisa
 
@@ -60,17 +80,15 @@ cliente precisa de uma forma de detectar mudanças antes de iniciar o serviço.
   - `pacote_extensao_multimodelo/` — configurações, modelos, formato de saída
     e referência de arquivos da extensão.
 
-### `gateway/` — protótipo aplicado MCP Sentry
+### `prototipo-feicit/` — versão anterior usada na FEICIT
 
 - `codigo_gateway/` — pacote Python instalável do gateway.
   - `mcp_sentry_gateway/` — implementação do controle de integridade,
     ciclo de vida, interface MCP, revisão, CLI e verificações de demonstração.
-  - arquivos `.backup-*` e diretórios de backup — cópias de trabalho
-    preservadas durante a evolução do protótipo; não são a implementação ativa.
 - `configuracao_demo/` — manifestos de configuração das demonstrações Donna e
   Donna/Google controlada.
 - `documentacao/` — funcionamento, integração Claude–Sentry–Donna, revisão
-  pelo cliente, roteiros, plano de teste e evidências da demonstração.
+  pelo cliente e descrição da demonstração anterior.
 - `exemplo_mcp/` — servidor MCP mínimo e manifesto de exemplo.
 - `testes_gateway/` — testes automatizados do gateway.
   - `support/` — fixtures e utilitários compartilhados pelos testes.
@@ -83,8 +101,7 @@ cliente precisa de uma forma de detectar mudanças antes de iniciar o serviço.
       usadas para alterná-los.
 - `configuracao-do-mcp/` — exemplos de variáveis de ambiente e de configuração
   do cliente MCP.
-- `documentacao/` — documentação operacional.
-  - `guias/` — prompts e roteiro para a demonstração.
+- `documentacao/` — documentação operacional e roteiro de demonstração.
 - `ferramentas-para-demonstracao/` — automações auxiliares.
   - `scripts-em-python/` — ativação, autenticação, verificação e comparação
     de versões.
@@ -100,16 +117,30 @@ cliente precisa de uma forma de detectar mudanças antes de iniciar o serviço.
   - `simulacao-controlada/` — versões aprovada e alterada simuladamente para a
     demonstração local controlada.
 
-### `FEICIT/` — conteúdos usados para a FEICIT
+### `materiais-apresentacao/` — materiais das feiras
 
-Inclui o painel de resultados, os banners e os vídeos usados na apresentação.
+[Índice dos materiais](materiais-apresentacao/README.md). `feicit/paineis/`
+contém o painel original e a variante complementar; `feicit/banners/` contém
+os três PDFs. Não há vídeos nesta cópia. Os materiais da MOSTRATEC serão
+produzidos ao longo da etapa 5.
+
+### `laboratorio/` — área organizada para futuros testes locais
+
+O [guia do laboratório](laboratorio/README.md) define onde colocar instalações,
+dados e execuções descartáveis. A pasta contém apenas esse guia até que novos
+testes sejam preparados. As instalações e evidências brutas dos testes técnicos
+anteriores em `.lab-smoke` foram removidas na limpeza autorizada; os registros
+textuais em `documentacao/VALIDACAO_*.md` foram mantidos como histórico.
 
 ## Por onde começar
 
-1. Leia os arquivos `LEIA_PRIMEIRO_*` em `pesquisa/02_resultados/` para uma
-   visão objetiva dos resultados.
-2. Consulte `gateway/documentacao/COMO_FUNCIONA_O_GATEWAY.md` para entender o
-   fluxo e os limites do MCP Sentry.
-3. Para repetir a demonstração, siga os guias em
-   `demonstracao-donna/documentacao/guias/` e os scripts de
-   `demonstracao-donna/ferramentas-para-demonstracao/`.
+1. Para instalar e usar o gateway, consulte [pacote-usuario/](pacote-usuario/README.md).
+2. Para continuar o projeto, siga o [plano MOSTRATEC](documentacao/PLANO_MOSTRATEC.md):
+   etapa 2 encerrada por enquanto; sequência 1 → 3 → 4 e etapa 5 em paralelo.
+3. Para consultar a pesquisa, comece por [pesquisa/02_resultados/](pesquisa/02_resultados/README.md).
+   Os scripts preservados têm dependências da estrutura original, descritas em
+   [material de execução e análise](pesquisa/03_execucao_e_analise/README.md).
+4. Para repetir os cenários da Donna, consulte [seu README](demonstracao-donna/README.md).
+
+O protótipo FEICIT permanece separado do gateway atual. Os dados científicos,
+casos, listas de integridade e hashes foram preservados nesta reorganização.

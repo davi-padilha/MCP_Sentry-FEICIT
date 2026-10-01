@@ -33,7 +33,7 @@ if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar as dependencias." }
 # de aliases Windows durante a demonstracao via stdio.
 & "$venvPath\Scripts\python.exe" -m pip install --no-deps -e "$projectRoot"
 if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar o pacote Donna MCP." }
-$gatewayRoot = Join-Path (Split-Path -Parent $projectRoot) "codigo_gateway"
+$gatewayRoot = Join-Path (Split-Path -Parent $projectRoot) "desenvolvimento\gateway"
 & "$venvPath\Scripts\python.exe" -m pip install --no-deps -e "$gatewayRoot"
 if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar o pacote MCP Sentry Gateway." }
 

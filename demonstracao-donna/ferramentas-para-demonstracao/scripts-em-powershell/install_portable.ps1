@@ -34,7 +34,7 @@ if (-not (Test-Path -LiteralPath $paths.Python -PathType Leaf)) {
 if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar as dependencias fixadas." }
 & $paths.Python -m pip install --disable-pip-version-check --quiet --no-deps -e $projectRoot
 if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar o pacote Donna MCP." }
-$gatewayRoot = Join-Path (Split-Path -Parent $projectRoot) "codigo_gateway"
+$gatewayRoot = Join-Path (Split-Path -Parent $projectRoot) "desenvolvimento\gateway"
 & $paths.Python -m pip install --disable-pip-version-check --quiet --no-deps -e $gatewayRoot
 if ($LASTEXITCODE -ne 0) { throw "Falha ao instalar o pacote MCP Sentry Gateway." }
 & $paths.Python -m pip check

@@ -15,15 +15,22 @@ experimental.
 - `configuracao-do-mcp/`: exemplos de configuração e variáveis de ambiente.
 - `dados-gerados-pelo-mcp/`: auditoria, estado da simulação e ações pendentes
   produzidos localmente durante o uso.
-- `documentacao/`: roteiros e orientações da demonstração.
+- `documentacao/`: roteiro e orientações da demonstração, sem arquivos de evidências antigas.
 - `ferramentas-para-demonstracao/`: scripts em Python e PowerShell para
   preparar, verificar e executar os cenários.
 - `inicializacao-do-mcp/`: programas que o cliente MCP ou os scripts iniciam.
 - `testes-automatizados/`: testes da Donna MCP.
 - `versao-em-uso-do-mcp/`: a cópia atualmente selecionada para a simulação ou
   integração Google.
-- `versoes-para-demonstracao/`: versões aprovada e maliciosa simulada, usadas
-  para comparar os cenários sem alterar o código comum.
+- `versoes-para-demonstracao/`: código das versões aprovada e alterada,
+  necessário para montar e repetir os cenários. Não são resultados antigos.
+
+As pastas `dados-gerados-pelo-mcp/` e `versao-em-uso-do-mcp/` são criadas
+somente durante o uso e ignoradas pelo Git; não fazem parte dos arquivos-fonte.
+Logs e resultados descartáveis de novos testes do projeto devem ficar em
+[laboratorio/](../laboratorio/README.md). Evidências que o protocolo decidir
+preservar devem ter um destino definido fora desta pasta de implementação.
+
 
 ## Capacidades
 
@@ -85,7 +92,7 @@ repetida antes da reconciliacao.
 
 O modo `simulated-active` carrega o provedor ativo apenas para reproduzir a
 demonstracao. Ele nao decide se uma atualizacao e segura. Essa decisao pertence
-ao gateway externo MCP Sentry em `../mcp_sentry/`. O MVP existe, mas uso com
+ao gateway externo MCP Sentry em [desenvolvimento/gateway/](../desenvolvimento/gateway/README.md). O MVP existe, mas uso com
 Google real e efeitos externos permanecem fora do escopo autorizado.
 
 ## Preparacao
@@ -237,7 +244,7 @@ registra o participante ou BCC ficticio com `network_performed=false`.
 Para a demonstração local simulada, configure o cliente para chamar o launcher
 do MCP Sentry, que por sua vez iniciará este mesmo servidor. O gateway compara
 a versão aprovada e a atual antes de executar a Donna. Siga o manual em
-`../mcp_sentry/usuario-final/README.md`; não aplique este fluxo a Google real.
+[manual do pacote para o usuário](../pacote-usuario/README.md); não aplique este fluxo a Google real.
 O mecanismo embutido anterior foi preservado apenas em
 uma referencia legada, fora da estrutura canonica da Donna MCP.
 
